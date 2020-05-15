@@ -1,0 +1,652 @@
+/**
+ * Constants used throughout javascript
+ */
+var ScrumOrgConstants = {
+    // media query constants to make it easier to figure out in js what breakpoint we're at.
+    // These same values are defined in less variables and assigned in css (see /app/themes/custom/scrumorg/less/base/helpers.less)
+    MEDIA_QUERY_BASE:         '1px',
+    MEDIA_QUERY_MIN_WIDTH_SM: '2px',
+    MEDIA_QUERY_MIN_WIDTH_MD: '3px',
+    MEDIA_QUERY_MIN_WIDTH_LG: '4px'
+};
+
+/**
+ * Vanilla JS dom ready function. Can use jQuery ready() instead if we end up using jQuery.
+ */
+function ready(fn) {
+    if (document.readyState != 'loading') {
+        fn();
+    }
+    else {
+        document.addEventListener('DOMContentLoaded', fn);
+    }
+}
+
+function debounce(func, wait, immediate) {
+    var timeout;
+    return function() {
+        var context = this, args = arguments;
+        var later = function() {
+            timeout = null;
+            if (!immediate) {
+                func.apply(context, args);
+            }
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) {
+            func.apply(context, args);
+        }
+    };
+}
+
+
+/**
+ * Sticky Navigation - keeps main nav at the top of the page as you scroll
+ */
+
+/**
+ * This function first slides the header down and then adds the padding and fixed positioning.
+ */
+function slideInHeader(header, headerHeight, offset, searchBar, loginDropdown) {
+    /* First set the header to position fixed, negative header height. */
+    header.style.top = (-1 * headerHeight) + 'px';
+    header.style.position = 'fixed';
+
+    document.querySelectorAll('.page-wrapper')[0].style.paddingTop = headerHeight + 'px';
+
+    /* Then after a 2ms delay slide the header to the top of the screen. */
+    setTimeout(
+        function() {
+            header.style.transition = 'all .2s ease-in';
+            header.style.top = offset + 'px';
+            header.classList.add('header-scrolled');
+            document.body.classList.add('body-header-scrolled');
+            /* Gets new header height so that search, register, and login can have correct offset. */
+            var scrolledHeaderHeight = header.clientHeight;
+
+            /* Offsets slide-in elements by correct height. */
+            searchBar.style.top = scrolledHeaderHeight + 'px';
+            loginDropdown.style.top = scrolledHeaderHeight + 'px';
+        },
+        2
+    );
+}
+
+ready(function() {
+
+    /* Set up all the vars used in the functions. */
+    var siteHeader = document.getElementById('js-site-header');
+    var siteHeaderHeight = siteHeader.clientHeight;
+    var searchBar = document.getElementById('js-search-dropdown');
+    var loginDropdown = document.getElementById('js-login-dropdown');
+
+
+    /* Add the body padding and the site header fixed positioning after document load. That way there's no visual jank on slower connections. */
+    siteHeader.classList.add('header-fixed');
+
+    /* Limits this to just larger screens. Small screen heading is permanently fixed. */
+    var sizeTest = window.getComputedStyle(document.body, null).getPropertyValue("min-width");
+    if (sizeTest == ScrumOrgConstants.MEDIA_QUERY_MIN_WIDTH_MD || sizeTest == ScrumOrgConstants.MEDIA_QUERY_MIN_WIDTH_LG) {
+        window.onscroll = function () {
+
+            var headerOffset = siteHeader.offsetTop;
+            if ((siteHeader.getBoundingClientRect().top * -1) > siteHeaderHeight) {
+                slideInHeader(siteHeader, siteHeaderHeight, headerOffset, searchBar, loginDropdown);
+            }
+            if (window.pageYOffset < siteHeaderHeight && siteHeader.classList.contains('header-scrolled')) {
+                siteHeader.classList.remove('header-scrolled');
+                document.body.classList.remove('body-header-scrolled');
+                siteHeader.style.position = 'absolute';
+                siteHeader.style.transition = 'none';
+
+                searchBar.style.top = siteHeaderHeight + 'px';
+                loginDropdown.style.top = siteHeaderHeight + 'px';
+            }
+        }
+    }
+});
+
+
+/**
+ * Slide Navigation - Toggle for opening and closing the secondary menus on small screens.
+ */
+ready(function() {
+    'use strict';
+
+    // VARIABLES
+    // --------------------------------------------------.
+    var isLoggedIn = document.body.classList.contains('user-logged-in');
+
+    /* Buttons */
+    var backBtns = document.querySelectorAll('.slide-nav-back-btn');
+    var loginBtn = document.getElementById('js-login-btn');
+    var loginBackBtn = document.getElementById('js-login-back-btn');
+    var hamburgerBtn = document.getElementById('hamburger-menu-icon');
+    var searchBtn = document.getElementById('js-search-btn');
+    var closeSearchBtn = document.getElementById('js-site-search-close-btn');
+    var closeLoginBtn = document.getElementById('js-login-close-btn');
+
+    /* Nav Items */
+    var mainNav = document.querySelectorAll('.site-main-nav')[0];
+    var hamburgerTopLevelItems = document.querySelectorAll('.site-main-nav > .item-with-sub');
+    var hamburgerTopLevelLinks = document.querySelectorAll('.site-main-nav > .item-with-sub > a');
+    var utilityNav = document.querySelectorAll('.site-utility-nav')[0];
+    var loginDropdown = document.getElementById('js-login-dropdown');
+    var searchDropdown = document.getElementById('js-search-dropdown');
+    var navCloseBtn = document.getElementById('js-secondary-nav-close-btn');
+
+    /* Gets variables that might change on screen size change and assigns them to an object.
+     * This function runs on load and then when screen size changes.
+     */
+    function setMenuVars() {
+        var menuVars = {};
+        menuVars.mainNavHeight = mainNav.offsetHeight;
+
+        // Min-width is set on the body class for each breakpoint so that JS can grab it and tell which breakpoint is active.
+        menuVars.sizeTest = window.getComputedStyle(document.body, null).getPropertyValue("min-width");
+
+        // Gets the height of the header, which is used to offset the menu at small screen sizes.
+        menuVars.siteHeaderHeight = document.getElementById('js-site-header').offsetHeight;
+
+        // Gets Y position of bottom of site header so that search bar can be offset appropriately if logged in
+        menuVars.siteHeaderOffset = document.getElementById('js-site-header').getBoundingClientRect().bottom;
+
+        // Gets height of search item, which is used to offset the rest of the menu.
+        menuVars.searchHeight = document.getElementById('js-search-dropdown').offsetHeight;
+
+        return menuVars;
+    }
+    var menuVars = setMenuVars();
+
+    // FUNCTIONS
+    // --------------------------------------------------.
+    /* Function for sliding in top-level menu. */
+
+    function menuSlideIn(callback) {
+        closeSearch();
+        closeLogin();
+        menuVars = setMenuVars();
+        /* If it's a mobile screen size, offset this by the height of the header so the nav slides in underneath. */
+        if (menuVars.sizeTest === ScrumOrgConstants.MEDIA_QUERY_BASE ||
+            menuVars.sizeTest === ScrumOrgConstants.MEDIA_QUERY_MIN_WIDTH_SM) {
+            mainNav.style.top = menuVars.siteHeaderHeight + menuVars.searchHeight + 'px';
+            utilityNav.style.top = menuVars.mainNavHeight + menuVars.siteHeaderHeight + menuVars.searchHeight + 'px';
+            utilityNav.classList.add('site-utility-nav-in');
+            searchDropdown.classList.add('megamenu-search-open');
+            mainNav.classList.add('slide-nav-in');
+            searchDropdown.style.height = searchDropdown.clientHeight + 'px';
+            hamburgerBtn.classList.add('megamenu-toggler-open');
+        }
+
+        if (typeof callback === 'function') {
+            callback();
+        }
+
+    }
+
+
+    /* Function to run after the menu has slid in. */
+    function menuSlideInAfter() {
+
+        hamburgerBtn.removeEventListener('click', menuSlideInlistener);
+        hamburgerBtn.addEventListener('click', menuSlideOutListener, false);
+
+        /* Adds body class after transition has completed so that hiding content isn't visible. */
+        setTimeout(function(){
+            document.body.classList.add('body-slide-nav-in');
+        }, 300);
+
+    }
+
+    /* Sets listener with callback. */
+    var menuSlideInlistener = function() {
+        menuSlideIn(menuSlideInAfter);
+    };
+
+    /* Function for sliding out top level menu. */
+    function menuSlideOut(callback) {
+        menuVars = setMenuVars();
+        if (utilityNav.classList.contains('site-utility-nav-in')) {
+            utilityNav.classList.remove('site-utility-nav-in');
+        }
+
+        if (menuVars.sizeTest === ScrumOrgConstants.MEDIA_QUERY_BASE ||
+            menuVars.sizeTest === ScrumOrgConstants.MEDIA_QUERY_MIN_WIDTH_SM) {
+            searchDropdown.classList.remove('megamenu-search-open');
+        }
+        mainNav.classList.remove('slide-nav-in');
+        hamburgerBtn.classList.remove('megamenu-toggler-open');
+        document.body.classList.remove('body-slide-nav-in');
+        closeSecondaryMenus();
+        closeSearch();
+        closeLogin();
+
+        if (typeof callback === 'function') {
+            callback();
+        }
+    }
+
+
+    /* Function to run after the menu has slid out. */
+    function menuSlideOutAfter(){
+        hamburgerBtn.removeEventListener('click', menuSlideOutListener);
+        hamburgerBtn.addEventListener('click', menuSlideInlistener, false);
+    }
+
+    /* Sets listener with callback. */
+    var menuSlideOutListener = function() {
+        menuSlideOut(menuSlideOutAfter);
+    };
+
+    /* Function for setting the height of the desktop secondary menus.
+     *  The LIs for desktop secondary menus are arranged in columns with CSS flexbox flex-direction: column
+     *  But for them to break into two columns evenly, the height needs to be set to the height of all the LIs in the first column
+     *  This is the same way that a row of items would wrap if you set a fixed width — just with columns instead of rows.
+     *  This function returns the appropriate height in pixels.
+     * */
+    function desktopSecondaryMenuHeight(clicked) {
+        /* Gets total number of relevant LIs in secondary menu. Doesn't include back or home button. */
+        var childListItems = clicked.getElementsByClassName('second-level-menu-item');
+
+        /* Gets the combined height of all the items in the first half of the list, and then does the same for the second half.
+         * If there's an odd number of items, first half gets the larger number.
+         */
+        var halfItems = Math.ceil(childListItems.length / 2);
+        var firstHalfHeight = 0;
+        var secondHalfHeight = 0;
+
+        for (var i = 0; i < halfItems; i++) {
+            firstHalfHeight += childListItems[i].offsetHeight;
+        }
+
+        for (var j = halfItems; j < childListItems.length; j++) {
+            secondHalfHeight += childListItems[j].offsetHeight;
+        }
+
+        /* Returns the larger of the two numbers to use as the secondary nav height. */
+        var returnHeight;
+        if (firstHalfHeight > secondHalfHeight) {
+            returnHeight = firstHalfHeight;
+        }
+        else {
+            returnHeight = secondHalfHeight;
+        }
+
+        // Adds two pixels to prevent firefox and IE errors.
+        return returnHeight + 2 + 'px';
+    }
+
+    /* This function is called when a top-level LI or something in it is clicked.
+     * If the event was on something within the LI, make the clickedItem var the actual LI
+     */
+
+    /* Function for sliding in opening secondary menu. First closes all open menus then runs showSecondaryMenu as a callback.*/
+    function openSecondaryMenu(e) {
+        closeLogin();
+        if (menuVars.sizeTest === ScrumOrgConstants.MEDIA_QUERY_MIN_WIDTH_MD ||
+            menuVars.sizeTest === ScrumOrgConstants.MEDIA_QUERY_MIN_WIDTH_LG) {
+            closeSearch();
+        }
+
+
+        closeSecondaryMenus(e, function() {
+            /* Callback runs after secondary menus are closed. */
+            var clickedItem;
+
+            if (!e.target.classList.contains('item-with-sub')) {
+                clickedItem = e.target.parentNode;
+            }
+            else {
+                clickedItem = e.target;
+            }
+
+            clickedItem.classList.add('site-main-nav-li-active');
+            navCloseBtn.classList.add('secondary-nav-close-btn-active');
+
+            clickedItem.removeEventListener('click', openSecondaryMenu);
+            clickedItem.addEventListener('click', closeSecondaryMenus, false);
+            document.getElementsByClassName('page-wrapper')['0'].addEventListener('click', closeSecondaryMenus, false);
+
+            if (!clickedItem.classList.contains('js-back-btn')) {
+                var secondaryMenu = clickedItem.querySelectorAll('.site-main-nav-secondary')[0];
+
+                secondaryMenu.classList.add('site-main-nav-secondary-in');
+                /* Sets secondary menu height if it's a large screen. */
+                if (menuVars.sizeTest === ScrumOrgConstants.MEDIA_QUERY_MIN_WIDTH_MD ||
+                    menuVars.sizeTest === ScrumOrgConstants.MEDIA_QUERY_MIN_WIDTH_LG) {
+                    secondaryMenu.style.height = desktopSecondaryMenuHeight(clickedItem);
+                }
+                if (menuVars.sizeTest === ScrumOrgConstants.MEDIA_QUERY_BASE ||
+                    menuVars.sizeTest === ScrumOrgConstants.MEDIA_QUERY_MIN_WIDTH_SM) {
+                    secondaryMenu.style.height = '200vh';
+                }
+            }
+        });
+    }
+
+    /* Close all secondary menus function. Callback parameter is used to open a secondary menu after closing all menus. */
+    function closeSecondaryMenus(e, callback) {
+
+        if(e && e.type =='click' && !e.target.classList.contains('secondary-nav-close-btn')) {
+            /*
+             * If e.target is on site-main-nav-secondary or one of its children, return.
+             * Only want to close menu if a top-level item or page-wrapper is clicked.
+             * */
+            var node = e.target;
+            while (!node.classList.contains('item-with-sub') && node != document.body) {
+                if (node.classList.contains('site-main-nav-secondary')) {
+                    return;
+                }
+                node = node.parentNode;
+            }
+
+            /* Removes event listener from li.item-with-sub. */
+            var clickedItem;
+            clickedItem = e.target;
+            while (!clickedItem.classList.contains('item-with-sub') && node != document.body) {
+                clickedItem = clickedItem.parentNode;
+            }
+            clickedItem.removeEventListener('click', closeSecondaryMenus);
+        }
+
+        navCloseBtn.classList.remove('secondary-nav-close-btn-active');
+
+        /* Removes active class from all top level LIs. */
+        var activeTopLevelItems = document.getElementsByClassName('site-main-nav-li-active');
+        for (i = 0; i < activeTopLevelItems.length; i++) {
+            activeTopLevelItems[i].classList.remove('site-main-nav-li-active');
+        }
+
+        var openSecondaryMenus = document.querySelectorAll('.site-main-nav-secondary-in');
+        for (i = 0; i < openSecondaryMenus.length; i++) {
+            openSecondaryMenus[i].classList.remove('site-main-nav-secondary-in');
+        }
+
+        for (i = 0; i < hamburgerTopLevelItems.length; i++) {
+            hamburgerTopLevelItems[i].addEventListener('click', openSecondaryMenu, false);
+        }
+
+        /* If statement prevents type error in cases where no function is passed. */
+        if (typeof callback === 'function') {
+            callback();
+        }
+    }
+
+    function cancelLinkNavigation(e) {
+        e.preventDefault();
+        return false;
+    }
+
+    /* Close login menu function. */
+    function closeLogin(e) {
+        if (e) {
+            e.preventDefault();
+        }
+        loginDropdown.classList.remove('megamenu-login-open');
+
+        if (!isLoggedIn) {
+            loginBtn.removeEventListener('click', closeLogin);
+            loginBtn.addEventListener('click', function(e){
+                openLogin(e);
+            }, false);
+        }
+    }
+
+    /* Open login menu function. */
+    function openLogin(e) {
+        e.preventDefault();
+        menuVars = setMenuVars();
+        if (menuVars.sizeTest === ScrumOrgConstants.MEDIA_QUERY_MIN_WIDTH_MD ||
+            menuVars.sizeTest === ScrumOrgConstants.MEDIA_QUERY_MIN_WIDTH_LG) {
+            closeSecondaryMenus();
+            closeSearch();
+            loginDropdown.style.top = menuVars.siteHeaderOffset + 'px';
+        } else {
+            loginDropdown.style.top = 'unset';
+        }
+
+
+        loginDropdown.classList.add('megamenu-login-open');
+        loginBtn.removeEventListener('click', openLogin);
+        loginBtn.addEventListener('click', function(e){
+            closeLogin(e);
+        }, false);
+    }
+
+    /* Back button function. */
+    function backButton(e) {
+        var clickedBtn;
+        if (e.target.tagName !== 'LI') {
+            clickedBtn = e.target.parentNode;
+        }
+        else {
+            clickedBtn = e.target;
+        }
+
+        if (clickedBtn.parentNode.classList.contains('site-main-nav-secondary')) {
+            closeSecondaryMenus();
+        }
+    }
+
+    /* Search open function. Only called on large screens by clicking search icon. */
+    function openSearch(e){
+        e.preventDefault();
+        closeLogin();
+        closeSecondaryMenus();
+
+        searchDropdown.style.top = document.getElementById('js-site-header').getBoundingClientRect().bottom + 'px';
+        searchDropdown.classList.add('megamenu-search-open');
+        searchBtn.removeEventListener('click', openSearch);
+        searchBtn.addEventListener('click', closeSearch, false);
+    }
+
+    /* Search close function. Only called on large screens by clicking search icon. */
+    function closeSearch(e){
+        if (e) {
+            e.preventDefault();
+        }
+        searchDropdown.classList.remove('megamenu-search-open');
+        searchDropdown.style.height = 'unset';
+        searchBtn.removeEventListener('click', closeSearch);
+        searchBtn.addEventListener('click', openSearch, false);
+    }
+
+    /* Close all menus function. Used for escape key and clicking outside menus. */
+    function closeAllMenus(e) {
+
+        /* Don't run this on small screens. */
+        if(menuVars.sizeTest === ScrumOrgConstants.MEDIA_QUERY_BASE ||
+            menuVars.sizeTest === ScrumOrgConstants.MEDIA_QUERY_MIN_WIDTH_SM) {
+            return;
+        }
+
+        /* On keydown only close menus if it's the escape key pressed. */
+        if(e && e.type == 'keydown' && e.keyCode != '27') {
+            return;
+        }
+
+        /* Don't close menus if the click is on one of the target elements. */
+        if(e && e.type == 'click') {
+            var node = e.target;
+            while (node != document.body && node != null && node.classList) {
+                if (node.classList.contains('item-with-sub') ||
+                    node.classList.contains('megamenu-login-interior') ||
+                    node.classList.contains('login-btn') ||
+                    node.classList.contains('social-search-icon') ||
+                    node.classList.contains('megamenu-search')
+                ) {
+                    return;
+                }
+                node = node.parentNode;
+            }
+        }
+
+
+        closeSearch();
+        closeLogin();
+        closeSecondaryMenus();
+    }
+
+
+    // EVENT LISTENERS
+    // --------------------------------------------------.
+
+    /* Keydown listener for escape key. */
+    addEventListener('keydown', closeAllMenus, false);
+
+    /* Click listener for clicks outside of menus. */
+    document.body.addEventListener('click', closeAllMenus, false);
+
+    // Adds closeSecondaryMenus to all back buttons on smaller screens.
+    for (var i = 0; i < backBtns.length; i++) {
+        backBtns[i].addEventListener('click', backButton, false);
+    }
+    // Adds menuSlideIn to hamburger icon. This is removed on click by the menuSlideIn function.
+    hamburgerBtn.addEventListener('click', menuSlideInlistener, false);
+
+    loginBackBtn.addEventListener('click', function(e) {
+        closeLogin(e);
+    }, false);
+
+    // Adds open sub menu function to top level hamburger items.
+    for (i = 0; i < hamburgerTopLevelItems.length; i++) {
+        hamburgerTopLevelItems[i].addEventListener('click', openSecondaryMenu, false);
+    }
+
+    // Top level nav links should render as links so they work when JS is disabled in the browser.
+    // But if JS is enabled, clicking the link should open the menu instead.
+    for (i = 0; i < hamburgerTopLevelLinks.length; i++) {
+        hamburgerTopLevelLinks[i].addEventListener('click', cancelLinkNavigation, false);
+    }
+
+    // Nav close button.
+    navCloseBtn.addEventListener('click', closeSecondaryMenus, false);
+
+    // Login, and search buttons.
+    if (!isLoggedIn) {
+        loginBtn.addEventListener('click', function(e) {
+            openLogin(e);
+        }, false);
+    }
+
+    closeLoginBtn.addEventListener('click', function(e) {
+        closeLogin(e);
+    }, false);
+
+    searchBtn.addEventListener('click', openSearch, false);
+    closeSearchBtn.addEventListener('click', closeSearch, false);
+
+    /* Resets all menus to their original state. Called on window resize.
+     * Function is debounced so that window resize is only called every 50ms.
+     * Debounce function is in base.js. More info on debouncing at https://davidwalsh.name/javascript-debounce-function
+     * */
+    var resetAllMenus = debounce(function() {
+        menuVars = setMenuVars();
+        /* Checks original window size and only runs if it has changed. */
+        if (menuVars.sizeTest != sizeTest) {
+            menuSlideOut(menuSlideOutAfter);
+            closeSecondaryMenus();
+            closeSearch();
+            closeLogin();
+            utilityNav.style.top = 'unset';
+            document.getElementById('js-site-header').style.position = 'fixed';
+            document.getElementById('js-site-header').style.top = menuVars.siteHeaderOffset - menuVars.siteHeaderHeight + 'px';
+            if (menuVars.sizeTest === ScrumOrgConstants.MEDIA_QUERY_BASE ||
+                menuVars.sizeTest === ScrumOrgConstants.MEDIA_QUERY_MIN_WIDTH_SM) {
+                document.body.style.paddingTop = menuVars.siteHeaderHeight + 'px';
+
+            }
+            if (menuVars.sizeTest === ScrumOrgConstants.MEDIA_QUERY_MIN_WIDTH_MD ||
+                menuVars.sizeTest === ScrumOrgConstants.MEDIA_QUERY_MIN_WIDTH_LG) {
+                document.body.style.paddingTop = menuVars.siteHeaderHeight + 'px';
+            }
+        }
+    }, 50);
+
+    var sizeTest = menuVars.sizeTest;
+    window.addEventListener('resize', function() {
+        resetAllMenus(sizeTest);
+    }, false);
+});
+
+
+/**
+ * Class List Upload Modal
+ */
+
+ready(function() {
+
+    function openModal(e) {
+        e.preventDefault();
+
+        var modal = document.getElementById('js-modal');
+        modal.classList.add('trainers-completed-form-wrapper-active');
+        modal.addEventListener('click', closeModal, false);
+
+        var modalForm = document.getElementsByClassName('trainers-completed-form')[0];
+        modalForm.addEventListener('click', formClick);
+
+        var modalCloseBtn = document.getElementById('js-modal-close');
+        if(modalCloseBtn != null) {
+            modalCloseBtn.addEventListener('click', closeModal, false);
+        }
+    }
+
+    function closeModal(e) {
+
+        e.preventDefault();
+        // Closes the modal if click is outside the actual form or on close btn.
+        // Relying on other handler to handle clicks within the form.
+        var modalWrapper = document.getElementsByClassName('trainers-completed-form-wrapper-active')[0];
+        if(modalWrapper != null) {
+            modalWrapper.classList.remove('trainers-completed-form-wrapper-active');
+        }
+
+    }
+
+    function formClick(e) {
+        // Prevent the other click handler from stealing clicks, making the file choosing dialog and any
+        // other form controls stop working.
+        e.stopPropagation();
+    }
+
+    var modalBtn = document.getElementById('js-modal-btn');
+    if (modalBtn) {
+        modalBtn.addEventListener('click', openModal, false);
+    }
+
+});
+
+
+/**
+ * Close Alert - Function to close alert messages
+ * Needs to use Drupal behaviors since alert messages are ajaxed in
+ */
+
+/**
+ * Function to remove alert modal
+ * @param target
+ */
+function closeAlert(target) {
+    target.parentNode.removeChild(target);
+}
+
+Drupal.behaviors.closeAlert = {
+    attach: function (context) {
+        var alertModals = context.getElementsByClassName('messages');
+
+        if (alertModals == null) {
+            return;
+        }
+
+        for (var i = 0; i < alertModals.length; i++) {
+            var currentModal = alertModals[i];
+            if (currentModal.getElementsByClassName('close').length > 0) {
+                currentModal.getElementsByClassName('close')[0].addEventListener('click', function() {
+                    closeAlert(currentModal)}, false);
+            }
+        }
+    }
+};

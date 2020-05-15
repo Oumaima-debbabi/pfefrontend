@@ -1,0 +1,62 @@
+(function ($) {
+    'use strict';
+
+    const scrumOrgPrivacyTimestampKey = "scrumorg.privacy.timestamp";
+    const scrumOrgPrivacyLastUpdateKey = "scrumorg.privacy.localUpdate";
+    const scrumOrgPrivacyAcceptedKey = "scrumorg.privacy.accepted";
+
+    var getPrivacyTimestamp = function() {
+
+        var deferred = $.Deferred();
+        var privacyTimestamp = getClientValue(scrumOrgPrivacyTimestampKey);
+        var privacyLastUpdate = getClientValue(scrumOrgPrivacyLastUpdateKey);
+
+        // Only check for an updated privacy policy at most every 2 hours
+        if ((privacyLastUpdate === null || privacyLastUpdate === '' || (parseInt(privacyLastUpdate) + (60 * 60 * 2)) < (Date.now() / 1000))) {
+            $.get("/privacy/timestamp", function(data) {
+                privacyTimestamp = data.timestamp;
+                storeClientValue(scrumOrgPrivacyTimestampKey, data.timestamp);
+                storeClientValue(scrumOrgPrivacyLastUpdateKey, Date.now() / 1000);
+                deferred.resolve({"timestamp": privacyTimestamp});
+            });
+        } else {
+            deferred.resolve({"timestamp": privacyTimestamp});
+        }
+
+        return deferred.promise();
+
+    };
+
+    var ensurePrivacyAccepted = function(data) {
+
+        var privacyAcceptedTimestamp = getClientValue(scrumOrgPrivacyAcceptedKey);
+
+        if (!privacyAcceptedTimestamp || privacyAcceptedTimestamp < data.timestamp) {
+            var $el = $(".privacy-toast");
+            $el.show();
+            $el.find('.privacy-dismiss').click(function() {
+                $(this).parent().hide("fast");
+                storeClientValue(scrumOrgPrivacyAcceptedKey, Date.now() / 1000);
+            });
+        }
+
+    };
+
+    function storeClientValue(key, value) {
+        //use local storage if available
+        if (typeof(Storage) !== "undefined") {
+            localStorage.setItem(key, value);
+        }
+    }
+
+    function getClientValue(key) {
+        //use local storage if available
+        if (typeof(Storage) !== "undefined") {
+            return localStorage.getItem(key);
+        }
+        return '';
+    }
+
+    getPrivacyTimestamp().then(ensurePrivacyAccepted);
+
+}(jQuery));

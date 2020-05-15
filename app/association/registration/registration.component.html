@@ -1,0 +1,82 @@
+<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+  <div class="wrapper wrapper--w680">
+      <div class="card card-4">
+          <div class="card-body">
+  <h3>INSCRIVEZ VOTRE ASSOCIATION</h3>
+<h4>
+  POUR MOBILISER LES CITOYENS AUTOUR DE VOS ACTIONS ET
+GÉRER SIMPLEMENT VOS APPELS À BÉNÉVOLES !
+
+</h4>
+  <form [formGroup]="registrationForm" #myForm="ngForm" (ngSubmit)="associationregistration()"><br>
+    <div class="row row-space">
+      <div class="col-2">
+
+    <input   class="input-group" type="text" class="input--style-4" placeholder="nom de l'ASSOCIATION" formControlName="nom_association" />
+
+   </div>
+
+    <div class="col-2">
+
+    <input   class="input-group"type="text"  class="input--style-4"placeholder="nom de responsable" formControlName="name" />
+    </div>
+
+</div>
+
+<div class="row row-space">
+  <div class="col-2">
+    <input   class="input-group"type="text" class="input--style-4"  placeholder="date de creation" formControlName="date_creation" />
+
+     </div>
+     <div class="col-2">
+    <input  class="input-group" type="text" placeholder="numero de l'association"  class="input--style-4"formControlName="numero_association" />
+  </div>
+</div>
+
+      <div class="row row-space">
+      <div class="col-2">
+        <input  class="input-group"type="text" class="input--style-4" placeholder=" adresse postale" formControlName="adresse" />
+      </div>
+    <div class="col-2">
+    <input  class="input-group" type="text" class="input--style-4" placeholder="code postal" formControlName="code_postal" />
+    </div>
+  </div>
+
+  <div class="row row-space">
+     <div class="col-2">
+    <input  class="input-group"
+      type="email" class="input--style-4"
+      placeholder="entrez votre Email"
+      formControlName="email" />
+    </div>
+    <div class="col-2">
+    <input  class="input-group" type="password" class="input--style-4"
+      placeholder="entrez votre Password"
+      formControlName="password"/>
+    </div>
+    </div>
+
+  <!-- <div class="row row-space">
+      <div class="col-2">
+      <select formControlName="secteur" class="input-group" *ngIf="secteurs$ | async as secteurs">
+        <option value="secteur" class="input-group">choisir le secteur selon votre activite</option>
+        <option *ngFor="let secteur of secteurs" [value]="secteur.type_activite">{{secteur.type_activite}}</option>
+      </select>
+    </div>
+    </div> -->
+    <mat-form-field  *ngIf="secteurs$ | async as secteurs">
+      <mat-label class="input-group">Secteur</mat-label>
+      <mat-select  formControlName="secteur">
+        <mat-option [value]="secteur.type_activite" *ngFor="let secteur of secteurs">{{secteur.type_activite}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+
+    <input type="submit" value="s'inscire" [disabled]="!registrationForm.valid"/>
+    <div class="text-center">
+      <a>Vous avez un compre?</a><a routerLink="login" class="txt2 hov1"> créer votre compte	</a>
+    </div>
+
+

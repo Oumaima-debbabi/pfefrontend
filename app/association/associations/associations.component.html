@@ -1,0 +1,72 @@
+<div class="greennature-page-title-wrapper header-style-5-title-wrapper">
+  <div class="greennature-page-title-overlay"></div>
+  <div class="greennature-page-title-container container">
+      <h1 class="greennature-page-title">Retrouvez l’ensemble des associations avec qui vous engager !</h1>
+      <span class="greennature-page-caption">Découvrir les assoications</span>
+  </div>
+</div>
+
+<div class="content-wrapper">
+  <div class="greennature-content">
+
+      <!-- Above Sidebar Section-->
+
+      <!-- Sidebar With Content Section-->
+      <div class="with-sidebar-wrapper">
+          <section id="content-section-1">
+              <div class="greennature-color-wrapper  gdlr-show-all no-skin" style="background-color: #ffffff; padding-top: 75px; padding-bottom: 5px; ">
+                  <div class="container">
+                      <div class="greennature-testimonial-item-wrapper" style="margin-bottom: 80px;">
+                          <div class="greennature-item-title-wrapper greennature-item  greennature-nav-container greennature-left greennature-small ">
+                              <div class="greennature-item-title-container container">
+                                  <div class="greennature-item-title-head">
+                                      <h3 class="greennature-item-title greennature-skin-title greennature-skin-border">NOS ASSOCIATIONS </h3><span class="greennature-nav-title"><i class="icon-angle-left greennature-flex-prev"></i><i class="icon-angle-right greennature-flex-next"></i></span>
+                                      <div class="clear"></div>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="greennature-item greennature-testimonial-item carousel round-style">
+                              <div class="greennature-ux greennature-testimonial-ux">
+
+                                  <div class="flexslider" data-type="carousel" data-nav-container="greennature-testimonial-item" data-columns="3">
+                                      <ul class="slides">
+                                          <li class="testimonial-item">
+                                            <div class="testimonial-item-inner greennature-skin-box">
+                                              <ul *ngIf="associations$ | async as associations" style=" padding:22;
+                                              margin:42">
+                                                <li *ngFor="let association of associations" style="padding:2%;">
+                                                <div class="testimonial-content-wrapper">
+                                                <img [src]="association.image"  alt="" width="150" height="150"/>
+                                                <div class="testimonial-info"><span class="testimonial-author greennature-skin-link-color"> <a>{{association.nom_association}}</a> <span></span></span></div>
+                                                <div class="testimonial-info"><span class="testimonial-author greennature-skin-link-color"> <a>{{association.adresse}}</a> <span>, </span></span><span class="testimonial-position greennature-skin-info"> <a>{{association.secteur}}</a></span></div>                                                <a>{{association.numero_association}}</a>
+                                             </div>
+                                                </li>
+                                                </ul>
+                                           </div>
+
+
+                                                      </li>
+
+
+                                      </ul>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="clear"></div>
+                      <div class="clear"></div>
+                  </div>
+              </div>
+              <div class="clear"></div>
+          </section>
+        </div>
+      <!-- Below Sidebar Section-->
+
+  </div>
+  <!-- greennature-content -->
+  <div class="clear"></div>
+</div>
+
+
+<app-footer></app-footer>

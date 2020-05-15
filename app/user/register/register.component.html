@@ -1,0 +1,79 @@
+<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+  <div class="wrapper wrapper--w680">
+      <div class="card card-4">
+          <div class="card-body">
+  <h2>S'inscrire</h2>
+<h3>Créez votre compte bénévole pour aider où vous voulez, quand vous voulez !
+
+</h3>
+  <form [formGroup]="registerForm" #myForm="ngForm" (ngSubmit)="userRegister()"><br>
+    <div class="row row-space">
+      <div class="col-2">
+
+    <input   class="input-group" type="text" class="input--style-4" placeholder="entrez votre nom" formControlName="name" />
+
+   </div>
+
+    <div class="col-2">
+
+    <input   class="input-group"type="text"  class="input--style-4"placeholder="entrez votre prenom" formControlName="prenom" />
+    </div>
+
+</div>
+
+<div class="row row-space">
+  <div class="col-2">
+    <input   class="input-group"type="text" class="input--style-4"  placeholder="entrez votre année naissance" formControlName="annee_naissance" />
+
+     </div>
+     <div class="col-2">
+    <input  class="input-group" type="text" placeholder="entrez votre numero tele"  class="input--style-4"formControlName="numero_telephone" />
+  </div>
+</div>
+
+ <div class="row row-space">
+  <div class="col-2">
+    <input  class="input-group" type="text" placeholder="entrez votre profession" class="input--style-4" formControlName="profession" />
+     </div>
+  <div class="col-2">
+  <input  class="input-group" type="text" placeholder="entrez votre statut" class="input--style-4"formControlName="statut" />
+</div>
+  </div>
+  <div class="row row-space">
+      <label class="label">civilite</label>
+      <div class="p-t-10" class="input--style-4"><mat-radio-group formControlName="civilite">
+        <mat-radio-button value="Male" class="radio-container m-r-45">homme</mat-radio-button>
+        <mat-radio-button value="Female" class="radio-container m-r-45">femme</mat-radio-button>
+      </mat-radio-group>
+      </div>
+    </div>
+      <div class="row row-space">
+      <div class="col-2">
+        <input  class="input-group"type="text" class="input--style-4" placeholder="entrez votre adresse postale" formControlName="adresse" />
+      </div>
+    <div class="col-2">
+    <input  class="input-group" type="text" class="input--style-4" placeholder="entrez votre code postal" formControlName="code_postal" />
+    </div>
+  </div>
+
+  <div class="row row-space">
+     <div class="col-2">
+    <input  class="input-group"
+      type="email" class="input--style-4"
+      placeholder="entrez votre Email"
+      formControlName="email" />
+    </div>
+    <div class="col-2">
+    <input  class="input-group"
+      type="password" class="input--style-4"
+      placeholder="entrez votre Password"
+      formControlName="password" />
+
+    </div>
+    </div>
+
+    <input type="submit" value="s'inscire" [disabled]="!registerForm.valid"/>
+    <div class="text-center">
+      <a>Vous avez un compre?</a><a routerLink="/login" class="txt2 hov1"> créer votre compte	</a>
+    </div>
+

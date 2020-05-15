@@ -1,0 +1,141 @@
+(function ($) {
+
+    $('#assessmentCtaList, #courseCtaList, #announcementsCtaList, #blogCtaList').owlCarousel({
+        loop: false,
+        margin: 10,
+        nav: false,
+        dots: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 2
+            },
+            1100: {
+                items: 3
+            },
+            1400: {
+                items: 4
+            }
+        },
+        onResized: function (e) {
+            toggleNextPrevVisibility(e.target.id, e.page.count);
+        }
+    });
+
+    $('#videosCtaList').owlCarousel({
+        loop: false,
+        margin: 10,
+        nav: false,
+        dots: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 2
+            },
+            1024: {
+                items: 3
+            }
+        },
+        onResized: function (e) {
+            toggleNextPrevVisibility(e.target.id, e.page.count);
+        }
+    });
+
+    $('.cta-list-nav').on('click', function(e) {
+        var carouselId = $(e.currentTarget).data('for');
+        var carousel = $('#' + carouselId);
+
+        var dots = carousel.find('.owl-dot');
+        var activeDot = dots.filter('.active');
+
+        if (e.currentTarget.classList.contains('prev')) {
+
+            var prev = activeDot.prev();
+            if (!prev.length) {
+                prev = dots.last();
+            }
+            prev.trigger('click');
+
+        } else {
+
+            var next = activeDot.next();
+            if (!next.length) {
+                next = dots.first();
+            }
+            next.trigger('click');
+
+        }
+    });
+
+    // Unfortunately, there's no event in the owl plugin that is raised after the control is fully rendered.
+    // This code that checks how many dots there are seems to work though.
+    initCarouselNextPrev();
+
+    function initCarouselNextPrev() {
+        $('.owl-carousel').each(function (index, value) {
+            if (value.hasAttribute('data-for')) {
+              var pages = $(value).find('.owl-dot');
+              toggleNextPrevVisibility(value.id, pages.length);
+            }
+        });
+    }
+
+    function toggleNextPrevVisibility(carouselId, pageCount) {
+        if (pageCount > 1) {
+            $('[data-for=' + carouselId + ']').show();
+        } else {
+            $('[data-for=' + carouselId + ']').hide();
+        }
+    }
+
+    function getValueByNameFromArray(sourceArray, name) {
+        for(var i = 0; i < sourceArray.length; i++) {
+            if (sourceArray[i].name === name) {
+                return sourceArray[i].value;
+            }
+        }
+
+        return '';
+    }
+
+    $('#classSearchForm').submit(function(e) {
+        e.preventDefault();
+
+        var $form = $(this);
+
+        var formValues = $form.serializeArray();
+        var country = getValueByNameFromArray(formValues, 'country');
+        var courseType = getValueByNameFromArray(formValues, 'courseType');
+        var postalCode = getValueByNameFromArray(formValues, 'postalCode');
+        var queryParams = [];
+
+        if (country && !postalCode) {
+            $form.find('.validation-message').text('Please enter a postal code or city');
+            $form.find('.validation-message').show();
+            return;
+        }
+
+        $form.find('.validation-message').hide();
+
+        if (country) {
+            queryParams.push('country=' + encodeURIComponent(country));
+            queryParams.push('scrumorg_geocoder_postal=' + encodeURIComponent(postalCode));
+            queryParams.push('proximity=100');
+        }
+
+        if (courseType) {
+            queryParams.push('type[]=' + encodeURIComponent(courseType));
+        }
+
+        if (queryParams.length === 0) {
+            window.location = '/classes';
+        } else {
+            window.location = '/classes?' + queryParams.join('&');
+        }
+    });
+
+}(jQuery));

@@ -1,0 +1,23 @@
+<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+  <div class="wrapper wrapper--w680">
+      <div class="card card-4">
+          <div class="card-body">
+  <h2>Se connecter</h2>
+  <form [formGroup]="loginForm" #myForm="ngForm" (ngSubmit)="userLogin()"><br>
+
+  <div class="row row-space">
+
+    <input  class="input-group"
+      type="email" class="input--style-4"
+      placeholder="entrez votre Email"
+      formControlName="email" />
+    </div>
+    <input  class="input-group"
+      type="password" class="input--style-4"
+      placeholder="entrez votre Password"
+      formControlName="password" />
+    <input type="submit" value="se connecter" [disabled]="!loginForm.valid"/>
+    <div class="text-center">
+      <a>Vous avez un compre?</a><a routerLink="/user/register" class="txt2 hov1"> créer votre compte	</a>
+
+          </div>
