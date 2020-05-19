@@ -184,12 +184,23 @@
         </div>
       </div>
       <label for="cc-exp" class="control-label mb-1" style="color: black;">Adresse </label>
-      <div class="form-group">
-          <label class=" form-control-label"></label>
-          <div class="input-group">
-              <input class="form-control" formControlName="adresse">
-          </div>
-      </div>
+
+        <mat-form-field class="ml-xs mr-xs" style="width: 100%;">
+          <mat-select placeholder="Ville" name="adresse" formControlName="adresse" >
+            <mat-option value="14">Tunis</mat-option>
+            <mat-option value="15">Ben arous</mat-option>
+            <mat-option value="16">Bizert</mat-option>
+            <mat-option value="17">Nabeul</mat-option>
+            <mat-option value="18">Sousse</mat-option>
+            <mat-option value="19">Kairouan</mat-option>
+            <mat-option value="20">Kef</mat-option>
+            <mat-option value="21">Jendouba</mat-option>
+            <mat-option value="22">Siliana</mat-option>
+            <mat-option value="23">Mahdia</mat-option>
+            <mat-option value="24">Monastir</mat-option>
+          </mat-select>
+        </mat-form-field>
+
       <label for="cc-exp" class="control-label mb-1" style="color: black;">Code postal </label>
       <div class="form-group">
           <label class=" form-control-label"></label>

@@ -10,7 +10,8 @@ code_postal:string,
 password:string,
 annee_naissance:string,
 profession:string,
-photo:string
+photo:string,
+role:string
 
  }
 

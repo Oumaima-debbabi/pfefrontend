@@ -72,7 +72,7 @@
                       <div class="dropdown-menu" aria-labelledby="message">
                           <p class="red">You have 4 Mails</p>
                           <a class="dropdown-item media bg-flat-color-1" href="#">
-                          <span class="photo media-left"><img alt="avatar" src="images/avatar/1.jpg"></span>
+                          <span class="photo media-left"><img alt="avatar" src="/assets/images/avatar/1.jpg"></span>
                           <span class="message media-body">
                               <span class="name float-left">Jonathan Smith</span>
                               <span class="time float-right">Just now</span>
@@ -80,7 +80,7 @@
                           </span>
                       </a>
                           <a class="dropdown-item media bg-flat-color-4" href="#">
-                          <span class="photo media-left"><img alt="avatar" src="images/avatar/2.jpg"></span>
+                          <span class="photo media-left"><img alt="avatar" src="/assets/images/avatar/2.jpg"></span>
                           <span class="message media-body">
                               <span class="name float-left">Jack Sanders</span>
                               <span class="time float-right">5 minutes ago</span>
@@ -88,20 +88,11 @@
                           </span>
                       </a>
                           <a class="dropdown-item media bg-flat-color-5" href="#">
-                          <span class="photo media-left"><img alt="avatar" src="images/avatar/3.jpg"></span>
-                          <span class="message media-body">
-                              <span class="name float-left">Cheryl Wheeler</span>
-                              <span class="time float-right">10 minutes ago</span>
-                                  <p>Hello, this is an example msg</p>
-                          </span>
+
                       </a>
                           <a class="dropdown-item media bg-flat-color-3" href="#">
                           <span class="photo media-left"><img alt="avatar" src="images/avatar/4.jpg"></span>
-                          <span class="message media-body">
-                              <span class="name float-left">Rachel Santos</span>
-                              <span class="time float-right">15 minutes ago</span>
-                                  <p>Lorem ipsum dolor sit amet, consectetur</p>
-                          </span>
+
                       </a>
                       </div>
                   </div>
@@ -111,7 +102,7 @@
           <div class="col-sm-5">
             <div class="user-area dropdown float-right">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="hello">
+                    <img class="user-avatar rounded-circle" src="/assets/images/admin.jpg" alt="{{currentUser.name}}">
                 </a>
 
               <app-auth></app-auth>
@@ -124,35 +115,25 @@
   </header><!-- /header -->
   <!-- Header-->
 
-
-
   <div class="content mt-3">
       <div class="animated fadeIn">
           <div class="row">
-
-
-
           <!--/.col-->
-
-
       </div>
       <!--/.col-->
-
-
   </div>
   <!--/.col-->
 
-<div class="col-lg-4 col-md-6">
+
+<div class="col-lg-4 col-md-6" style="height: 982px;">
   <aside class="profile-nav alt">
       <section class="card">
           <div class="card-header user-header alt bg-dark">
               <div class="media">
-                  <a href="#">
-                                      <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="images/admin.jpg">
-                                  </a>
+                  <a href="#">{{currentUser.prenom}}</a>
                   <div class="media-body">
-                      <h2 class="text-light display-6">{{loggedUser.name}}</h2>
-                      <p>{{loggedUser.profession}}</p>
+                      <h2 class="text-light display-6"> </h2>
+                      <p></p>
                   </div>
               </div>
           </div>
@@ -180,82 +161,33 @@
   </aside>
 </div>
 
-<div class="col-lg-4 col-md-6">
+<div class="col-lg-4 col-md-6"style="width: 980px;">
   <div class="card">
-      <div class="card-header">
-          <strong class="card-title mb-3">Profile Card</strong>
-      </div>
-      <div class="card-body">
-          <div class="mx-auto d-block">
-              <img class="rounded-circle mx-auto d-block" src="images/admin.jpg" alt="Card image cap">
-              <h5 class="text-sm-center mt-2 mb-1" style="color:black;">Toukebri</h5>
-              <div class="location text-sm-center"><i class="fa fa-map-marker"></i> California, United States</div>
-          </div>
-          <hr>
-          <div class="card-text text-sm-center">
-              <a href="#"><i class="fa fa-facebook pr-1"></i></a>
-              <a href="#"><i class="fa fa-twitter pr-1"></i></a>
-              <a href="#"><i class="fa fa-linkedin pr-1"></i></a>
-              <a href="#"><i class="fa fa-pinterest pr-1"></i></a>
-          </div>
-      </div>
-  </div>
-</div>
+    <img class="rounded-circle mx-auto d-block" src="/assets/images/admin.jpg" alt="Card image cap">
 
-<div class="col-lg-4 col-md-6">
-  <section class="card">
-      <div class="twt-feed blue-bg">
-          <div class="corner-ribon black-ribon">
-              <i class="fa fa-twitter"></i>
+          <div class="card-header">
+              <strong class="card-title mb-3" style="color:black">{{currentUser.role}}  <a>profil</a></strong>
           </div>
-          <div class="fa fa-twitter wtt-mark"></div>
-
-          <div class="media">
-              <a href="#">
-                                  <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="images/admin.jpg">
-                              </a>
-              <div class="media-body">
-                  <h2 class="text-white display-6">{{loggedUser.name}}</h2>
-                  <p class="text-light">{{loggedUser.profession}}</p>
+          <div class="card-body">
+              <div class="mx-auto d-block">
+                  <h5 class="text-sm-center mt-2 mb-1" style="color:black;"><a>Nom :</a> {{currentUser.name}}</h5>
+                  <h5 class="text-sm-center mt-2 mb-1" style="color:black;"> <a>prenom :</a> {{currentUser.prenom}}</h5>
+                  <h5 class="text-sm-center mt-2 mb-1" style="color:black;"><a>Profession: </a> {{currentUser.profession}}</h5>
+                  <div class="location text-sm-center" style="color:black" ><i class="fa fa-map-marker" style="color:black"></i>
+                    {{currentUser.adresse}}</div>
+              </div>
+              <hr>
+              <div class="card-text text-sm-center">
+                  <a href="#"><i class="fa fa-facebook pr-1"></i></a>
+                  <a href="#"><i class="fa fa-twitter pr-1"></i></a>
+                  <a href="#"><i class="fa fa-linkedin pr-1"></i></a>
+                  <a href="#"><i class="fa fa-pinterest pr-1"></i></a>
               </div>
           </div>
 
 
-
-      </div>
-      <div class="weather-category twt-category">
-          <ul>
-              <li class="active">
-                  <h5>750</h5>
-                  Tweets
-              </li>
-              <li>
-                  <h5>865</h5>
-                  Following
-              </li>
-              <li>
-                  <h5>3645</h5>
-                  Followers
-              </li>
-          </ul>
-      </div>
-      <div class="twt-write col-sm-12">
-          <textarea placeholder="Write your Tweet and Enter" rows="1" class="form-control t-text-area"></textarea>
-      </div>
-      <footer class="twt-footer">
-          <a href="#"><i class="fa fa-camera"></i></a>
-          <a href="#"><i class="fa fa-map-marker"></i></a>
-          New Castle, UK
-          <span class="pull-right">
-                              32
-                          </span>
-      </footer>
-  </section>
+  </div>
 </div>
-
-
-
-
 
 </div><!-- .row -->
 </div><!-- .animated -->

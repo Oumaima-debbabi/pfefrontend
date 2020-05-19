@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Admin } from '../model/admin';
+import { UserService } from 'src/app/user/service/user.service';
 
 @Component({
   selector: 'app-profil',
@@ -7,13 +8,15 @@ import { Admin } from '../model/admin';
   styleUrls: ['./profil.component.css']
 })
 export class ProfilComponent implements OnInit {
-  loggedUser:Admin;
 
-  constructor() { }
+  currentUser: Admin;
+  constructor(private userS:UserService) { }
 
   ngOnInit() {
 
-    this.loggedUser = JSON.parse(localStorage.getItem('Admin'));
+    //this.loggedUser = JSON.parse(localStorage.getItem('User'));
+    this.currentUser = this.userS.currentUserValue;
+
   }
 
 }

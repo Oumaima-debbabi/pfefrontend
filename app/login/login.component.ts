@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { FormGroup, FormControl, Validators, NgForm } from "@angular/forms";
 import { Router } from "@angular/router";
 import { UserService } from '../user/service/user.service';
+import { format } from 'url';
 
 @Component({
   selector: "app-login",
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
     email: new FormControl("", [Validators.required]),
     password: new FormControl("", [Validators.required])
   });
-
+isLoading=false;
   constructor(private authService: UserService, private router: Router) {}
 
   ngOnInit() {}
@@ -29,9 +30,10 @@ export class LoginComponent implements OnInit {
         },
 
         err => {
-          this.loginForm.reset();
-          console.log(err);
-        }
+          // this.loginForm.reset();
+          // console.log(err);
+
+   }
       );
     }
   }

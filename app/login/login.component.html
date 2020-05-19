@@ -15,7 +15,10 @@
     <input  class="input-group"
       type="password" class="input--style-4"
       placeholder="entrez votre Password"
-      formControlName="password" />
+      formControlName="password" #password />
+
+      <mat-error *ngIf="password.invalid">Please enter a valid password.</mat-error>
+
     <input type="submit" value="se connecter" [disabled]="!loginForm.valid"/>
     <div class="text-center">
       <a>Vous avez un compre?</a><a routerLink="/user/register" class="txt2 hov1"> créer votre compte	</a>

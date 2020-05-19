@@ -10,7 +10,12 @@ import{
   MatRadioModule,
   MatButtonModule,
 MatDialog,
-MatDialogConfig
+MatDialogConfig,
+
+MatToolbarModule,
+MatExpansionModule,
+MatProgressSpinnerModule,
+MatPaginatorModule
 
   } from '@angular/material'
 
@@ -22,7 +27,11 @@ MatDialogConfig
     ReactiveFormsModule,
      MatCheckboxModule,
      MatRadioModule,
-     MatButtonModule,]
+     MatButtonModule,
+     MatToolbarModule,
+     MatExpansionModule,
+     MatProgressSpinnerModule,
+     MatPaginatorModule]
 })
 
 export class UserModule

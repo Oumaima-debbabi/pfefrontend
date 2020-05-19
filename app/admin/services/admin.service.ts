@@ -17,7 +17,7 @@ export class AdminService {
   private httpOptions = {
     headers: new HttpHeaders()
       .set("Content-Type", "application/json")
-      .set("x-access-token",localStorage.getItem("token"))
+      .set("auth-token",localStorage.getItem("token"))
   };
 
       private ROOT_URL1 = "http://localhost:4000/api/evenet";
@@ -203,17 +203,17 @@ export class AdminService {
     deleteBenevole(id: string) {
       return this.http.delete(`${this.ROOT_URL5}/${id}`, this.httpOptions);
     }
-    login(user) {
-      return this.http.post<any>(`${this.ROOT_URL6}/login`, user);
-    }
-    logOut() {
-      localStorage.removeItem("token");
-      this.router.navigate(["/profil"]);
-    }
+    // login(user) {
+    //   return this.http.post<any>(`${this.ROOT_URL6}/login`, user);
+    // }
+    // logOut() {
+    //   localStorage.removeItem("token");
+    //   this.router.navigate(["/profil"]);
+    // }
 
-    loggedIn() {
-      return !!localStorage.getItem("token");
-    }
+    // loggedIn() {
+    //   return !!localStorage.getItem("token");
+    // }
 
 }
 
