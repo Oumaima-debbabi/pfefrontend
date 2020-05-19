@@ -1,3 +1,5 @@
+import { Role } from "./role";
+
 export interface Admin {
   statut:string,
 civilite: string,
@@ -11,7 +13,7 @@ password:string,
 annee_naissance:string,
 profession:string,
 photo:string,
-role:string
+role:Role,
 
  }
 

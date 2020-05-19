@@ -7,7 +7,7 @@ import { MisssonDetailsComponent } from './components/mission/missson-details/mi
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { AssociationsComponent } from './association/associations/associations.component';
 import { GuradGuard } from './user/gurad.guard';
-
+import {Role} from './admin/model/role'
 const routes: Routes = [
   {path:"",component:ShowallComponent},
   {path:"login",component:LoginComponent},
@@ -21,8 +21,8 @@ const routes: Routes = [
 {
   path:"admin",
   loadChildren:()=> import("./admin/admin.module").then(m=>m.AdminModule),
-  canActivate:[GuradGuard]
-
+  canActivate:[GuradGuard],
+  data: { roles: [Role.Admin] }
 },
   {
     path: "user",

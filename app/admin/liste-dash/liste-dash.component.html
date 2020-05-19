@@ -22,10 +22,10 @@
               <h3 class="menu-title">Listes</h3><!-- /.menu-title -->
 
               <li class="menu-item-has-children dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Associations</a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="isAdmin"> <i class="menu-icon fa fa-table"></i>Associations</a>
                   <ul class="sub-menu children dropdown-menu">
-                      <li><i class="fa fa-table"></i><a routerLink="/admin/table-association">Liste des associations</a></li>
-                      <li><i class="fa fa-table"></i><a href="/admin/association">ajouter associations</a></li>
+                      <li><i class="fa fa-table"></i><a routerLink="/admin/table-association"*ngIf="isAdmin">Liste des associations</a></li>
+                      <li><i class="fa fa-table"></i><a href="/admin/association"*ngIf="isAdmin">ajouter associations</a></li>
                   </ul>
               </li>
               <li class="menu-item-has-children dropdown">
@@ -57,17 +57,17 @@
                   </ul>
               </li>
               <li class="menu-item-has-children dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Secteurs</a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"*ngIf="isAdmin"> <i class="menu-icon fa fa-table"></i>Secteurs</a>
                   <ul class="sub-menu children dropdown-menu">
                       <li><i class="fa fa-table"></i><a href="/admin/table-secteur">Liste de secteurs</a></li>
                       <li><i class="fa fa-table"></i><a routerLink="/admin/secteur">Ajouter secteur</a></li>
                   </ul>
               </li>
               <li class="menu-item-has-children dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Partenaires</a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"*ngIf="isAdmin"> <i class="menu-icon fa fa-table"></i>Partenaires</a>
                 <ul class="sub-menu children dropdown-menu">
-                    <li><i class="fa fa-table"></i><a routerLink="/admin/table-partenaire">Liste de partenaires</a></li>
-                    <li><i class="fa fa-table"></i><a routerLink="/admin/partenaire">Ajouter parternaire</a></li>
+                    <li><i class="fa fa-table"></i><a routerLink="/admin/table-partenaire" *ngIf="isAdmin">Liste de partenaires</a></li>
+                    <li><i class="fa fa-table"></i><a routerLink="/admin/partenaire" *ngIf="isAdmin">Ajouter parternaire</a></li>
                 </ul>
           </li>
           </ul>

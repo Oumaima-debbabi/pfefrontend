@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Admin } from '../model/admin';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/user/service/user.service';
-
+import {Role} from '../model/role'
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -23,7 +23,9 @@ export class AuthComponent implements OnInit {
       this.authenticationService.logOut();
       this.router.navigate(['/login']);
   }
-
+  get isAdmin() {
+    return this.currentUser && this.currentUser.role === Role.Admin;
+}
   ngOnInit() {
   }
 
