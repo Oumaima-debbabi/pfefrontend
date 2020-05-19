@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MapsService } from './maps.service';
 
 @Component({
   selector: 'app-google-map',
@@ -6,10 +7,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./google-map.component.css']
 })
 export class GoogleMapComponent {
-  lat = -34.397;
-  lng = 150.644;
 
-  constructor() { }
 
+
+  lat:string='';
+  lng:string='';
+  title: string ='';
+
+  location :Object;
+  constructor(private map:MapsService) { }
+
+  ngOnInit() {
+    this.map.getLocation().subscribe(data=> {
+      console.log(data);
+      this.lat = data.latitude;
+      this.lng = data.longitude;
+      this.title = data.country_name;
+     }
+      )
   }
 
+}

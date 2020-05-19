@@ -72,9 +72,8 @@ import { GuradGuard } from './user/gurad.guard';
     ReactiveFormsModule,
     MaterialModule,
     AgmCoreModule.forRoot({
-      apiKey:'AIzaSyBR603Zsm-DVJnQbN4nvJnhmfkJ3WGgKHc'
-    })
-
+      apiKey:'AIzaSyAQqpNML7B0nu0yBtzvXhVMgtz4neSU-EE',
+      })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,6 +8,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { AssociationsComponent } from './association/associations/associations.component';
 import { GuradGuard } from './user/gurad.guard';
 import {Role} from './admin/model/role'
+import { GoogleMapComponent } from './google-map/google-map.component';
 const routes: Routes = [
   {path:"",component:ShowallComponent},
   {path:"login",component:LoginComponent},
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: "user",
     loadChildren:()=> import("./user/user.module").then(m=>m.UserModule)
+  },
+  {
+path:"map",
+component:GoogleMapComponent
   },
   {
     path: "association",
