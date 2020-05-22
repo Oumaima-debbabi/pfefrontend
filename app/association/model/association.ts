@@ -11,5 +11,6 @@ export interface Association {
   secteur: string;
   image: string;
   _id:string;
+  isVerified:boolean,
  }
 

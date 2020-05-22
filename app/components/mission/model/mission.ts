@@ -1,10 +1,12 @@
 export interface Mission {
-sujet,
-besoin,
-nombre_preson,
-nom_res,
-lieu,
-date,
-datefin,
-type,
+sujet:string,
+besoin:string,
+nombre_preson:string,
+nom_res:string,
+lieu:string,
+date:string,
+datefin:string,
+type:string,
+photo:string
+
  }

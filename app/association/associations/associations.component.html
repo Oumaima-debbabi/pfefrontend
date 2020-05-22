@@ -26,15 +26,13 @@
                               </div>
                           </div>
 
-                          <div class="greennature-item greennature-testimonial-item carousel round-style">
-                              <div class="greennature-ux greennature-testimonial-ux">
-
-                                  <div class="flexslider" data-type="carousel" data-nav-container="greennature-testimonial-item" data-columns="3">
-                                      <ul class="slides">
+                          <div>
+                             <div>
+                                      <ul>
                                           <li class="testimonial-item">
                                             <div class="testimonial-item-inner greennature-skin-box">
-                                              <ul *ngIf="associations$ | async as associations" style=" padding:22;
-                                              margin:42">
+                                              <ul *ngIf="associations$ | async as associations" style=" padding:22px;
+                                              margin:50px">
                                                 <li *ngFor="let association of associations" style="padding:2%;">
                                                 <div class="testimonial-content-wrapper">
                                                 <img [src]="association.image"  alt="" width="150" height="150"/>
@@ -56,7 +54,6 @@
                       </div>
                       <div class="clear"></div>
                       <div class="clear"></div>
-                  </div>
               </div>
               <div class="clear"></div>
           </section>

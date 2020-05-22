@@ -19,10 +19,16 @@ import { BenevoleComponent } from './benevole/benevole.component';
 import { EditBenevoleComponent } from './edit/edit-benevole/edit-benevole.component';
 import { AuthComponent } from './auth/auth.component';
 import { GuradGuard } from '../user/gurad.guard';
+import { AdhesionComponent } from './adhesion/adhesion.component';
 
 
 
 const routes: Routes = [
+  {
+path:"adhesion",
+component:AdhesionComponent,
+canActivate:[GuradGuard]
+  },
   {
     path:"edit-benevole/:id",
     component:EditBenevoleComponent,
@@ -55,7 +61,7 @@ const routes: Routes = [
   {
     path:"partenaire",
     component:PartenaireComponent,
-
+    canActivate:[GuradGuard]
   },
   {
     path:"evenement",

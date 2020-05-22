@@ -41,11 +41,20 @@ export class AdminService {
         return this.http.post<any>(this.ROOT_URL3,Mission, this.httpOptions);
       }
       updateMission(
-        nom_res,type,besoin,description,lieu,date, datefin
+        nom_res,
+        sujet,
+        besoin,
+
+        description,
+        lieu,
+        date,
+        datefin,
+        type,
+        qd
       // Photo,
         ,id) {
         const obj = {
-          nom_res,type,besoin,description,lieu,date, datefin
+          nom_res,sujet,besoin,description,lieu,date,datefin,type,qd
 
         };
         this
@@ -118,7 +127,9 @@ export class AdminService {
     getAssociations(): Observable<Association[]> {
       return this.http.get<Association[]>(`${this.ROOT_URL}association/`,this.httpOptions);
     }
-
+    findByTitle(nom_association) {
+      return this.http.get(`${this.ROOT_URL}association/search?nom_association=${nom_association}`);
+    }
     getAssociation(id: string) {
       return this.http.get<Association>(`${this.ROOT_URL}association/${id}`);
     }

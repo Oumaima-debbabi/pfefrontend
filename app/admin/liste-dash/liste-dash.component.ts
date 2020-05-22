@@ -28,5 +28,7 @@ export class ListeDashComponent implements OnInit {
 }
   ngOnInit() {
   }
-
+downlowdPDF(){
+  
+}
 }

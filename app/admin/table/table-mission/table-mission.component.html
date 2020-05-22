@@ -132,8 +132,8 @@
                   <mat-card>
                     <mat-card-title>Liste des missions <code style="background-color: lightgrey;color: tomato;border-radius: 6px;padding:5px"></code></mat-card-title>
                     <mat-card-content>
-                      <mat-form-field style="width:100px" class="mb-1">
-                        <input matInput placeholder="Recherche...." >
+                      <mat-form-field style="width:100px" class="mb-1" >
+                        <input matInput placeholder="Recherche....">
 
                       </mat-form-field>
 
@@ -149,25 +149,30 @@
                           <th>lieu</th>
                           <th>date debit</th>
                           <th>date fin</th>
+                          <th>type d'action</th>
+                          <th>quand?</th>
                           <th>nombre de participants</th>
-                          <th></th>
                           <th></th>
                           <th></th>
                         </tr>
                         </thead >
                         <tbody>
                           <tr *ngFor="let m of Missions$| async as missions">
-                            <td></td>
+                            <td> <img  style="width:50px;height: 40px" src="" /></td>
 
                             <td>{{m.nom_res}}</td>
+                            <td>{{m.sujet}}</td>
                             <td>{{m.besoin}}</td>
-                            <td>{{m.type}}</td>
-                            <td>{{m.type}}</td>
+                            <td>{{m.description}}</td>
+                            <td>{{m.lieu}}</td>
                             <td>{{m.date}}</td>
                             <td>{{m.datefin}}</td>
-                            <td>{{m.lieu}}</td>
-                            <td>{{m.description}}</td>
+                            <td>{{m.type}}</td>
+                            <td>{{m.qd}}</td>
+                            <td>{{m.nbparticipant}}</td>
 
+
+<td></td>
                              <td>
                               <a style="padding-right:5px"[routerLink]="['/admin/edit-mission',m._id]">
                                 <i><i class="fa fa-pencil" style="font-size: large;color:green;"></i></i>

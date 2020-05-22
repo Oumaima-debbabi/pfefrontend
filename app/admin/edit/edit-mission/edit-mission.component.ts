@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { AdminService } from '../../services/admin.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Association } from 'src/app/association/model/association';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-edit-mission',
@@ -10,7 +12,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./edit-mission.component.css']
 })
 export class EditMissionComponent implements OnInit {
-
+  associations$:Observable<Association[]>
 
   mission: any = {};
   editForm: FormGroup;
@@ -38,14 +40,15 @@ export class EditMissionComponent implements OnInit {
     this.route.params.subscribe(params => {
         this.mS.getMission(params.id).subscribe(res => {
           this.mission = res;
+          this.associations$=this.mS.getAssociations()
       });
     });
   }
 
-  updateMission(nom_res,type,besoin,description,lieu,date, datefin
+  updateMission(nom_res,sujet,besoin,description,lieu,date, datefin,type,qd
     ,id) {
     this.route.params.subscribe(params => {
-      this.mS. updateMission(nom_res,type,besoin,lieu,date, datefin,description,
+      this.mS. updateMission(nom_res,sujet,besoin,description,lieu,date, datefin,type,qd,
         params.id);
       const Toast = Swal.mixin({
         toast: true,

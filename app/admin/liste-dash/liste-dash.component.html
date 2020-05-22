@@ -29,16 +29,16 @@
                   </ul>
               </li>
               <li class="menu-item-has-children dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Bénévoles</a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="isAdmin"><i class="menu-icon fa fa-table"></i>Bénévoles</a>
               <ul class="sub-menu children dropdown-menu">
                   <li><i class="fa fa-table"></i><a href="/admin/table-benevole">Liste de bénévoles</a></li>
                   <li><i class="fa fa-table"></i><a href="/admin/benevole">Ajouter bénévole</a></li>
               </ul>
               </li>
               <li class="menu-item-has-children dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Membres</a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"*ngIf="isAdmin"><i class="menu-icon fa fa-table"></i>Membres</a>
                   <ul class="sub-menu children dropdown-menu">
-                      <li><i class="fa fa-table"></i><a href="tables-basic.html">Liste de membres</a></li>
+                      <li><i class="fa fa-table"></i><a href="tables-basic.html" >Liste de membres</a></li>
                       <li><i class="fa fa-table"></i><a href="tables-data.html">Ajouter membre</a></li>
                   </ul>
             </li>
@@ -70,6 +70,10 @@
                     <li><i class="fa fa-table"></i><a routerLink="/admin/partenaire" *ngIf="isAdmin">Ajouter parternaire</a></li>
                 </ul>
           </li>
+          <li class="menu-item-has-children dropdown">
+            <a routerLink="/admin/adhesion" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="!isAdmin"><i class="menu-icon fa fa-table"></i>Adhésion</a>
+
+            </li>
           </ul>
       </div><!-- /.navbar-collapse -->
   </nav>

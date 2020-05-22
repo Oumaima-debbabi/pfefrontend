@@ -5,8 +5,9 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { ProfilComponent } from './profil/profil.component';
 import { ListeDashComponent } from './liste-dash/liste-dash.component';
 
+
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {
+import { MatSlideToggleModule,
   MatButtonModule,
   MatButtonToggleModule, MatCardModule, MatCheckboxModule,MatRadioModule, MatDialogModule, MatExpansionModule,
   MatGridListModule,
@@ -35,10 +36,11 @@ import { BenevoleComponent } from './benevole/benevole.component';
 import { EditBenevoleComponent } from './edit/edit-benevole/edit-benevole.component';
 import { AuthComponent } from './auth/auth.component';
 import { GuradGuard } from '../user/gurad.guard';
+import { AdhesionComponent } from './adhesion/adhesion.component';
 
 @NgModule({
   declarations: [ProfilComponent, ListeDashComponent, LoginComponent, SecteurComponent, MissionComponent, EvenementComponent, TableEvenementComponent,TableMissionComponent, TableSecteurComponent, TableAssociationsComponent, TableBenevoleComponent, AssociationComponent,
-     PartenaireComponent, TablePartenaireComponent, EditSecteurComponent, EditPartenaireComponent, EditMissionComponent, BenevoleComponent, EditBenevoleComponent, AuthComponent],
+     PartenaireComponent, TablePartenaireComponent, EditSecteurComponent, EditPartenaireComponent, EditMissionComponent, BenevoleComponent, EditBenevoleComponent, AuthComponent, AdhesionComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
@@ -47,6 +49,7 @@ import { GuradGuard } from '../user/gurad.guard';
     MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatDialogModule, MatExpansionModule,
     MatGridListModule,
     MatIconModule,
+    MatSlideToggleModule,
     MatInputModule,
     MatListModule, MatMenuModule, MatProgressBarModule,
     MatSidenavModule, MatTabsModule, MatToolbarModule,

@@ -165,15 +165,18 @@
                             </td>
 
                             <td>{{b.email}}</td>
-                            <td>
-                              <div class="row row-space">
+                        
+                              <!-- <div class="row row-space">
                                 <input type="checkbox" id="scales" name="scales"
                                 checked>
                          <label for="scales">non</label>
 
                          <input type="checkbox" id="horns" name="horns">
-                         <label for="horns">oui</label> </div>
-                            </td>
+                         <label for="horns">oui</label> </div> -->
+                         <td>
+                          <mat-slide-toggle></mat-slide-toggle>
+                        </td>
+
                                   <td>
                               <a style="padding-right: 5px"[routerLink]="['/admin/edit-benevole',b._id]">
                                 <i><i class="fa fa-pencil" style="font-size: large;color:green;"></i></i>

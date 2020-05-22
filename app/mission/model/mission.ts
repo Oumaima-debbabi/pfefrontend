@@ -9,6 +9,8 @@ description:string,
 type:string,
 _id,
 action:string,
+qd:string,
+nbparticipant:string,
 //Photo
 
  }

@@ -3,3 +3,13 @@ agm-map{
   height: 500px;
   width: 420px;
 }
+#tablo td{
+  border:0px ;
+  }
+  #tablo th{
+    border:1px solid #000000;
+    background-color:#dddddd;
+    color:#000000;
+    text-align:center;
+    }
+

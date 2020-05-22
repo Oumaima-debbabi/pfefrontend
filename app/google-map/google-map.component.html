@@ -6,7 +6,7 @@
           <div class="greennature-item-title-wrapper greennature-item  greennature-left-divider greennature-medium ">
               <div class="greennature-item-title-container container">
                   <div class="greennature-item-title-head">
-                      <h3 class="greennature-item-title greennature-skin-title greennature-skin-border"><img src="assets/upload/target.png" alt="" width="80" height="80" />Nos associations</h3><a class="greennature-item-title-link" routerLink="/mission-details">plus de mission</a>
+                      <h3 class="greennature-item-title greennature-skin-title greennature-skin-border"><img src="assets/upload/target.png" alt="" width="80" height="80" />Nos associations</h3><a class="greennature-item-title-link" routerLink="/associations">plus d'associations</a>
                       <div class="clear"></div>
                   </div>
               </div>
@@ -30,26 +30,36 @@
                           <div class="three columns" style="margin-left:500px; margin-top:-580px;">
                             <div class="greennature-item greennature-portfolio-item greennature-classic-portfolio">
                               <div class="greennature-item greennature-portfolio-item greennature-classic-portfolio">
-                                <div class="greennature-ux greennature-classic-portfolio-ux">
+                                <div class="greennature-ux greennature-classic-portfolio-ux" *ngIf="associations$ | async as associations">
+                                     <br>
+                                  <table class="table" id="tablo" style="width: 400px;">
 
-                                <li style=" float:left;margin-left: 2px;
-                                padding: 5px;
-                                color: #fff;">
+                                    <thead>
+                                    <tr>
+                                      <tr *ngFor="let s of associations$ | async as association">
 
-                                <div class="portfolio-thumbnail greennature-image"><img src="assets/upload/shutterstock_161515241-540x326.jpg" alt="" width="200px" height="200px"/><span class="portfolio-overlay">&nbsp;</span><a class="portfolio-overlay-icon" href="assets/upload/shutterstock_161515241.jpg" data-rel="fancybox"><span class="portfolio-icon" ><i class="fa fa-search" ></i></span></a></div>
-                                <div class="portfolio-classic-content">
+                                        <td style="color: black;">{{s.nom_association}}
 
-                                    <h3 class="portfolio-title"><a href="#" >immm</a></h3>
-                                    <div class="greennature-portfolio-info">
-                                        <div class="portfolio-info portfolio-tag"><span class="info-head greennature-title"></span><span class="sep"></span> <a href="#" rel="tag"></a></div>
-                                        <div class="clear"></div>
 
-                                    <div class="location text-sm-center" style="color:black" ><i class="fa fa-map-marker" style="color:black"></i>
-                                      adresse</div>
-                                </div>
+                                          <div class="portfolio-thumbnail greennature-image"><img src="assets/upload/shutterstock_161515241-540x326.jpg" alt="" Style="width: 100px;height: 100px;"/><span class="portfolio-overlay">&nbsp;</span><a class="portfolio-overlay-icon" href="assets/upload/shutterstock_161515241.jpg" data-rel="fancybox"><span class="portfolio-icon" ><i class="fa fa-search" ></i></span></a></div>
+                                          <div style="color: black;"><i class="fa fa-map-marker" style="color:black"></i>{{s.adresse}}</div>
 
-                                        <div class="clear"></div></div>
-                              </li>
+                                        </td>
+                                      </tr>
+                                    </thead >
+                                    <tbody>
+<!--
+                                      <tr *ngFor="let s of associations$ | async as association">
+                                      <td style="color: black;">{{s.nom_association}}</td>
+                                      <td>
+                                        <div class="portfolio-thumbnail greennature-image"><img src="assets/upload/shutterstock_161515241-540x326.jpg" alt="" Style="width: 100px;height: 100px;"/><span class="portfolio-overlay">&nbsp;</span><a class="portfolio-overlay-icon" href="assets/upload/shutterstock_161515241.jpg" data-rel="fancybox"><span class="portfolio-icon" ><i class="fa fa-search" ></i></span></a></div>
+
+                                      </td>
+
+                                      </tr> -->
+                                    </tbody>
+                                  </table>
+
                                       </div>
 
 

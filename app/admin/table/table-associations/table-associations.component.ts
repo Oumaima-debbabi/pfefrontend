@@ -13,7 +13,7 @@ export class TableAssociationsComponent implements OnInit {
 
 
   id: string;
-
+name:'';
 Associations$: Observable<Association[]>;
 associations;
   constructor(private assoicationService:AdminService,
@@ -36,6 +36,17 @@ associations;
         this.route.navigate[("/table-associations")];
 
 })
+  }
+  searchTitle() {
+    this.assoicationService.findByTitle(this.name)
+      .subscribe(
+        data => {
+          this.associations = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
   }
 }
 

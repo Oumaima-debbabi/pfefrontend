@@ -4,6 +4,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminService } from '../services/admin.service';
 import { mimeType } from '../mimi-type.validator';
+import { Association } from 'src/app/association/model/association';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-mission',
@@ -12,6 +14,9 @@ import { mimeType } from '../mimi-type.validator';
 })
 export class MissionComponent implements OnInit {
 missionForm= new FormGroup({
+  sujet: new FormControl("",[Validators.required]),
+  //action: new FormControl("",[Validators.required]),
+  qd: new FormControl("",[Validators.required]),
 
     type: new FormControl("",[Validators.required]),
     besoin: new FormControl("",[Validators.required]),
@@ -25,11 +30,16 @@ missionForm= new FormGroup({
    });
 
     constructor(private missionService:AdminService,
-               private route:Router
+               private route:Router,
+               aService:AdminService
       )
    {}
+   associations$:Observable <Association[]>
 
-    ngOnInit() {}
+    ngOnInit() {
+      this.associations$ =this.missionService.getAssociations()
+
+    }
 
     newMissin() {
       if (this.missionForm.valid) {
@@ -44,8 +54,8 @@ missionForm= new FormGroup({
       title:'Mission ajoutée'
 
           })
-          this.missionForm.reset();
 
+          this.route.navigate(["/admin/table-mission"]);
         });
       }
     }

@@ -141,17 +141,20 @@
       <div class="form-group">
           <label class=" form-control-label"></label>
           <div class="input-group">
-              <input class="form-control"formControlName="type">
+              <input class="form-control"formControlName="sujet">
           </div>
       </div>
-      <label for="cc-exp" class="control-label mb-1" style="color: black;">Nom association</label>
-      <div class="form-group">
-          <label class=" form-control-label"></label>
-          <div class="input-group">
-              <input class="form-control"  formControlName="nom_res">
-          </div>
+      <label for="cc-exp" class="control-label mb-1" style="color: black;">Nom association </label>
+      <br>
+      <mat-form-field  *ngIf="associations$ | async as associations">
+        <mat-label class="input-group"></mat-label>
+        <mat-select  formControlName="nom_res">
+          <mat-option [value]="association.nom_association" *ngFor="let association of associations">{{association.nom_association}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  <br>
 
-      </div>
       <label for="cc-exp" class="control-label mb-1" style="color: black;">Besoin</label>
       <div class="form-group">
           <label class=" form-control-label"></label>
@@ -159,9 +162,27 @@
               <input class="form-control"formControlName="besoin">
           </div>
       </div>
+      <label for="cc-exp" class="control-label mb-1" style="color: black;">Se déroule </label>
+      <mat-form-field class="ml-xs mr-xs" style="width: 40%;">
+        <mat-select  name="gouv" formControlName="qd">
+          <mat-option value="Nuit">Nuit</mat-option>
+          <mat-option value="Jour">Jour</mat-option>
+        <mat-option value="Soir">Soir</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+        <br>
+        <label for="cc-exp" class="control- mb-1" style="color: black;">type d'action </label>
+        <mat-form-field class="ml-xs mr-xs" style="width:40%;">
+          <mat-select  name="gouv" formControlName="type">
+            <mat-option value="Régulier">Régulier</mat-option>
+            <mat-option value="Ponctuele">Ponctuele</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
       <div class="row form-group">
 
-        <div class="col col-md-3"><label for="textarea-input" class=" form-control-label" style="color:black;">Description</label></div>
+        <div class="col col-md-3"><label for="textarea-input" class=" form-control-label"  style="color:black;">Description</label></div>
         <div class="col-12 col-md-9"><textarea name="textarea-input" id="textarea-input"  style="height: 63px;" rows="9" placeholder="Content..." class="form-control"formControlName="description" ></textarea></div>
     </div>
       <label for="cc-exp" class="control-label mb-1" style="color: black;">Date début </label>
@@ -178,6 +199,7 @@
               <input class="form-control" formControlName="datefin">
           </div>
       </div>
+
     <label for="cc-exp" class="control-label mb-1" style="color: black;">Lieu</label>
       <div class="form-group">
           <label class=" form-control-label"></label>

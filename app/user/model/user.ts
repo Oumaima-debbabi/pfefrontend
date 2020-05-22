@@ -1,6 +1,7 @@
-import { Role } from "./role";
+import { Role } from 'src/app/admin/model/role';
 
-export interface Admin {
+
+export interface User {
   statut:string,
 civilite: string,
 name: string,

@@ -140,21 +140,21 @@
       <div class="form-group">
           <label class=" form-control-label"></label>
           <div class="input-group">
-              <input class="form-control"formControlName="type"
-              #type
-              [(ngModel)]= "mission.type">
+              <input class="form-control"formControlName="sujet"
+              #sujet
+              [(ngModel)]= "mission.sujet">
           </div>
       </div>
-      <label for="cc-exp" class="control-label mb-1" style="color: black;">Nom association</label>
-      <div class="form-group">
-          <label class=" form-control-label"></label>
-          <div class="input-group">
-              <input class="form-control"  formControlName="nom_res"
-              #nom_res
-              [(ngModel)]= "mission.nom_res">
-          </div>
-
-      </div>
+      <label for="cc-exp" class="control-label mb-1" style="color: black;">Nom association </label>
+      <br>
+      <mat-form-field  *ngIf="associations$ | async as associations">
+        <mat-label class="input-group"></mat-label>
+        <mat-select  formControlName="nom_res" #nom_res [(ngModel)]="mission.nom_res">
+          <mat-option [value]="association.nom_association" *ngFor="let association of associations">{{association.nom_association}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
       <label for="cc-exp" class="control-label mb-1" style="color: black;">Besoin</label>
       <div class="form-group">
           <label class=" form-control-label"></label>
@@ -166,9 +166,27 @@
       <div class="row form-group">
 
         <div class="col col-md-3"><label for="textarea-input" class=" form-control-label" style="color:black;">Description</label></div>
-        <div class="col-12 col-md-9"><textarea name="textarea-input" id="textarea-input"  style="height: 63px;" rows="9" class="form-control" formControlName="description"
+        <div class="col-12 col-md-9"><textarea name="textarea-input" id="textarea-input"  style="height: 63px;" rows="9" class="form-control" #description formControlName="description"
           #description [(ngModel)]="mission.description"></textarea></div>
     </div>
+    <label for="cc-exp" class="control-label mb-1" style="color: black;">Se déroule </label>
+    <mat-form-field class="ml-xs mr-xs" style="width: 40%;">
+      <mat-select  name="gouv" formControlName="qd" #qd [(ngModel)]="mission.qd">
+        <mat-option value="Nuit">Nuit</mat-option>
+        <mat-option value="Jour">Jour</mat-option>
+      <mat-option value="Soir">Soir</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+      <br>
+      <label for="cc-exp" class="control- mb-1" style="color: black;">type d'action </label>
+      <mat-form-field class="ml-xs mr-xs" style="width:40%;">
+        <mat-select  name="gouv" formControlName="type" #type [(ngModel)]="mission.type">
+          <mat-option value="Régulier">Régulier</mat-option>
+          <mat-option value="Ponctuele">Ponctuele</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
       <label for="cc-exp" class="control-label mb-1" style="color: black;">Date début </label>
       <div class="form-group">
           <label class=" form-control-label"></label>
@@ -177,6 +195,7 @@
               [(ngModel)]= "mission.date">
           </div>
       </div>
+      <br>
       <label for="cc-exp" class="control-label mb-1" style="color: black;">Date fin</label>
       <div class="form-group">
           <label class=" form-control-label"></label>
@@ -196,12 +215,16 @@
         <div class="col col-md-3"><label for="file-input" class=" form-control-label" style="color: black;">Image</label></div>
         <div class="col-12 col-md-9"><input type="file" id="file-input" name="file-input" class="form-control-file" formControlName="Photo"></div>
     </div> -->
-      <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block" style="width:200px; margin-left: 360px;"(click)="updateMission(mission.type,mission.besoin,
-      mission.nom_res,
+      <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block"
+      style="width:200px; margin-left: 360px;"(click)="updateMission(mission.nom_res,
+      mission.sujet,
+      mission.besoin,
+      mission.description,
       mission.lieu,
       mission.date,
       mission.datefin,
-      mission.description)" [disabled]="!editForm.valid">
+      mission.type,
+      mission.qd)" [disabled]="!editForm.valid">
         <i class="fa fa-lock fa-lg"></i>&nbsp;
         <span id="payment-button-amount">enregistre </span>
     </button>
