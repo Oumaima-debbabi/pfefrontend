@@ -37,10 +37,14 @@ import { EditBenevoleComponent } from './edit/edit-benevole/edit-benevole.compon
 import { AuthComponent } from './auth/auth.component';
 import { GuradGuard } from '../user/gurad.guard';
 import { AdhesionComponent } from './adhesion/adhesion.component';
+import { EditProfilComponent } from './edit/edit-profil/edit-profil.component';
 
 @NgModule({
   declarations: [ProfilComponent, ListeDashComponent, LoginComponent, SecteurComponent, MissionComponent, EvenementComponent, TableEvenementComponent,TableMissionComponent, TableSecteurComponent, TableAssociationsComponent, TableBenevoleComponent, AssociationComponent,
-     PartenaireComponent, TablePartenaireComponent, EditSecteurComponent, EditPartenaireComponent, EditMissionComponent, BenevoleComponent, EditBenevoleComponent, AuthComponent, AdhesionComponent],
+     PartenaireComponent, TablePartenaireComponent, EditSecteurComponent,
+     EditPartenaireComponent, EditMissionComponent, BenevoleComponent, EditBenevoleComponent,
+    EditProfilComponent,
+     AuthComponent, AdhesionComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

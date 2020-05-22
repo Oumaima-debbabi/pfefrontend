@@ -153,7 +153,7 @@
                   <a href="#"> <i class="fa fa-comments-o"></i> Message <span class="badge badge-warning pull-right r-activity">03</span></a>
               </li>
               <li class="list-group-item">
-                  <a href="#"> <i class="fa fa-cog"></i> Settings</a>
+                  <a [routerLink]="['/admin/edit-profil',currentUser._id]"> <i class="fa fa-cog"></i> Paramétére </a>
               </li>
           </ul>
 
@@ -161,23 +161,35 @@
   </aside>
 </div>
 
-<div class="col-lg-4 col-md-6"style="width: 980px;">
+<div class="col-lg-4 col-md-6"style="width:1000px; margin-left:120px;">
   <div class="card">
     <img class="rounded-circle mx-auto d-block" src="/assets/images/admin.jpg" alt="Card image cap">
 
           <div class="card-header">
-              <strong class="card-title mb-3" style="color:black">{{currentUser.role}}  <a>profil</a></strong>
-          </div>
+              <strong class="card-title mb-3" style="color:black">
+                {{currentUser._id}} <a>profil</a>
+                </strong>
+
+            </div>
           <div class="card-body">
               <div class="mx-auto d-block">
                   <h5 class="text-sm-center mt-2 mb-1" style="color:black;"><a>Nom :</a> {{currentUser.name}}</h5>
                   <h5 class="text-sm-center mt-2 mb-1" style="color:black;"> <a>prenom :</a> {{currentUser.prenom}}</h5>
                   <h5 class="text-sm-center mt-2 mb-1" style="color:black;"><a>Profession: </a> {{currentUser.profession}}</h5>
+
+                  <h5 class="text-sm-center mt-2 mb-1" style="color:black;"><a>date naissance: </a> {{currentUser.annee_naissance}}</h5>
                   <div class="location text-sm-center" style="color:black" ><i class="fa fa-map-marker" style="color:black"></i>
                     {{currentUser.adresse}}</div>
               </div>
               <hr>
               <div class="card-text text-sm-center">
+                <a style="padding-right: 5px" [routerLink]="['/admin/edit-profil',currentUser._id]">
+                  <i><i class="fa fa-pencil" style="font-size: large;color:green;">
+                  Modifier compte</i></i>
+                </a>
+              </div>
+              <div class="card-text text-sm-center">
+
                   <a href="#"><i class="fa fa-facebook pr-1"></i></a>
                   <a href="#"><i class="fa fa-twitter pr-1"></i></a>
                   <a href="#"><i class="fa fa-linkedin pr-1"></i></a>

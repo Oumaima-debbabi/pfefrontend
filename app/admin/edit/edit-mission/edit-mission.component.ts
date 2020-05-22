@@ -30,6 +30,8 @@ export class EditMissionComponent implements OnInit {
       date: new FormControl("",[Validators.required]),
       datefin: new FormControl("",[Validators.required]),
       description: new FormControl("",[Validators.required]),
+      qd: new FormControl("",[Validators.required]),
+      sujet: new FormControl("",[Validators.required]),
 
 
     });

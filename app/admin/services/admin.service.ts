@@ -40,6 +40,7 @@ export class AdminService {
       addMission(Mission) {
         return this.http.post<any>(this.ROOT_URL3,Mission, this.httpOptions);
       }
+
       updateMission(
         nom_res,
         sujet,
@@ -214,7 +215,21 @@ export class AdminService {
     deleteBenevole(id: string) {
       return this.http.delete(`${this.ROOT_URL5}/${id}`, this.httpOptions);
     }
+    editUser(statut,civilite,name,email,prenom,adresse,numero_telephone, code_postal,annee_naissance, profession,
 
+      // Photo,
+        id) {
+        const obj = {
+          statut,civilite,name,email,prenom,adresse,numero_telephone, code_postal,annee_naissance, profession,
+
+          // Photo,
+
+        };
+        this
+          .http
+          .post(`${this.ROOT_URL6}/update/${id}`, obj)
+          .subscribe(res => console.log('Update Complete'));
+      }
     // login(user) {
     //   return this.http.post<any>(`${this.ROOT_URL6}/login`, user);
     // }

@@ -20,6 +20,7 @@ import { EditBenevoleComponent } from './edit/edit-benevole/edit-benevole.compon
 import { AuthComponent } from './auth/auth.component';
 import { GuradGuard } from '../user/gurad.guard';
 import { AdhesionComponent } from './adhesion/adhesion.component';
+import { EditProfilComponent } from './edit/edit-profil/edit-profil.component';
 
 
 
@@ -61,6 +62,11 @@ canActivate:[GuradGuard]
   {
     path:"partenaire",
     component:PartenaireComponent,
+    canActivate:[GuradGuard]
+  },
+  {
+    path:"edit-profil/:id",
+    component:EditProfilComponent,
     canActivate:[GuradGuard]
   },
   {
