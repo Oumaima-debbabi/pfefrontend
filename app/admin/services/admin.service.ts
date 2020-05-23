@@ -9,6 +9,7 @@ import { Partenaire } from 'src/app/partenaire/model/partenaire';
 import { BenevoleComponent } from '../benevole/benevole.component';
 import { Benevole } from '../benevole/model/benevole';
 import { Router } from "@angular/router";
+import { User } from 'src/app/user/model/user';
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +41,9 @@ export class AdminService {
       addMission(Mission) {
         return this.http.post<any>(this.ROOT_URL3,Mission, this.httpOptions);
       }
-
+      getUser(id: string) {
+        return this.http.get<User>(`${this.ROOT_URL6}/${id}`);
+      }
       updateMission(
         nom_res,
         sujet,
@@ -215,13 +218,10 @@ export class AdminService {
     deleteBenevole(id: string) {
       return this.http.delete(`${this.ROOT_URL5}/${id}`, this.httpOptions);
     }
-    editUser(statut,civilite,name,email,prenom,adresse,numero_telephone, code_postal,annee_naissance, profession,
 
-      // Photo,
-        id) {
+    editUser( name, prenom,profession,association,email, civilite, adresse, code_postal,date_naissance,numero_telephone,id) {
         const obj = {
-          statut,civilite,name,email,prenom,adresse,numero_telephone, code_postal,annee_naissance, profession,
-
+          name, prenom,profession,association,email, civilite, adresse, code_postal,date_naissance,numero_telephone
           // Photo,
 
         };

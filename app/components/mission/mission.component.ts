@@ -21,7 +21,7 @@ export class MissionComponent implements OnInit {
 missions$:Observable<Mission[]>
   ngOnInit() {
     for (let i = 0; i < this.limit; i++) {
-      this.missions$=this.missionService.getMissions();
+      this.missions$=this.missionService.getMissions4();
     }
 
 

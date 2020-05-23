@@ -25,6 +25,9 @@ export class AssociationService {
   getAssociations(): Observable<Association[]> {
     return this.http.get<Association[]>(`${this.ROOT_URL}association`);
   }
+  getAssociations8(): Observable<Association[]> {
+    return this.http.get<Association[]>(`${this.ROOT_URL}association/get`);
+  }
 
   getAssociation(id: string) {
     return this.http.get<Association>(`${this.ROOT_URL}association${id}`);

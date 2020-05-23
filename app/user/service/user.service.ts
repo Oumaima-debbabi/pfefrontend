@@ -29,6 +29,7 @@ export class UserService {
       // store user details and jwt token in local storage to keep user logged in between page refreshes
       localStorage.setItem('currentUser', JSON.stringify(user));
       this.currentUserSubject.next(user);
+      //console.log("currentUser")
       return user;
   }));
   }
@@ -36,6 +37,7 @@ export class UserService {
   //   localStorage.removeItem("token");
   //   this.router.navigate(["/login"]);
     localStorage.removeItem('currentUser');
+
     this.currentUserSubject.next(null);
   }
 

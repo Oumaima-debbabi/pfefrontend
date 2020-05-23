@@ -16,6 +16,9 @@ private httpOptions = {
 
 constructor(private http: HttpClient) {}
 
+getMissions4(): Observable<Mission[]> {
+  return this.http.get<Mission[]>(`${this.ROOT_URL}/get4`);
+}
 getMissions(): Observable<Mission[]> {
   return this.http.get<Mission[]>(`${this.ROOT_URL}/`);
 }

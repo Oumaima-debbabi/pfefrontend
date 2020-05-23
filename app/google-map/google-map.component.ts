@@ -21,7 +21,7 @@ export class GoogleMapComponent {
   constructor(private map:MapsService,private associatonService:AssociationService) { }
   associations$:Observable<Association[]>
   ngOnInit() {
-    this.associations$=this.associatonService.getAssociations(),
+    this.associations$=this.associatonService.getAssociations8(),
     this.map.getLocation().subscribe(data=> {
       console.log(data);
       this.lat = data.latitude;
