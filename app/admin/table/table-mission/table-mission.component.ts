@@ -17,7 +17,6 @@ Missions$: Observable<Mission[]>;
 mission
 
 base_url="http://localhost:4000/api/mission";
-url_image="assets/img/jobs/avatar-1.jpg";
   constructor(private missionService: AdminService,
     private route:Router) {}
 

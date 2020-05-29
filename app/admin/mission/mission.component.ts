@@ -6,6 +6,7 @@ import { AdminService } from '../services/admin.service';
 import { mimeType } from '../mimi-type.validator';
 import { Association } from 'src/app/association/model/association';
 import { Observable } from 'rxjs';
+import { Mission } from 'src/app/mission/model/mission';
 
 @Component({
   selector: 'app-mission',
@@ -26,16 +27,23 @@ missionForm= new FormGroup({
     date: new FormControl("",[Validators.required]),
     datefin: new FormControl("",[Validators.required]),
     description: new FormControl("",[Validators.required]),
-   //Photo: new FormControl(null, {validators: [Validators.required],asyncValidators: [mimeType] })
+   imageUrl: new FormControl("",  [Validators.required])
    });
-
+   imageUrl:string=''
+   Photo: string = ''
+mission:Mission
     constructor(private missionService:AdminService,
                private route:Router,
                aService:AdminService
       )
    {}
    associations$:Observable <Association[]>
-
+ uploadImage(event) {
+    this.missionService.uploadImage(event.target.files[0])
+      .subscribe((res: any) => {
+        this.imageUrl = res.imageUrl
+      })
+  }
     ngOnInit() {
       this.associations$ =this.missionService.getAssociations()
 
@@ -59,5 +67,7 @@ missionForm= new FormGroup({
         });
       }
     }
+
+  
 
     }

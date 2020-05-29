@@ -38,8 +38,16 @@ export class AdminService {
       getMission(id: string) {
         return this.http.get<Mission>(`${this.ROOT_URL3}/${id}`);
       }
+      // addMission(Mission) {
+      //   return this.http.post<any>(this.ROOT_URL3,Mission, this.httpOptions);
+      // }
       addMission(Mission) {
-        return this.http.post<any>(this.ROOT_URL3,Mission, this.httpOptions);
+        return this.http.post<any>(`${this.ROOT_URL3}`,Mission, this.httpOptions);
+      }
+      uploadImage(image) {
+        const data = new FormData()
+        data.append('image', image)
+        return this.http.post(this.ROOT_URL3+'/upload', data)
       }
       getUser(id: string) {
         return this.http.get<User>(`${this.ROOT_URL6}/${id}`);

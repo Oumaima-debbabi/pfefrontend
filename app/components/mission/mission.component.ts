@@ -9,9 +9,7 @@ import { Mission } from './model/mission';
   styleUrls: ['./mission.component.css']
 })
 export class MissionComponent implements OnInit {
-  limit =3;
-  count = 0;
-  offset = 0;
+
 
 
   constructor(
@@ -20,10 +18,7 @@ export class MissionComponent implements OnInit {
   ){}
 missions$:Observable<Mission[]>
   ngOnInit() {
-    for (let i = 0; i < this.limit; i++) {
       this.missions$=this.missionService.getMissions4();
-    }
-
 
 }
 }

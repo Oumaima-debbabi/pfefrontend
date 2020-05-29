@@ -17,6 +17,11 @@ export class MissionService {
 
   constructor(private http: HttpClient) {}
 
+  uploadImage(image) {
+    const data = new FormData()
+    data.append('image', image)
+    return this.http.post(this.ROOT_URL+'/upload', data)
+  }
   getMissions(): Observable<Mission[]> {
     return this.http.get<Mission[]>(`${this.ROOT_URL}`);
   }

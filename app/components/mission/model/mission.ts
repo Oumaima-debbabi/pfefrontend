@@ -7,6 +7,7 @@ lieu:string,
 date:string,
 datefin:string,
 type:string,
-photo:string
+Photo:string,
+imageUrl:string,
 
  }

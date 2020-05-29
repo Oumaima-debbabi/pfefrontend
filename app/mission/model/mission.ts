@@ -11,6 +11,8 @@ _id,
 action:string,
 qd:string,
 nbparticipant:string,
+Photo:string,
+imageUrl:string,
 //Photo
 
  }

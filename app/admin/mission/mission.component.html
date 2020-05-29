@@ -130,7 +130,7 @@
                 <div class="row" >
 
                     <div class="col-xs-6 col-sm-6" >
-                        <div class="card"  style="width: 950px;height: 1100px;">
+                        <div class="card"  style="width: 950px;height: 1300px;">
                             <div class="card-header"Style="color:black">
                                 <strong>Ajouter mission</strong>
                             </div>
@@ -176,7 +176,7 @@
         <mat-form-field class="ml-xs mr-xs" style="width:40%;">
           <mat-select  name="gouv" formControlName="type">
             <mat-option value="Régulier">Régulier</mat-option>
-            <mat-option value="Ponctuele">Ponctuele</mat-option>
+            <mat-option value="Ponctuelle">Ponctuelle</mat-option>
           </mat-select>
         </mat-form-field>
         <br>
@@ -207,10 +207,22 @@
               <input class="form-control"formControlName="lieu">
           </div>
       </div>
-      <!-- <div class="row form-group">
-        <div class="col col-md-3"><label for="file-input" class=" form-control-label" style="color: black;">Image</label></div>
-        <div class="col-12 col-md-9"><input type="file" id="file-input" name="file-input" class="form-control-file" formControlName="Photo"></div>
-    </div> -->
+
+
+  <!-- <div class="form-group">
+    <label for="Photo">Image</label>
+    <input type="file" formControlName="Photo" class="form-control-file" (change)="uploadImage($event)" />
+    <br />
+    <img *ngIf="Photo" [src]="Photo" [alt]="Photo" height="200px">
+  </div> -->
+  <div class="form-group">
+    <label for="imageUrl"style="color:black;">Image</label>
+    <input type="file" formControlName="imageUrl" class="form-control-file" (change)="uploadImage($event)" />
+    <br/>
+    <img style="color:black;" *ngIf="imageUrl" [src]="imageUrl" [alt]="imageUrl"  height="10px" width="10px">
+  </div>
+  <br>
+  <br>
       <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block" [disabled]="!missionForm.valid" style="width:200px; margin-left: 360px;">
         <i class="fa fa-lock fa-lg"></i>&nbsp;
         <span id="payment-button-amount">enregistre </span>

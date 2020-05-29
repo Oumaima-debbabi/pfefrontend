@@ -28,22 +28,22 @@ export class PartenaireComponent implements OnInit {
     ngOnInit() {}
 
     newPartenaire() {
-      if (this.partenaireForm.valid) {
-        this.partenaireService.addMission(this.partenaireForm.value).subscribe(res => {
-          const Toast = Swal.mixin({
-            toast: true,
-            position: 'center',
-            showConfirmButton: true,
-            timer: 3000
-          });
-          Toast.fire({
-      title:'partenaire ajouté'
+      // if (this.partenaireForm.valid) {
+      //   this.partenaireService.add(this.partenaireForm.value).subscribe(res => {
+      //     const Toast = Swal.mixin({
+      //       toast: true,
+      //       position: 'center',
+      //       showConfirmButton: true,
+      //       timer: 3000
+      //     });
+      //     Toast.fire({
+      // title:'partenaire ajouté'
 
-          })
-          this.partenaireForm.reset();
+      //     })
+      //     this.partenaireForm.reset();
 
-        });
-      }
+      //   });
+      // }
     }
 
     }
