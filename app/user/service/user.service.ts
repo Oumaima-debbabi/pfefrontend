@@ -21,7 +21,7 @@ export class UserService {
     }
 
   register(user) {
-    return this.http.post<any>(`${this.ROOT_URL}user/register`, user);
+    return this.http.post<any>(`${this.ROOT_URL}benevole/register`, user);
   }
   login(user) {
     return this.http.post<any>(`${this.ROOT_URL}user/login`, user)

@@ -59,7 +59,6 @@ import { GuradGuard } from './user/gurad.guard';
     EvenementComponent,
     PartenaireComponent,
 
-
     //ToastComponent,
 
 

@@ -124,81 +124,45 @@
 
 
 
-        <div class="content mt-3">
+        <div class="content mt-3" style="width:100%">
             <div class="animated fadeIn">
 
-                <div class="row">
+                <div class="row" style="width:100%">
 
                   <mat-card>
-                    <mat-card-title style=" color: tomato; border-radius: 6px;padding:5px; position:relative "> Liste des associations<code style="background-color: lightgrey;color: tomato;border-radius: 6px;padding:5px"></code></mat-card-title>
+                    <mat-card-title style=" color: tomato; border-radius: 6px;padding:5px; position:relative ">Mes participations à des missions associatives
+                      <code style="background-color: lightgrey; color: tomato; border-radius: 6px;padding:5px"></code></mat-card-title>
                     <mat-card-content>
-                        <div class="col-md-8">
-                          <div class="input-group mb-3">
-                            <input
-                              type="text"
-                              class="form-control"
-                              placeholder="Search by title"
-                              [(ngModel)]="name"
-                            />
-                            <div class="input-group-append">
-                              <button
-                                class="btn btn-outline-secondary"
-                                type="button"
-                                (click)="searchTitle()">
-                                Search
-                              </button>
-                            </div>
-                          </div>
-                        </div>
 
+<br>
 
-                      <table class="table" style="width:1028px;" >
+                      <table class="table" style="width: 1000px;">
                         <thead>
                         <tr>
-                          <th>id</th>
-                          <th>nom de l'association</th>
-                          <th>nom responsable </th>
-                          <th>secteur</th>
-                          <th>adresse</th>
-                          <th>numéro association </th>
-                          <th>adresse email</th>
-                          <th>nombre de membres</th>
-                          <th>statut</th>
-                           <th></th>
-                           <th></th>
-                           <th></th>
+                          <th>Titre</th>
+                          <th>Date</th>
+                          <th>Date fin</th>
+                          <th>Localisation</th>
+                          <th>Etat</th>
+                          <th>action</th>
                         </tr>
                         </thead >
                         <tbody>
-                          <tr *ngFor="let a of Associations$| async as Associations">
+                          <tr>
+                          <td></td>
                             <td></td>
-                            <td>{{a.nom_association}}</td>
-                            <td>{{a.name}}</td>
-                           <td>{{a.secteur}}</td>
-                           <td>{{a.adresse}}
-                           </td>
-                            <td>
-                               {{a.numero_association}}
-                            </td>
-                            <td>{{a.email}}</td>
                             <td></td>
+                        <td></td>
+                        <td></td>
                             <td>
-                              <mat-slide-toggle style="color:red;"></mat-slide-toggle>
-                            </td>
-                            <td></td>
-                            <td>
-                              <a style="padding-right: 5px">
-                                <i><i class="fa fa-pencil" style="font-size: large;color:green;"></i></i>
+                              <a>
+                                <i><i  style="font-size: large;color:green;"> Me désincrire </i></i>
                               </a>
                             </td>
-                            <td>
-                              <a style="padding-right: 5px"(click)="delete(a._id)">
-                                  <i class="fa fa-trash" style="font-size: large;color: red;"></i>
-                                </a>
-                              </td>
+
                           </tr>
 
-                        </tbody>
+                          </tbody>
                       </table>
                       <br>
 

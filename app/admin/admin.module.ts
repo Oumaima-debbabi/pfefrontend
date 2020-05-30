@@ -38,13 +38,17 @@ import { AuthComponent } from './auth/auth.component';
 import { GuradGuard } from '../user/gurad.guard';
 import { AdhesionComponent } from './adhesion/adhesion.component';
 import { EditProfilComponent } from './edit/edit-profil/edit-profil.component';
+import { ActionsComponent } from './actions/actions.component';
+import { PropositionsComponent } from './propositions/propositions.component';
+import { TablePropositionsComponent } from './table/table-propositions/table-propositions.component';
+import { TableActionsComponent } from './table/table-actions/table-actions.component';
 
 @NgModule({
   declarations: [ProfilComponent, ListeDashComponent, LoginComponent, SecteurComponent, MissionComponent, EvenementComponent, TableEvenementComponent,TableMissionComponent, TableSecteurComponent, TableAssociationsComponent, TableBenevoleComponent, AssociationComponent,
      PartenaireComponent, TablePartenaireComponent, EditSecteurComponent,
      EditPartenaireComponent, EditMissionComponent, BenevoleComponent, EditBenevoleComponent,
     EditProfilComponent,
-     AuthComponent, AdhesionComponent],
+     AuthComponent, AdhesionComponent, ActionsComponent, PropositionsComponent, TablePropositionsComponent, TableActionsComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

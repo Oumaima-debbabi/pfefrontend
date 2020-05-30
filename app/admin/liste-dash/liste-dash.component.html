@@ -43,6 +43,15 @@
                   </ul>
             </li>
             <li class="menu-item-has-children dropdown">
+              <a routerLink="/admin/table-actions" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"*ngIf="!isAdmin">♥ Mes actions solidaires</a>
+          </li>
+          <li class="menu-item-has-children dropdown">
+            <a routerLink="/admin/table-propositions" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"*ngIf="!isAdmin"> ☼ Mes propositions </a>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a routerLink="/admin/propositions" class="dropdown-toggle"  aria-haspopup="true" aria-expanded="false"*ngIf="!isAdmin"> ○ Nouvelle propositions</a>
+      </li>
+            <li class="menu-item-has-children dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>evenements</a>
                   <ul class="sub-menu children dropdown-menu">
                       <li><i class="fa fa-table"></i><a routerLink="/admin/table-event">Liste de evenements</a></li>

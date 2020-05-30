@@ -21,6 +21,10 @@ import { AuthComponent } from './auth/auth.component';
 import { GuradGuard } from '../user/gurad.guard';
 import { AdhesionComponent } from './adhesion/adhesion.component';
 import { EditProfilComponent } from './edit/edit-profil/edit-profil.component';
+import { ActionsComponent } from './actions/actions.component';
+import { PropositionsComponent } from './propositions/propositions.component';
+import { TablePropositionsComponent } from './table/table-propositions/table-propositions.component';
+import { TableActionsComponent } from './table/table-actions/table-actions.component';
 
 
 
@@ -57,6 +61,24 @@ canActivate:[GuradGuard]
 
     path:"edit-secteur/:id",
     component:EditSecteurComponent,
+    canActivate:[GuradGuard]
+  },
+  {
+
+    path:"table-actions",
+    component:TableActionsComponent,
+    canActivate:[GuradGuard]
+  },
+  {
+
+    path:"table-propositions",
+    component:TablePropositionsComponent,
+    canActivate:[GuradGuard]
+  },
+  {
+
+    path:"propositions",
+    component:PropositionsComponent,
     canActivate:[GuradGuard]
   },
   {

@@ -18,9 +18,10 @@ MatProgressSpinnerModule,
 MatPaginatorModule
 
   } from '@angular/material'
+import { ComplementsComponent } from './complements/complements.component';
 
 @NgModule({
-  declarations: [RegisterComponent],
+  declarations: [RegisterComponent,ComplementsComponent],
   imports: [
     CommonModule,
     UserRoutingModule,
