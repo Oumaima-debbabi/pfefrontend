@@ -124,73 +124,81 @@
 
 
 
-        <div class="content mt-3" style="width:100%">
+        <div class="content mt-3">
             <div class="animated fadeIn">
 
-                <div class="row" style="width:100%">
+                <div class="row" >
 
-                  <mat-card>
-                    <mat-card-title>Liste des missions <code style="background-color: lightgrey;color: tomato;border-radius: 6px;padding:5px"></code></mat-card-title>
-                    <mat-card-content>
-                      <mat-form-field style="width:100px" class="mb-1" >
-                        <input matInput placeholder="Recherche....">
+                    <div class="col-xs-6 col-sm-6" >
+                        <div class="card"  style="width: 950px;height: 1300px;">
+                            <div class="card-header"Style="color:black">
+                                <strong>Ajouter ma propre proposition</strong>
+                            </div>
 
-                      </mat-form-field>
+<form [formGroup]="editForm" novalidate>
+  <div class="card-body card-block">
+    <label for="cc-exp" class="control-label mb-1" style="color: black;">Titre</label>
+      <div class="form-group">
+          <label class=" form-control-label"></label>
+          <div class="input-group">
+              <input class="form-control"formControlName="titre" #titre [(ngModel)]="mission.titre">
+          </div>
+      </div>
+      <div class="row form-group">
+
+        <div class="col col-md-3"><label for="textarea-input" class=" form-control-label"  style="color:black;">Description</label></div>
+        <div class="col-12 col-md-9"><textarea name="textarea-input" id="textarea-input"  style="height: 63px;" rows="9" placeholder="Content..." class="form-control"formControlName="description" #description [(ngModel)]="mission.description"></textarea></div>
+    </div>
+      <label for="cc-exp" class="control-label mb-1" style="color: black;">Selectionnez le type  de la ressource </label>
+      <mat-form-field class="ml-xs mr-xs" style="width: 40%;">
+        <mat-select  name="gouv" formControlName="type" #type [(ngModel)]="mission.type">
+          <mat-option value="Locaux">     Locaux</mat-option>
+          <mat-option value="Material">   Matérial</mat-option>
+
+        </mat-select>
+      </mat-form-field>
+      <br>
+
+    <label for="cc-exp" class="control-label mb-1" style="color: black;">Localisation </label>
+      <div class="form-group">
+          <label class=" form-control-label"></label>
+          <div class="input-group">
+              <input class="form-control"formControlName="lieu" #lieu [(ngModel)]="mission.lieu">
+          </div>
+      </div>
+
+      <label for="cc-exp" class="control-label mb-1" style="color: black;">Precisions </label>
+      <h4 style="color:black; size:12px;">Indiquez les autres conditions de votre proposition de prêt (modalités, contraintes pratiques)</h4>
+      <div class="row form-group">
+
+        <div class="col-12 col-md-9"><textarea name="textarea-input" id="textarea-input"  style="height: 63px;" rows="9" placeholder="modalités, contraintes pratiques..." class="form-control"formControlName="precision" #precision [(ngModel)]="mission.precision" ></textarea></div>
+    </div>
+  <!-- <div class="form-group">
+    <label for="Photo">Image</label>
+    <input type="file" formControlName="Photo" class="form-control-file" (change)="uploadImage($event)" />
+    <br />
+    <img *ngIf="Photo" [src]="Photo" [alt]="Photo" height="200px">
+  </div> -->
 
 
-                      <table class="table" style="width: 1000px;">
-                        <thead>
-                        <tr>
-                          <th>photo</th>
-                          <th>Nom association</th>
-                          <th>sujet</th>
-                          <th>besoin</th>
-                          <th>description</th>
-                          <th>lieu</th>
-                          <th>date debit</th>
-                          <th>date fin</th>
-                          <th>type d'action</th>
-                          <th>quand?</th>
-                          <th>nombre de participants</th>
-                          <th></th>
-                          <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                          <tr *ngFor="let m of Missions$| async as missions">
-                            <td> <img [src]="url_image+m.imageUrl" style="width:50px;height: 40px" /></td>
+  <br>
+  <br>
+      <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block" (click)="updateMission(mission.titre,mission.type,
+      mission.description,
+      mission.lieu,
+       mission.precision)" style="width:200px; margin-left: 360px;">
+        <i class="fa fa-lock fa-lg"></i>&nbsp;
+        <span id="payment-button-amount">enregistre </span>
+    </button>
+    <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block" style="background-color:green;width:200px; margin-left: 360px;">
+      <i class="fa fa-ban"></i>&nbsp;
+      <span id="payment-button-amount">Annuler </span>
+  </button>
 
-                            <td>{{m.nom_res}}</td>
-                            <td>{{m.sujet}}</td>
-                            <td>{{m.besoin}}</td>
-                            <td>{{m.description}}</td>
-                            <td>{{m.lieu}}</td>
-                            <td>{{m.date}}</td>
-                            <td>{{m.datefin}}</td>
-                            <td>{{m.type}}</td>
-                            <td>{{m.qd}}</td>
-                            <td>{{m.nbparticipant}}</td>
-
-
-<td></td>
-                             <td>
-                              <a style="padding-right:5px"[routerLink]="['/admin/edit-mission',m._id]">
-                                <i><i class="fa fa-pencil" style="font-size: large;color:green;"></i></i>
-                              </a>
-                            </td>
-                            <td>
-                              <a style="padding-right: 5px" (click)="delete(m._id)">
-                                  <i class="fa fa-trash" style="font-size: large;color: red;"></i>
-                                </a>
-                            </td>
-                          </tr>
-
-                          </tbody>
-                      </table>
-                      <br>
-
-                    </mat-card-content>
-                  </mat-card>
+  </div>
+</form>
+                        </div>
+                    </div>
 
                 </div>
             </div><!-- .animated -->
@@ -199,9 +207,4 @@
     </div><!-- /#right-panel -->
 
     <!-- Right Panel -->
-
-
-
-
-
 

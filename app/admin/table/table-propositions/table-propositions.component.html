@@ -148,23 +148,24 @@
                         </tr>
                         </thead >
                         <tbody>
-                          <tr>
-                          <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+
+
+                          <tr *ngFor="let p of Propositions$| async as propositions">
+                          <td>{{p.titre}}</td>
+                            <td>{{p.type}}</td>
+                            <td>{{p.description}}</td>
+                            <td>{{p.lieu}}</td>
                             <td>
-                              <a style="padding-right:5px">
+                              <a style="padding-right:5px"[routerLink]="['/admin/edit-proposition',p._id]">
                                 <i><i class="fa fa-pencil" style="font-size: large;color:green;"></i></i>
                               </a>
                             </td>
                             <td>
-                              <a style="padding-right: 5px">
+                              <a style="padding-right: 5px" (click)="delete(p._id)">
                                   <i class="fa fa-trash" style="font-size: large;color: red;"></i>
                                 </a>
                             </td>
                           </tr>
-
                           </tbody>
                       </table>
                       <br>

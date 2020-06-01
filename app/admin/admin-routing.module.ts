@@ -25,6 +25,7 @@ import { ActionsComponent } from './actions/actions.component';
 import { PropositionsComponent } from './propositions/propositions.component';
 import { TablePropositionsComponent } from './table/table-propositions/table-propositions.component';
 import { TableActionsComponent } from './table/table-actions/table-actions.component';
+import { EditPropositionComponent } from './edit/edit-proposition/edit-proposition.component';
 
 
 
@@ -37,6 +38,11 @@ canActivate:[GuradGuard]
   {
     path:"edit-benevole/:id",
     component:EditBenevoleComponent,
+    canActivate:[GuradGuard]
+  },
+  {
+    path:"edit-proposition/:id",
+    component:EditPropositionComponent,
     canActivate:[GuradGuard]
   },
   {

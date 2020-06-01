@@ -23,8 +23,8 @@ export class PropositionService {
     return this.http.get<Proposition[]>(`${this.ROOT_URL}/${id}`);
   }
 
-  addProposition(Proposition) {
-    return this.http.post<any>(this.ROOT_URL,Proposition, this.httpOptions);
+  addProposition(proposition) {
+    return this.http.post<any>(this.ROOT_URL,proposition, this.httpOptions);
   }
 
   editProposition(proposition, id: string) {
@@ -33,9 +33,9 @@ export class PropositionService {
       this.httpOptions
     );
   }
-  updateProposition(type_activite, id) {
+  updateProposition(  titre,type,description,lieu, precision, id) {
     const obj = {
-      type_activite
+      titre,type,description,lieu, precision
     };
     this
       .http

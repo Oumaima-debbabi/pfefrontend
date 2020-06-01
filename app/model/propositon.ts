@@ -5,6 +5,6 @@ type:string,
 _id:string,
 titre:string,
 precision:string,
-creator:string,
+creator:string
 
  }

@@ -9,6 +9,7 @@ import { AssociationsComponent } from './association/associations/associations.c
 import { GuradGuard } from './user/gurad.guard';
 import {Role} from './admin/model/role'
 import { GoogleMapComponent } from './google-map/google-map.component';
+import { PopMissionComponent } from './components/mission/pop-mission/pop-mission.component';
 const routes: Routes = [
   {path:"",component:ShowallComponent},
   {path:"login",component:LoginComponent},
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
 path:"map",
 component:GoogleMapComponent
+  },
+  {
+path:"pop",
+component:PopMissionComponent
   },
   {
     path: "association",

@@ -29,6 +29,7 @@ import { Section2Component } from './components/section2/section2.component';
 import { EvenementComponent } from './evenement/evenement.component';
 import { PartenaireComponent } from './partenaire/partenaire.component';
 import { GuradGuard } from './user/gurad.guard';
+import { PopMissionComponent } from './components/mission/pop-mission/pop-mission.component';
 
 
 //import { ToastComponent } from './toast/toast.component';
@@ -58,6 +59,7 @@ import { GuradGuard } from './user/gurad.guard';
     Section2Component,
     EvenementComponent,
     PartenaireComponent,
+    PopMissionComponent,
 
     //ToastComponent,
 

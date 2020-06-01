@@ -19,7 +19,7 @@ export class PropositionsComponent implements OnInit {
 
 
   missionForm= new FormGroup({
-    sujet: new FormControl("",[Validators.required]),
+   
     //action: new FormControl("",[Validators.required]),
     //: new FormControl("",[Validators.required]),
 

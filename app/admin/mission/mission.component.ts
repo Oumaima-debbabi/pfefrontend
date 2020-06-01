@@ -29,7 +29,7 @@ missionForm= new FormGroup({
     description: new FormControl("",[Validators.required]),
    imageUrl: new FormControl("",  [Validators.required])
    });
-   imageUrl:string=''
+   imageUrl1:string=''
    Photo: string = ''
 mission:Mission
     constructor(private missionService:AdminService,
@@ -39,10 +39,13 @@ mission:Mission
    {}
    associations$:Observable <Association[]>
  uploadImage(event) {
-    this.missionService.uploadImage(event.target.files[0])
-      .subscribe((res: any) => {
-        this.imageUrl = res.imageUrl
+     this.missionService.uploadImage(event.target.files[0]).subscribe((res: any) => {
+         this.imageUrl1 = res.imageUrl;
+         this.Photo=this.imageUrl1
+         console.log(this.imageUrl1)
       })
+    //this.Photo=event.target.files[0];
+
   }
     ngOnInit() {
       this.associations$ =this.missionService.getAssociations()
@@ -51,6 +54,11 @@ mission:Mission
 
     newMissin() {
       if (this.missionForm.valid) {
+        console.log(this.missionForm.value)
+        this.missionForm.patchValue({
+          imageUrl:this.Photo
+        })
+
         this.missionService.addMission(this.missionForm.value).subscribe(res => {
           const Toast = Swal.mixin({
             toast: true,
@@ -68,6 +76,6 @@ mission:Mission
       }
     }
 
-  
+
 
     }

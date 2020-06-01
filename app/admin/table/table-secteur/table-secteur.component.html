@@ -147,12 +147,11 @@
                       <th></th>
                       <th></th>
                     </tr>
-                    </thead >
+                    </thead>
                     <tbody>
-
                       <tr  *ngFor="let s of Secteurs$ | async as secteurs">
+                        <td></td>
                       <td>{{s.type_activite}}</td>
-                      <td>{{1}}</td>
                       <td>
                         <a style="padding-right: 5px" [routerLink]="['/admin/edit-secteur/',s._id]">
                           <i><i class="fa fa-pencil" style="font-size: large;color:green;" ></i></i>
