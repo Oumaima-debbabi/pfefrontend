@@ -41,9 +41,9 @@ export class AdminService {
       // addMission(Mission) {
       //   return this.http.post<any>(this.ROOT_URL3,Mission, this.httpOptions);
       // }
-      addMission(Mission) {
-        return this.http.post<any>(`${this.ROOT_URL3}`,Mission, this.httpOptions);
-      }
+      addMission(data) {
+        return this.http.post<Mission>(this.ROOT_URL3, data)
+        }
       uploadImage(image) {
         const data = new FormData()
         data.append('image', image)

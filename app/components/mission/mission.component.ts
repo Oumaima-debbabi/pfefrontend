@@ -7,6 +7,7 @@ import { MatDialog, MatDialogConfig } from "@angular/material";
 import { LoginComponent } from 'src/app/login/login.component';
 import { PopMissionComponent } from './pop-mission/pop-mission.component';
 import { MisssonDetailsComponent } from './missson-details/missson-details.component';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-mission',
   templateUrl: './mission.component.html',
@@ -14,11 +15,13 @@ import { MisssonDetailsComponent } from './missson-details/missson-details.compo
 })
 export class MissionComponent implements OnInit {
 
+id:string
 
 
   constructor(private dialog: MatDialog
 ,
-    private missionService:MissionService
+    private missionService:MissionService,
+    private router:ActivatedRoute
 
   ){}
 missions$:Observable<Mission[]>
@@ -26,14 +29,14 @@ missions$:Observable<Mission[]>
       this.missions$=this.missionService.getMissions4();
 
 }
-onCreate() {
-  this.missions$= this.missionService.getMissions();
-
-  const dialogConfig = new MatDialogConfig();
+onCreate(id) {
+    this.id = this.router.snapshot.paramMap.get("id");
+//this.missionService.getMission("id");
+console.log(id)
+   const dialogConfig = new MatDialogConfig();
   dialogConfig.disableClose = true;
-  dialogConfig.autoFocus = true;
-  dialogConfig.width = "70%";
-
+ dialogConfig.autoFocus = true;
+   dialogConfig.width = "70%";
   this.dialog.open(PopMissionComponent,dialogConfig);
 }
 }

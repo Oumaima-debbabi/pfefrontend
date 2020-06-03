@@ -34,10 +34,7 @@ const routes: Routes = [
 path:"map",
 component:GoogleMapComponent
   },
-  {
-path:"pop",
-component:PopMissionComponent
-  },
+ 
   {
     path: "association",
     loadChildren:()=> import("./association/association.module").then(m=>m.AssociationModule)

@@ -78,6 +78,7 @@ import { PopMissionComponent } from './components/mission/pop-mission/pop-missio
       })
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[PopMissionComponent]
 })
 export class AppModule { }

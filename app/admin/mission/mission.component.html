@@ -135,20 +135,20 @@
                                 <strong>Ajouter mission</strong>
                             </div>
 
-<form [formGroup]="missionForm" (ngSubmit)="newMissin()">
+<form [formGroup]="missionForm" (ngSubmit)="addPost()">
   <div class="card-body card-block">
     <label for="cc-exp" class="control-label mb-1" style="color: black;">Sujet</label>
       <div class="form-group">
           <label class=" form-control-label"></label>
           <div class="input-group">
-              <input class="form-control"formControlName="sujet">
+              <input class="form-control"formControlName="sujet"[(ngModel)]="sujet" (input)="handleChange()">
           </div>
       </div>
       <label for="cc-exp" class="control-label mb-1" style="color: black;">Nom association </label>
       <br>
       <mat-form-field  *ngIf="associations$ | async as associations">
         <mat-label class="input-group"></mat-label>
-        <mat-select  formControlName="nom_res">
+        <mat-select  formControlName="nom_res" [(ngModel)]="nom_res" (input)="handleChange()">
           <mat-option [value]="association.nom_association" *ngFor="let association of associations">{{association.nom_association}}
           </mat-option>
         </mat-select>
@@ -159,12 +159,12 @@
       <div class="form-group">
           <label class=" form-control-label"></label>
           <div class="input-group">
-              <input class="form-control"formControlName="besoin">
+              <input class="form-control"formControlName="besoin" [(ngModel)]="besoin"  (input)="handleChange()">
           </div>
       </div>
       <label for="cc-exp" class="control-label mb-1" style="color: black;">Se déroule </label>
       <mat-form-field class="ml-xs mr-xs" style="width: 40%;">
-        <mat-select  name="gouv" formControlName="qd">
+        <mat-select  name="gouv" formControlName="qd" [(ngModel)]="qd" (input)="handleChange()">
           <mat-option value="Nuit">Nuit</mat-option>
           <mat-option value="Jour">Jour</mat-option>
         <mat-option value="Soir">Soir</mat-option>
@@ -174,7 +174,7 @@
         <br>
         <label for="cc-exp" class="control- mb-1" style="color: black;">type d'action </label>
         <mat-form-field class="ml-xs mr-xs" style="width:40%;">
-          <mat-select  name="gouv" formControlName="type">
+          <mat-select  name="gouv" formControlName="type" [(ngModel)]="type" (input)="handleChange()">
             <mat-option value="Régulier">Régulier</mat-option>
             <mat-option value="Ponctuelle">Ponctuelle</mat-option>
           </mat-select>
@@ -183,20 +183,20 @@
       <div class="row form-group">
 
         <div class="col col-md-3"><label for="textarea-input" class=" form-control-label"  style="color:black;">Description</label></div>
-        <div class="col-12 col-md-9"><textarea name="textarea-input" id="textarea-input"  style="height: 63px;" rows="9" placeholder="Content..." class="form-control"formControlName="description" ></textarea></div>
+        <div class="col-12 col-md-9"><textarea name="textarea-input" id="textarea-input"  style="height: 63px;" rows="9" placeholder="Content..." class="form-control" [(ngModel)]="description" (input)="handleChange()" formControlName="description" ></textarea></div>
     </div>
       <label for="cc-exp" class="control-label mb-1" style="color: black;">Date début </label>
       <div class="form-group">
           <label class=" form-control-label"></label>
           <div class="input-group">
-              <input class="form-control" formControlName="date">
+              <input class="form-control" formControlName="date" [(ngModel)]="date"(input)="handleChange()">
           </div>
       </div>
       <label for="cc-exp" class="control-label mb-1" style="color: black;">Date fin</label>
       <div class="form-group">
           <label class=" form-control-label"></label>
           <div class="input-group">
-              <input class="form-control" formControlName="datefin">
+              <input class="form-control" formControlName="datefin" [(ngModel)]="datefin" (input)="handleChange()">
           </div>
       </div>
 
@@ -204,7 +204,7 @@
       <div class="form-group">
           <label class=" form-control-label"></label>
           <div class="input-group">
-              <input class="form-control"formControlName="lieu">
+              <input class="form-control"formControlName="lieu" [(ngModel)]="lieu" (input)="handleChange()">
           </div>
       </div>
 
@@ -224,7 +224,7 @@
   </div>
   <br>
   <br>
-      <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block" [disabled]="!missionForm.valid" style="width:200px; margin-left: 360px;">
+      <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block" style="width:200px; margin-left: 360px;">
         <i class="fa fa-lock fa-lg"></i>&nbsp;
         <span id="payment-button-amount">enregistre </span>
     </button>

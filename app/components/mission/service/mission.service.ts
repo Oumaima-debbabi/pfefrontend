@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Mission} from "../model/mission"
-
+import { FormGroup } from '@angular/forms';
+import * as _ from 'lodash';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,9 +14,8 @@ private httpOptions = {
     .set("Content-Type", "application/json")
 
 };
-
 constructor(private http: HttpClient) {}
-
+form: FormGroup
 getMissions4(): Observable<Mission[]> {
   return this.http.get<Mission[]>(`${this.ROOT_URL}/get4`);
 }
