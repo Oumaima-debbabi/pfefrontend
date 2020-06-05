@@ -17,6 +17,7 @@ export class EditProfilComponent implements OnInit {
 users:Admin
   user: any = {};
   editForm: FormGroup;
+  imageUrl:''
   constructor(private route: ActivatedRoute, private router: Router,
     private bS:AdminService ,private fb: FormBuilder,
     private aService:AdminService) { this.createForm();
@@ -33,7 +34,9 @@ users:Admin
       numero_telephone: new FormControl("",[Validators.required]),
       code_postal: new FormControl("",[Validators.required]),
       date_naissance: new FormControl("",[Validators.required]),
-      profession :new FormControl("",[Validators.required])
+      profession :new FormControl("",[Validators.required]),
+      imageUrl:new FormControl("",[Validators.required]),
+
     });
   }
 
@@ -50,9 +53,15 @@ users:Admin
   get isAdmin() {
     return this.user && this.user.role === Role.Admin;
 }
-  updateUser( name, prenom,profession,association,email, civilite, adresse, code_postal,date_naissance,numero_telephone, id) {
+uploadImage(event) {
+  this.bS.uploadImage(event.target.files[0])
+    .subscribe((res: any) => {
+      this.imageUrl = res.imageUrl
+    })
+}
+  updateUser( name, prenom,profession,association,email, civilite, adresse, code_postal,date_naissance,numero_telephone, imageUrl,id) {
     this.route.params.subscribe(params => {
-      this.bS.editUser(name, prenom,profession,association, email,civilite, adresse, code_postal,date_naissance,numero_telephone,params.id);
+      this.bS.editUser(name, prenom,profession,association, email,civilite, adresse, code_postal,date_naissance,numero_telephone,imageUrl,params.id);
       const Toast = Swal.mixin({
         toast: true,
         position: 'center',

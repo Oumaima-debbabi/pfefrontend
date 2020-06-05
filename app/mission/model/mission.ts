@@ -1,7 +1,7 @@
 export interface Mission {
   sujet:string,
 besoin:string,
-nom_res:string,
+nom_association1:string,
 lieu:string,
 date:string,
 datefin:string,

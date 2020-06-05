@@ -38,7 +38,11 @@ date_creation: new FormControl("", [Validators.required]),
 
 
   ngOnInit() {
-    this.secteurs$ = this.secteurService.getSecteurs();
+this.getsecteur()
+this.secteurs$=this.secteurService.getSecteurs()
+}
+  getsecteur(){
+    //this.secteurService.getSecteurs().subscribe((secteurs:ISecteur[])=>this.secteurs=this.secteurs);
 
   }
 

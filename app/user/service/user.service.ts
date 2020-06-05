@@ -14,12 +14,14 @@ export class UserService {
   public currentUser: Observable<Admin>;
   constructor(private http: HttpClient,private router: Router ) {
     this.currentUserSubject = new BehaviorSubject<Admin>(JSON.parse(localStorage.getItem('currentUser')));
-    this.currentUser = this.currentUserSubject.asObservable();}
+    this.currentUser = this.currentUserSubject.asObservable();
+   }
 
     public get currentUserValue(): Admin {
         return this.currentUserSubject.value;
     }
 
+  
   register(user) {
     return this.http.post<any>(`${this.ROOT_URL}benevole/register`, user);
   }

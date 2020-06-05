@@ -12,9 +12,11 @@ import{
   MatCheckboxModule,
   MatRadioModule,
   MatButtonModule,
-  MatCardModule
+  MatCardModule,
 
   }from '@angular/material';
+  import {MatDialogModule,MAT_DIALOG_DATA} from '@angular/material/dialog';
+
   import{AgmCoreModule} from '@agm/core';
 
 import { LoginComponent } from './login/login.component';
@@ -30,6 +32,7 @@ import { EvenementComponent } from './evenement/evenement.component';
 import { PartenaireComponent } from './partenaire/partenaire.component';
 import { GuradGuard } from './user/gurad.guard';
 import { PopMissionComponent } from './components/mission/pop-mission/pop-mission.component';
+import { AssoDetailsComponent } from './association/asso-details/asso-details.component';
 
 
 //import { ToastComponent } from './toast/toast.component';
@@ -39,13 +42,16 @@ import { PopMissionComponent } from './components/mission/pop-mission/pop-missio
     MatCheckboxModule,
     MatRadioModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule,
+    MAT_DIALOG_DATA
+
 
   ]
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent, AssoDetailsComponent,
     Section1Component,
     ShowallComponent,
     LoginComponent,
@@ -60,6 +66,7 @@ import { PopMissionComponent } from './components/mission/pop-mission/pop-missio
     EvenementComponent,
     PartenaireComponent,
     PopMissionComponent,
+
 
     //ToastComponent,
 

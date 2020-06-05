@@ -1,3 +1,5 @@
+import { Secteur } from 'src/app/secteur/model/secteur';
+
 export interface Association {
   nom_association: string;
   email: string;
@@ -8,7 +10,7 @@ export interface Association {
   code_postal: string;
   password: string;
   date_creation: string;
-  secteur: string;
+  secteur:string;
   image: string;
   _id:string;
   isVerified:boolean,

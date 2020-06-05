@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import {Mission} from "../model/mission"
 import { FormGroup } from '@angular/forms';
 import * as _ from 'lodash';
@@ -14,7 +14,20 @@ private httpOptions = {
     .set("Content-Type", "application/json")
 
 };
-constructor(private http: HttpClient) {}
+public currentUser: Observable<Mission>;
+
+private currentUserSubject: BehaviorSubject<Mission>;
+
+
+constructor(private http: HttpClient) {
+
+  this.currentUserSubject = new BehaviorSubject<Mission>(
+    JSON.parse(localStorage.getItem('currentUser')));
+  this.currentUser = this.currentUserSubject.asObservable();
+}
+public get currentUserValue(): Mission {
+  return this.currentUserSubject.value;
+}
 form: FormGroup
 getMissions4(): Observable<Mission[]> {
   return this.http.get<Mission[]>(`${this.ROOT_URL}/get4`);

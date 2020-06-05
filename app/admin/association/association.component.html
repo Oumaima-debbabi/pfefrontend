@@ -154,15 +154,18 @@
       </div>
       <label for="cc-exp" class="control-label mb-1" style="color: black;">Secteur</label>
     <br>
-      <mat-form-field  *ngIf="secteurs$ | async as secteurs">
+      <mat-form-field *ngIf="secteurs$ | async as secteurs" >
         <mat-label class="input-group">Secteur</mat-label>
         <mat-select  formControlName="secteur">
-          <mat-option [value]="secteur.type_activite" *ngFor="let secteur of secteurs">{{secteur.type_activite}}
+          <mat-option [value]="secteur._id
+          "  *ngFor="let secteur of secteurs">
+            {{secteur.type_activite}}
           </mat-option>
         </mat-select>
       </mat-form-field>
       <br>
-     
+      <br>
+
     <br>
       <label for="cc-exp" class="control-label mb-1" style="color: black;">Email</label>
       <div class="form-group">

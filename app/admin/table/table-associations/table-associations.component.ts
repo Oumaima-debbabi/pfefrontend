@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Association } from 'src/app/association/model/association';
 import { AdminService } from '../../services/admin.service';
 import { Router } from '@angular/router';
+import { Secteur } from 'src/app/secteur/model/secteur';
 
 @Component({
   selector: 'app-table-associations',
@@ -16,10 +17,15 @@ export class TableAssociationsComponent implements OnInit {
 name:'';
 Associations$: Observable<Association[]>;
 associations;
+Secteurs$: Observable<Secteur[]>;
+
   constructor(private assoicationService:AdminService,
     private route:Router) {}
-
-  ngOnInit() {
+getsecteur()
+{
+  this.Secteurs$=this.assoicationService.getSecteurs()
+}
+ ngOnInit() {
    this.Associations$= this.assoicationService.getAssociations();
 
   }

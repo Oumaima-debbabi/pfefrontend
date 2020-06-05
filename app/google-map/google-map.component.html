@@ -38,7 +38,7 @@
                                     <tr>
                                       <tr *ngFor="let s of associations$ | async as association">
 
-                                        <td style="color: black;">{{s.nom_association}}
+                                        <td style="color: black;"  [routerLink]="['/association/',s._id]">{{s.nom_association}}
 
 
                                           <div class="portfolio-thumbnail greennature-image"><img src="assets/upload/shutterstock_161515241-540x326.jpg" alt="" Style="width: 100px;height: 100px;"/><span class="portfolio-overlay">&nbsp;</span><a class="portfolio-overlay-icon" href="assets/upload/shutterstock_161515241.jpg" data-rel="fancybox"><span class="portfolio-icon" ><i class="fa fa-search" ></i></span></a></div>

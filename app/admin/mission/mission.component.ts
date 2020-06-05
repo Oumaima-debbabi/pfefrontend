@@ -22,7 +22,7 @@ missionForm= new FormGroup({
     type: new FormControl("",[Validators.required]),
     besoin: new FormControl("",[Validators.required]),
     //nombre_preson: new FormControl("",[Validators.required]),
-    nom_res: new FormControl("",[Validators.required]),
+    nom_association1: new FormControl("",[Validators.required]),
     lieu: new FormControl("",[Validators.required]),
     date: new FormControl("",[Validators.required]),
     datefin: new FormControl("",[Validators.required]),
@@ -36,7 +36,7 @@ missionForm= new FormGroup({
    date:string = '';
    sujet:string = '';
    description:string = '';
-   nom_res:string = '';
+   nom_association1:'';
    lieu:string = '';
    type:string = '';
    imageUrl:string = ''
@@ -63,7 +63,6 @@ mission:Mission
     newMissin() {
       if (this.missionForm.valid) {
 
-
         this.missionService.addMission(this.missionForm.value).subscribe(res => {
           const Toast = Swal.mixin({
             toast: true,
@@ -87,7 +86,7 @@ mission:Mission
         date: this.date,
         sujet:this.sujet,
         datefin: this.datefin,
-        nom_res: this.nom_res,
+        nom_association1: this.nom_association1,
         imageUrl: this.imageUrl,
         besoin:this.besoin,
         qd:this.qd,
@@ -97,7 +96,7 @@ mission:Mission
       this.missionService.addMission(data)
         .subscribe(() => {
           this.description='';
-          this.nom_res = '';
+          this.nom_association1 = '';
           this.lieu = '';
           this.imageUrl = '';
           this.datefin='';

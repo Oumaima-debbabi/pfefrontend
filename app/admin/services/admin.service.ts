@@ -10,6 +10,7 @@ import { BenevoleComponent } from '../benevole/benevole.component';
 import { Benevole } from '../benevole/model/benevole';
 import { Router } from "@angular/router";
 import { User } from 'src/app/user/model/user';
+import { idLocale } from 'ngx-bootstrap/chronos/i18n/id';
 
 @Injectable({
   providedIn: 'root'
@@ -46,14 +47,14 @@ export class AdminService {
         }
       uploadImage(image) {
         const data = new FormData()
-        data.append('image', image)
+        data.append('image',image)
         return this.http.post(this.ROOT_URL3+'/upload', data)
       }
       getUser(id: string) {
         return this.http.get<User>(`${this.ROOT_URL6}/${id}`);
       }
       updateMission(
-        nom_res,
+        nom_association1,
         sujet,
         besoin,
 
@@ -66,7 +67,7 @@ export class AdminService {
       // Photo,
         ,id) {
         const obj = {
-          nom_res,sujet,besoin,description,lieu,date,datefin,type,qd
+          nom_association1,sujet,besoin,description,lieu,date,datefin,type,qd
 
         };
         this
@@ -227,9 +228,9 @@ export class AdminService {
       return this.http.delete(`${this.ROOT_URL5}/${id}`, this.httpOptions);
     }
 
-    editUser( name, prenom,profession,association,email, civilite, adresse, code_postal,date_naissance,numero_telephone,id) {
+    editUser( name, prenom,profession,association,email, civilite, adresse, code_postal,date_naissance,numero_telephone,imageUrl,id) {
         const obj = {
-          name, prenom,profession,association,email, civilite, adresse, code_postal,date_naissance,numero_telephone
+          name, prenom,profession,association,email, civilite, adresse, code_postal,date_naissance,numero_telephone,imageUrl
           // Photo,
 
         };
@@ -238,6 +239,24 @@ export class AdminService {
           .post(`${this.ROOT_URL6}/update/${id}`, obj)
           .subscribe(res => console.log('Update Complete'));
       }
+      updatephoto(
+       imageUrl
+      // Photo,
+        ,id) {
+        const obj = {
+          imageUrl
+        };
+        this
+          .http
+          .post(`${this.ROOT_URL6}/updateProfil/${id}`, obj)
+          .subscribe(res => console.log('Update Complete'));
+      }
+
+      updatePhot(data,id) {
+
+
+        return this.http.post<User>(`${this.ROOT_URL6}/updatePhoto/${id}`, data)
+        }
     // login(user) {
     //   return this.http.post<any>(`${this.ROOT_URL6}/login`, user);
     // }

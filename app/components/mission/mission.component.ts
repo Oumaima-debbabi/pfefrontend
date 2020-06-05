@@ -17,7 +17,7 @@ export class MissionComponent implements OnInit {
 
 id:string
 
-
+mission:Mission
   constructor(private dialog: MatDialog
 ,
     private missionService:MissionService,
@@ -27,16 +27,20 @@ id:string
 missions$:Observable<Mission[]>
   ngOnInit() {
       this.missions$=this.missionService.getMissions4();
-
+      this.mission = this.missionService.currentUserValue
 }
-onCreate(id) {
-    this.id = this.router.snapshot.paramMap.get("id");
-//this.missionService.getMission("id");
-console.log(id)
+
+onCreate(data) {
+    //this.id = this.router.snapshot.paramMap.get("id");
+// this.missionService.getMission("mission");
    const dialogConfig = new MatDialogConfig();
   dialogConfig.disableClose = true;
  dialogConfig.autoFocus = true;
    dialogConfig.width = "70%";
-  this.dialog.open(PopMissionComponent,dialogConfig);
+  //this.dialog.open(PopMissionComponent,dialogConfig);
+  dialogConfig.data = {data};
+  this.dialog.open(PopMissionComponent, dialogConfig)
+  console.log(data)
 }
+
 }
