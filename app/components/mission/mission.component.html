@@ -30,7 +30,7 @@
                                   <div class="portfolio-classic-content" >
 
 
-                                    <button mat-raised-button (click)="onCreate(mission._id)">
+                                    <button mat-raised-button  [routerLink]="['/pop',mission._id]" (click)="onCreate(mission._id)">
                                       <mat-icon>add</mat-icon>Participer
                                     </button>
 

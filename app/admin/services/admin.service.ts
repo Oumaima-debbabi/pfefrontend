@@ -160,23 +160,28 @@ export class AdminService {
     }
 
     getPartenaires(): Observable<Partenaire[]> {
-      return this.http.get<Partenaire[]>(`${this.ROOT_URL2}`);
+      return this.http.get<Partenaire[]>(`${this.ROOT_URL4}`);
     }
 
     getPartenaire(id: string) {
-      return this.http.get<Partenaire>(`${this.ROOT_URL2}${id}`);
+      return this.http.get<Partenaire>(`${this.ROOT_URL4}/${id}`);
     }
 
-    addPartenaire(Partenaire) {
-      return this.http.post<any>(this.ROOT_URL4,Partenaire, this.httpOptions);
+    addPartenaire(data) {
+      return this.http.post<Partenaire>(this.ROOT_URL4, data)
+
     }
 
-    editPartenaire(partenaire, id: string) {
-      return this.http.put<any>(
-        `${this.ROOT_URL4}${id}`,
-        partenaire,
-        this.httpOptions
-      );
+    editPartenaire(nom,imageUrl,id) {
+      const obj = {
+        nom,imageUrl
+        // Photo,
+
+      };
+      this
+        .http
+        .post(`${this.ROOT_URL4}/update/${id}`, obj)
+        .subscribe(res => console.log('Update Complete'));
     }
 
     deletePartenaire(id: string) {

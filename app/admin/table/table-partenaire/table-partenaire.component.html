@@ -153,15 +153,16 @@
 
                       <tr  *ngFor="let p of Partenaires$ | async as partenaires">
                         <td></td>
+                        <td><img src="{{p.imageUrl}}" style="width:50px;height: 40px" /></td>
                       <td>{{p.nom}}</td>
-                      <td>{{p.photo}}</td>
+
                       <td>
-                        <a style="padding-right: 5px">
+                        <a style="padding-right:5px"[routerLink]="['/admin/edit-partenaire',p._id]">
                           <i><i class="fa fa-pencil" style="font-size: large;color:green;"></i></i>
                         </a>
                       </td>
                       <td>
-                        <a style="padding-right: 5px" (click)="delete(p)">
+                        <a style="padding-right: 5px" (click)="delete(p._id)">
                             <i class="fa fa-trash" style="font-size: large;color: red;"></i>
                           </a>
                         </td>

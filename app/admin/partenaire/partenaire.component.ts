@@ -13,37 +13,54 @@ export class PartenaireComponent implements OnInit {
 
   partenaireForm= new FormGroup({
 
-    photo: new FormControl("",[Validators.required]),
+    imageUrl: new FormControl("",[Validators.required]),
     nom: new FormControl("",[Validators.required]),
     //nombre_preson: new FormControl("",[Validators.required]),
 
 
   });
-
+  imageUrl:string='';
+nom:string='';
+formDirty:boolean=false;
     constructor(private partenaireService:AdminService,
                private route:Router
       )
    {}
-
+   uploadImage(event) {
+    this.partenaireService.uploadImage(event.target.files[0])
+      .subscribe((res: any) => {
+        this.imageUrl = res.imageUrl
+      })
+  }
     ngOnInit() {}
 
-    newPartenaire() {
-      // if (this.partenaireForm.valid) {
-      //   this.partenaireService.add(this.partenaireForm.value).subscribe(res => {
-      //     const Toast = Swal.mixin({
-      //       toast: true,
-      //       position: 'center',
-      //       showConfirmButton: true,
-      //       timer: 3000
-      //     });
-      //     Toast.fire({
-      // title:'partenaire ajouté'
+    addPost(): void {
+      const data = {
+        imageUrl: this.imageUrl,
+        nom: this.nom,
+              }
 
-      //     })
-      //     this.partenaireForm.reset();
+      this.partenaireService.addPartenaire(data)
+        .subscribe(() => {
+          this.nom='';
+          this.imageUrl = '';
+          this.formDirty = false;
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'center',
+            showConfirmButton: true,
+            timer: 3000
+          });
+          Toast.fire({
+            title:'partenaire ajouté avec succées!!'
+          })
+        this.route.navigate(["admin/table-partenaire"]);
+        })
 
-      //   });
-      // }
+    }
+
+    handleChange() {
+      this.formDirty = true;
     }
 
     }

@@ -11,8 +11,13 @@ export class AssociationService {
   private APIurl = "http://localhost:4000/api/secteur";
 
   constructor(private http:HttpClient) { }
-  registration(association) {
-    return this.http.post<any>(`${this.ROOT_URL}association/register`, association);
+  registration(data) {
+    return this.http.post<any>(`${this.ROOT_URL}association/register`, data);
+  }
+  uploadImage(image) {
+    const data = new FormData()
+    data.append('image',image)
+    return this.http.post(this.ROOT_URL+'association/upload', data)
   }
   // getSecteur() {
   //   const httpOptions = {

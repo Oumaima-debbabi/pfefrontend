@@ -1,6 +1,6 @@
 export interface Partenaire {
   nom:string;
-photo:string;
+imageUrl:string;
   _id:string;
 
    }

@@ -33,6 +33,8 @@ import { PartenaireComponent } from './partenaire/partenaire.component';
 import { GuradGuard } from './user/gurad.guard';
 import { PopMissionComponent } from './components/mission/pop-mission/pop-mission.component';
 import { AssoDetailsComponent } from './association/asso-details/asso-details.component';
+import { MissionService } from './mission/services/mission.service';
+import { RegisterComponent } from './register/register.component';
 
 
 //import { ToastComponent } from './toast/toast.component';
@@ -66,6 +68,7 @@ import { AssoDetailsComponent } from './association/asso-details/asso-details.co
     EvenementComponent,
     PartenaireComponent,
     PopMissionComponent,
+    RegisterComponent,
 
 
     //ToastComponent,

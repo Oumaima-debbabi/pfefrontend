@@ -134,19 +134,23 @@
                                 <strong>Ajouter mission</strong>
                             </div>
 
-<form [formGroup]="partenaireForm" (ngSubmit)="newPartenaire()">
+<form [formGroup]="partenaireForm" (ngSubmit)="addPost()">
   <div class="card-body card-block">
     <label for="cc-exp" class="control-label mb-1" style="color: black;">Nom</label>
       <div class="form-group">
           <label class=" form-control-label"></label>
           <div class="input-group">
-              <input class="form-control"formControlName="nom">
+              <input class="form-control"formControlName="nom" [(ngModel)]="nom" (input)="handleChange()">
           </div>
       </div>
-    <div class="row form-group">
+      <div class="form-group">
         <div class="col col-md-3"><label for="file-input" class=" form-control-label" style="color: black;">Image</label></div>
-        <div class="col-12 col-md-9"><input type="file" id="file-input" name="file-input" class="form-control-file"></div>
-    </div>
+        <input type="file" id="file-input" formControlName="imageUrl" class="form-control-file"
+        (change)="uploadImage($event)"/>
+        <br/>
+        <img style="color:black;" *ngIf="imageUrl" [src]="imageUrl" [alt]="imageUrl"  height="10px" width="10px">
+      </div>
+
       <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block" [disabled]="!partenaireForm.valid" style="width:200px; margin-left: 360px;">
         <i class="fa fa-lock fa-lg"></i>&nbsp;
         <span id="payment-button-amount">enregistre </span>

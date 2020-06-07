@@ -26,6 +26,7 @@ import { PropositionsComponent } from './propositions/propositions.component';
 import { TablePropositionsComponent } from './table/table-propositions/table-propositions.component';
 import { TableActionsComponent } from './table/table-actions/table-actions.component';
 import { EditPropositionComponent } from './edit/edit-proposition/edit-proposition.component';
+import { EditPartenaireComponent } from './edit/edit-partenaire/edit-partenaire.component';
 
 
 
@@ -51,6 +52,10 @@ canActivate:[GuradGuard]
     component:TableBenevoleComponent,
     canActivate:[GuradGuard]
 
+  },
+  {
+    path:"edit-partenaire/:id",
+    component:EditPartenaireComponent
   },
   {
     path:"benevole",

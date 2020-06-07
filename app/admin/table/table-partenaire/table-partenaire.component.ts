@@ -45,25 +45,15 @@ ngOnInit() {
       return;
     }
 
-      return this.partenaireService.deletePartenaire(id).subscribe( data => {
-        console.log(data)
-       this.partenaires=data;
-        console.log(data);
+    return this.partenaireService.deletePartenaire(id).subscribe( data => {
+      console.log(data)
+     this.partenaires=data;
+      console.log(data);
         this.route.navigate[("/table-partenaire")];
 
 })
   }
-  editpartenaire(id) {
-    this.id = this.router.snapshot.paramMap.get("id");
-    if (this.editpartenaireForm.valid) {
-      this.partenaireService
-        .editPartenaire(this.editpartenaireForm.value, this.id)
-        .subscribe(res => {
-          this.editpartenaireForm.reset();
-          this.route.navigate(["/table-partenaire"]);
-        });
-    }
-  }
+  
 
 
 

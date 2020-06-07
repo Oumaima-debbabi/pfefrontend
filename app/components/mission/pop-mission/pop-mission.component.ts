@@ -17,8 +17,9 @@ export class PopMissionComponent implements OnInit
  {
   itemList: Mission[];
   //editForm: FormGroup;
+  mission:Mission
   constructor(
-    @Inject(MAT_DIALOG_DATA) public mission,
+    @Inject(MAT_DIALOG_DATA) public data :Mission,
     public dialogRef: MatDialogRef<PopMissionComponent>,
 
   private route: ActivatedRoute, private router: Router,
@@ -27,14 +28,10 @@ export class PopMissionComponent implements OnInit
 
     )
      {
+       this.mission=data
     }
 
   ngOnInit() {
-    this.route.params.subscribe(params=> {
-      this.mS.getMission(params.data).subscribe(res => {
-        this.mission = res;
-    });
-  });
 
 
 

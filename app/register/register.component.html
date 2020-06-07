@@ -8,37 +8,37 @@
 GÉRER SIMPLEMENT VOS APPELS À BÉNÉVOLES !
 
 </h4>
-  <form formGroup="" (ngSubmit)="addPost()"><br>
+  <form [formGroup]="registrationForm" (ngSubmit)="addPost()"><br>
     <div class="row row-space">
       <div class="col-2">
 
-    <input   class="input-group" type="text" class="input--style-4" placeholder="nom de l'ASSOCIATION"  formControlName="name"[(ngModel)]="nom_association" />
+    <input   class="input-group" type="text" class="input--style-4" placeholder="nom de l'ASSOCIATION"  formControlName="name"[(ngModel)]="nom_association"  (input)="handleChange()" />
 
    </div>
 
     <div class="col-2">
 
-    <input   class="input-group"type="text"  class="input--style-4"placeholder="nom de responsable"  formControlName="name" [(ngModel)]="name" />
+    <input   class="inp ut-group"type="text"  class="input--style-4"placeholder="nom de responsable"  formControlName="name" [(ngModel)]="name"  (input)="handleChange()" />
     </div>
 
 </div>
 
 <div class="row row-space">
   <div class="col-2">
-    <input   class="input-group"type="text" class="input--style-4"  placeholder="date de creation" formControlName="date_creation" [(ngModel)]="date_creation" />
+    <input   class="input-group"type="text" class="input--style-4"  placeholder="date de creation" formControlName="date_creation" [(ngModel)]="date_creation"  (input)="handleChange()" />
 
      </div>
      <div class="col-2">
-    <input  class="input-group" type="text" placeholder="numero de l'association"  class="input--style-4" formControlName="numero_association"[(ngModel)]="numero_association" (input)="handleChange()" />
+    <input  class="input-group" type="text" placeholder="numero de l'association"  class="input--style-4" formControlName="numero_association" [(ngModel)]="numero_association" (input)="handleChange()" />
   </div>
 </div>
 
       <div class="row row-space">
       <div class="col-2">
-        <input  class="input-group"type="text" class="input--style-4" placeholder=" adresse postale"formControlName="adresse"[(ngModel)]="adresse" />
+        <input  class="input-group"type="text" class="input--style-4" placeholder=" adresse postale"formControlName="adresse" [(ngModel)]="adresse" (input)="handleChange()" />
       </div>
     <div class="col-2">
-    <input  class="input-group" type="text" class="input--style-4" placeholder="code postal"  formControlName="code_postal"[(ngModel)]="code_postal" />
+    <input  class="input-group" type="text" class="input--style-4" placeholder="code postal"  formControlName="code_postal" [(ngModel)]="code_postal"  (input)="handleChange()" />
     </div>
   </div>
 
@@ -47,12 +47,12 @@ GÉRER SIMPLEMENT VOS APPELS À BÉNÉVOLES !
     <input  class="input-group"
       type="email" class="input--style-4"
       placeholder="entrez votre Email" formControlName="email"
-      [(ngModel)]="email" />
+      [(ngModel)]="email"  (input)="handleChange()" />
     </div>
     <div class="col-2">
     <input  class="input-group" type="password" class="input--style-4"
       placeholder="entrez votre Password" formControlName="password"
-      [(ngModel)]="password"/>
+      [(ngModel)]="password"  (input)="handleChange()"/>
     </div>
     </div>
 
@@ -66,14 +66,14 @@ GÉRER SIMPLEMENT VOS APPELS À BÉNÉVOLES !
     </div> -->
     <mat-form-field  *ngIf="secteurs$ | async as secteurs">
       <mat-label class="input-group">Secteur</mat-label>
-      <mat-select formControlName="secteur" [(ngModel)]="secteur">
-        <mat-option [value]="secteur.type_activite" *ngFor="let secteur of secteurs">{{secteur.type_activite}}
+      <mat-select formControlName="secteur"   (input)="handleChange()" [(ngModel)]="secteur">
+        <mat-option [value]="secteur._id" *ngFor="let secteur of secteurs">{{secteur.type_activite}}
         </mat-option>
       </mat-select>
     </mat-form-field>
     <div class="form-group">
-      <label for="Photo">Image</label>
-      <input type="file" formControlName="Photo" class="form-control-file" (change)="uploadImage($event)" />
+      <label for="imageUrl">Image</label>
+      <input type="file" formControlName="imageUrl" class="form-control-file" (change)="uploadImage($event)" />
       <br />
       <img *ngIf="imageUrl" [src]="imageUrl" [alt]="imageUrl" height="200px">
     </div>

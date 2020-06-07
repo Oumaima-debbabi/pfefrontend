@@ -11,6 +11,7 @@ import {Role} from './admin/model/role'
 import { GoogleMapComponent } from './google-map/google-map.component';
 import { PopMissionComponent } from './components/mission/pop-mission/pop-mission.component';
 import { AssoDetailsComponent } from './association/asso-details/asso-details.component';
+import { RegisterComponent } from './register/register.component';
 const routes: Routes = [
   {path:"",component:ShowallComponent},
   {path:"login",component:LoginComponent},
@@ -44,6 +45,10 @@ component:GoogleMapComponent
     path: "association",
     loadChildren:()=> import("./association/association.module").then(m=>m.AssociationModule)
   },
+ {
+   path:"register",
+   component:RegisterComponent
+ },
 ];
 
 @NgModule({

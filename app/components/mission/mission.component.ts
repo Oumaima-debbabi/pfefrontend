@@ -25,22 +25,42 @@ mission:Mission
 
   ){}
 missions$:Observable<Mission[]>
+
+
   ngOnInit() {
       this.missions$=this.missionService.getMissions4();
-      this.mission = this.missionService.currentUserValue
+      //this.mission = this.missionService.getMission("id")
+      this.router.params.subscribe(params=> {
+
+        this.missionService.getMission(params.id).subscribe(res => {
+          this.mission = res;
+      });
+    });
+
+
 }
 
-onCreate(data) {
-    //this.id = this.router.snapshot.paramMap.get("id");
-// this.missionService.getMission("mission");
+onCreate(mission) {
+  this.router.params.subscribe(params=> {
+
+    this.missionService.getMission(params.mission).subscribe(res => {
+      this.mission = res;
+  });
+});
+
    const dialogConfig = new MatDialogConfig();
   dialogConfig.disableClose = true;
  dialogConfig.autoFocus = true;
-   dialogConfig.width = "70%";
+   dialogConfig.width = "400px";
   //this.dialog.open(PopMissionComponent,dialogConfig);
-  dialogConfig.data = {data};
-  this.dialog.open(PopMissionComponent, dialogConfig)
-  console.log(data)
+
+  this.dialog.open(PopMissionComponent, {
+    data:mission
+
+  })
+console.log(mission)
+
+
 }
 
 }

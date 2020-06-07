@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Partenaire } from './model/partenaire';
+import { AdminService } from '../admin/services/admin.service';
 
 @Component({
   selector: 'app-partenaire',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PartenaireComponent implements OnInit {
 
-  constructor() { }
+  partenaires: Partenaire[] = [];
+  constructor(private partenaireService:AdminService) { }
 
+  partenaires$:Observable<Partenaire[]>
   ngOnInit() {
+    this.partenaires$=this.partenaireService.getPartenaires();
+
   }
 
 }
