@@ -55,4 +55,10 @@ editMission(mission, id: string) {
 deleteMission(id: string) {
   return this.http.delete(`${this.ROOT_URL}/${id}`, this.httpOptions);
 }
+
+
+participer(mission: Mission): Observable<any> {
+  return this.http.post(this.ROOT_URL, { mission });
 }
+}
+

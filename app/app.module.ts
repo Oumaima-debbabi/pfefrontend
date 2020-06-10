@@ -35,6 +35,7 @@ import { PopMissionComponent } from './components/mission/pop-mission/pop-missio
 import { AssoDetailsComponent } from './association/asso-details/asso-details.component';
 import { MissionService } from './mission/services/mission.service';
 import { RegisterComponent } from './register/register.component';
+import { ShowAuthedDirective } from './show-authed.directive';
 
 
 //import { ToastComponent } from './toast/toast.component';
@@ -69,6 +70,7 @@ import { RegisterComponent } from './register/register.component';
     PartenaireComponent,
     PopMissionComponent,
     RegisterComponent,
+    ShowAuthedDirective,
 
 
     //ToastComponent,

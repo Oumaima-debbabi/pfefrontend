@@ -14,6 +14,7 @@ import { Mission } from 'src/app/mission/model/mission';
   styleUrls: ['./mission.component.css']
 })
 export class MissionComponent implements OnInit {
+  association:string
 missionForm= new FormGroup({
   sujet: new FormControl("",[Validators.required]),
   //action: new FormControl("",[Validators.required]),
@@ -22,7 +23,7 @@ missionForm= new FormGroup({
     type: new FormControl("",[Validators.required]),
     besoin: new FormControl("",[Validators.required]),
     //nombre_preson: new FormControl("",[Validators.required]),
-    nom_association1: new FormControl("",[Validators.required]),
+    associationId: new FormControl("",[Validators.required]),
     lieu: new FormControl("",[Validators.required]),
     date: new FormControl("",[Validators.required]),
     datefin: new FormControl("",[Validators.required]),
@@ -36,7 +37,7 @@ missionForm= new FormGroup({
    date:string = '';
    sujet:string = '';
    description:string = '';
-   nom_association1:'';
+   associationId:'';
    lieu:string = '';
    type:string = '';
    imageUrl:string = ''
@@ -49,6 +50,7 @@ mission:Mission
       )
    {}
    associations$:Observable <Association[]>
+
    uploadImage(event) {
     this.missionService.uploadImage(event.target.files[0])
       .subscribe((res: any) => {
@@ -86,7 +88,7 @@ mission:Mission
         date: this.date,
         sujet:this.sujet,
         datefin: this.datefin,
-        nom_association1: this.nom_association1,
+        associationId: this.associationId,
         imageUrl: this.imageUrl,
         besoin:this.besoin,
         qd:this.qd,
@@ -96,7 +98,7 @@ mission:Mission
       this.missionService.addMission(data)
         .subscribe(() => {
           this.description='';
-          this.nom_association1 = '';
+          this.associationId = '';
           this.lieu = '';
           this.imageUrl = '';
           this.datefin='';

@@ -7,6 +7,7 @@ export interface Association {
   email:string,
   emailasso:string,
   password:string,
+  description:string,
 secteur:Secteur,
 name:string,
 imageUrl:string
@@ -21,5 +22,6 @@ annee_naissance:string,
 numero_telephone:string,
 civilite:string,
   isVerified:boolean,
+  lien:string,
  }
 

@@ -16,9 +16,9 @@ export class RegisterComponent implements OnInit {
   email:string='';
   //emailasso:string=''
   password:string='';
-secteur:string='';
+secteurId:string='';
 name:string='';
-//prenom:string='';
+prenom:string='';
 adresse:string='';
 numero_association:string='';
 code_postal:string='';
@@ -26,7 +26,7 @@ date_creation:string='';
 //adresse_asso :string='';
 profession:string='';
 //annee_naissance:string='';
-//numero_telephone:string='';
+numero_telephone:string='';
 //civilite:string='';
 
 formDirty:boolean=false;
@@ -42,9 +42,13 @@ secteur: new FormControl("", [Validators.required]),
 name: new FormControl("", [Validators.required,Validators.minLength(2),
 Validators.maxLength(30),
 Validators.pattern('[a-zA-Z0-9_-\\s]*')]),
-
+prenom: new FormControl("", [Validators.required,Validators.minLength(2),
+  Validators.maxLength(30),
+  Validators.pattern('[a-zA-Z0-9_-\\s]*')]),
 adresse: new FormControl("", [Validators.required]),
 numero_association: new FormControl("", [Validators.required]),
+profession: new FormControl("", [Validators.required]),
+numero_telephone: new FormControl("", [Validators.required]),
 code_postal: new FormControl("", [Validators.required]),
 date_creation: new FormControl("", [Validators.required]),
 imageUrl:new FormControl("", [Validators.required]),
@@ -65,10 +69,10 @@ addPost(): void {
     email:this.email,
     //emailasso:this.emailasso,
     password:this.password,
-  secteur:this.secteur,
+  secteurId:this.secteurId,
   name:this.name,
   imageUrl: this.imageUrl,
-  //prenom:this.prenom,
+  prenom:this.prenom,
 adresse:this.adresse,
 numero_association:this.numero_association,
 code_postal:this.code_postal,
@@ -76,7 +80,7 @@ date_creation:this.date_creation,
 //adresse_asso:this.adresse_asso,
 profession:this.profession,
 //annee_naissance:this.annee_naissance,
-//numero_telephone:this.numero_telephone,
+numero_telephone:this.numero_telephone,
 //civilite:this.civilite,
   }
 
@@ -87,9 +91,9 @@ profession:this.profession,
       this.email='';
       //this.emailasso=''
       this.password='';
-      this.secteur='';
+      this.secteurId='';
       //this.name='';
-      //this.prenom='';
+      this.prenom='';
       this.adresse='';
       this.numero_association='';
       this.code_postal='';
@@ -97,7 +101,7 @@ profession:this.profession,
       //this.adresse_asso='';
       this.profession='';
       //this.annee_naissance='';
-  //this.numero_telephone='';
+  this.numero_telephone='';
   //this.civilite='';
 
 

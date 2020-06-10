@@ -10,42 +10,47 @@
                   </div>
               </div>
           </div>
-          <div class="portfolio-item-wrapper type-classic-portfolio" >
+          <div class="portfolio-item-wrapper type-classic-portfolio" style="margin-left:0px">
               <div class="portfolio-item-holder  greennature-portfolio-column-4">
-                  <div class="greennature-isotope" data-type="portfolio" data-layout="fitRows">
+                  <div class="greennature-isotope" data-type="portfolio" data-layout="fitRows" style="margin-left:10px">
                       <div class="clear"></div>
-                      <div class="three columns">
-                          <div class="greennature-item greennature-portfolio-item greennature-classic-portfolio">
-                              <div class="greennature-ux greennature-classic-portfolio-ux" *ngIf="missions$ | async as missions">
-                                  <li *ngFor="let mission of missions" style=" float:left;margin-left: 0px;
-                                  padding: 22px;
-                                  color: #fff;
-                                  font-family: trebuchet ms;
-                                  font-size: 19px;
-                                  font-weight: lighter;
-                                  text-align: justify;
-                                  word-wrap:break-word;">
 
-                                  <div class="portfolio-thumbnail greennature-image"><img src="{{mission.imageUrl}}"  width="540" height="326" /><span class="portfolio-overlay">&nbsp;</span><a class="portfolio-overlay-icon" href="assets/upload/shutterstock_161515241.jpg" data-rel="fancybox"><span class="portfolio-icon" ><i class="fa fa-search" ></i></span></a></div>
-                                  <div class="portfolio-classic-content" >
+                          <div class="greennature-item greennature-portfolio-item greennature-classic-portfolio" style="margin-left:0px">
+                              <div class="greennature-ux greennature-classic-portfolio-ux" style="margin-left:0px" >
+                                &nbsp;&nbsp;
+
+                                  <mat-grid-list cols="4" rowHeight="160:160" >
+                                    <mat-grid-tile *ngFor=" let mission of missions$ | async as missions" style="margin-left:20px; max-width: 400px;">
 
 
-                                    <button mat-raised-button  [routerLink]="['/pop',mission._id]" (click)="onCreate(mission._id)">
-                                      <mat-icon>add</mat-icon>Participer
-                                    </button>
+                                      <div class="portfolio-classic-content" >
+                                                {{mission.type}}
+                                        <div class="d-flex m-0 p-3 modal-leg" style="margin-top:top;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                          <div class="d-none d-lg-block p-2 text-center"style="margin-top:-50px">
+                                          <a ><img alt="LOGO" class="modal-logo bg-white" src="{{mission.imageUrl}}" style=" height: 100px;">
+                                          </a>
+                                          </div>
+                                          </div>
+                                        <button mat-raised-button  style="background-color:#b80d57; margin-left:20px; color:white" (click)="onCreate(mission)">
+                                          <mat-icon>add</mat-icon>Participer
+                                        </button>
+
+                                        &nbsp;&nbsp; &nbsp;&nbsp;
+                                          <h3 class="portfolio-title"><a>  &nbsp;&nbsp; &nbsp;&nbsp;{{mission.sujet}}</a></h3>
+                                          <div class="greennature-portfolio-info">
+                                              <div class="portfolio-info portfolio-tag"><span class="info-head greennature-title"></span><span class="sep"></span> <a href="#" rel="tag">{{mission.nom_association1.nom_association}}</a></div>
+                                              <div class="clear"></div>
+                                          </div>
+                                          <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="#" style="color:red;">{{mission.date}}</a></div>
+                                          <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="#" style="color:red;">{{mission.datefin}}</a></div>
+
+                                              <div class="clear"></div><a href="#" class="excerpt-read-more">savoir plus</a><a class="portfolio-classic-learn-more">savoir plus</a></div>
 
 
-                                      <h3 class="portfolio-title"><a>{{mission.sujet}}</a></h3>
-                                      <div class="greennature-portfolio-info">
-                                          <div class="portfolio-info portfolio-tag"><span class="info-head greennature-title"></span><span class="sep"></span> <a href="#" rel="tag">{{mission.nom_association1}}</a></div>
-                                          <div class="clear"></div>
-                                      </div>
-                                      <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="#" style="color:red;">{{mission.date}}</a></div>
 
-                                          <div class="clear"></div><a href="#" class="excerpt-read-more">savoir plus</a><a class="portfolio-classic-learn-more">savoir plus</a></div>
-                                    </li>
+                                      </mat-grid-tile>
+                                  </mat-grid-list>
 
-                                    </div>
 
 
 
@@ -54,7 +59,7 @@
 
 
 
-                  </div>
+
                   <div class="clear"></div>
               </div>
           </div>

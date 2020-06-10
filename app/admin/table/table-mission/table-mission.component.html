@@ -160,7 +160,7 @@
                           <tr *ngFor="let m of Missions$| async as missions">
                             <td> <img src="{{m.imageUrl}}" style="width:50px;height: 40px" /></td>
 
-                            <td>{{m.nom_association1}}</td>
+                            <td>{{m.nom_association1.nom_association}}</td>
                             <td>{{m.sujet}}</td>
                             <td>{{m.besoin}}</td>
                             <td>{{m.description}}</td>

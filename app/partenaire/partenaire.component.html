@@ -8,37 +8,21 @@
               <div class="portfolio-item-holder  greennature-portfolio-column-4">
                   <div class="greennature-isotope" data-type="portfolio" data-layout="fitRows">
                       <div class="clear"></div>
-                      <mat-list *ngIf="partenaires$ | async as partenaires" >
-                        <h3 mat-subheader>Folders</h3>
-                        <mat-list-item *ngFor="let partenaire of partenaires" >
-                           <mat-icon mat-list-ico>folder</mat-icon>
-                           <h4 mat-line>{{partenaire.nom}}</h4>
-                           <p mat-line class="demo-2">  </p>
-                           <mat-divider [inset]="true" ></mat-divider>
-                        </mat-list-item>
-                        <mat-divider></mat-divider>
-                        <h3 mat-subheader>Notes</h3>
-                        <mat-list-item >
-                           <mat-icon mat-list-icon>note</mat-icon>
-                           <h4></h4>
-                           <p mat-line class="demo-2"> mmmm </p>
-                        </mat-list-item>
-                     </mat-list>
-                       <div class="three columns">
 
-                          <div class="greennature-item greennature-portfolio-item greennature-classic-portfolio"  *ngIf="partenaires$ | async as partenaires">
-                              <div class="greennature-ux greennature-classic-portfolio-ux" *ngFor="let partenaire of partenaires" style="margin-bottom: 60px;margin-left:2px; padding-bottom:10px;padding-left: 100px;">
+
+
+
+                                <mat-grid-list cols="6" rowHeight="202px" row-height="202px" >
+                                  <mat-grid-tile *ngFor=" let partenaire of partenaires$ | async as partenaires">
+
 
                                     <div class="portfolio-thumbnail greennature-image" style="margin-bottom: 60px;">
                                       <img src="{{ partenaire.imageUrl}}" style="width:80px;height:80px" >
 
                                     </div>
+                                     </mat-grid-tile>
+                                     </mat-grid-list>
 
-
-                              </div>
-                                <div class="clear"></div>
-                            </div>
-                       </div>
 
 
 

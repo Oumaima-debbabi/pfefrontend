@@ -43,13 +43,14 @@ import { PropositionsComponent } from './propositions/propositions.component';
 import { TablePropositionsComponent } from './table/table-propositions/table-propositions.component';
 import { TableActionsComponent } from './table/table-actions/table-actions.component';
 import { EditPropositionComponent } from './edit/edit-proposition/edit-proposition.component';
+import { PropositionsAfficheComponent } from './propositions-affiche/propositions-affiche.component';
 
 @NgModule({
   declarations: [ProfilComponent, ListeDashComponent, LoginComponent, SecteurComponent, MissionComponent, EvenementComponent, TableEvenementComponent,TableMissionComponent, TableSecteurComponent, TableAssociationsComponent, TableBenevoleComponent, AssociationComponent,
      PartenaireComponent, TablePartenaireComponent, EditSecteurComponent,
      EditPartenaireComponent, EditMissionComponent, BenevoleComponent, EditBenevoleComponent,
     EditProfilComponent,
-     AuthComponent, AdhesionComponent, ActionsComponent, PropositionsComponent, TablePropositionsComponent, TableActionsComponent, EditPropositionComponent],
+     AuthComponent, AdhesionComponent, ActionsComponent, PropositionsComponent, TablePropositionsComponent, TableActionsComponent, EditPropositionComponent, PropositionsAfficheComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

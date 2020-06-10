@@ -104,7 +104,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-sm-5">
               <div class="user-area dropdown float-right">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -130,109 +129,29 @@
                 <div class="row" >
 
                     <div class="col-xs-6 col-sm-6" >
-                        <div class="card"  style="width: 950px;height: 1300px;">
+                        <div class="card"  style="width: 950px;height: 1100px;">
                             <div class="card-header"Style="color:black">
-                                <strong>Ajouter mission</strong>
+                                <strong>Liste de propositions proposé par :</strong>
                             </div>
 
-<form [formGroup]="missionForm" (ngSubmit)="addPost()">
-  <div class="card-body card-block">
-    <label for="cc-exp" class="control-label mb-1" style="color: black;">Sujet</label>
-      <div class="form-group">
-          <label class=" form-control-label"></label>
-          <div class="input-group">
-              <input class="form-control"formControlName="sujet"[(ngModel)]="sujet" (input)="handleChange()">
-          </div>
-      </div>
-      <label for="cc-exp" class="control-label mb-1" style="color: black;">Nom association </label>
+<form >
+  <div class="card-body card-block" style="color:black;">
+ <style>
+   mat-grid-tile {
+  background: lightblue;
+}
+ </style>
+
+   <mat-grid-list cols="4" rowHeight="400px"  row-height="250px">
+    <mat-grid-tile  *ngFor="let p of Propositions$| async as propositions">
       <br>
-      <mat-form-field  *ngIf="associations$ | async as associations">
-        <mat-label class="input-group"></mat-label>
-        <mat-select  formControlName="associationId" [(ngModel)]="associationId" (input)="handleChange()">
-          <mat-option [value]="association._id" *ngFor="let association of associations"
-          >{{association.nom_association}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-  <br>
-
-      <label for="cc-exp" class="control-label mb-1" style="color: black;">Besoin</label>
-      <div class="form-group">
-          <label class=" form-control-label"></label>
-          <div class="input-group">
-              <input class="form-control"formControlName="besoin" [(ngModel)]="besoin"  (input)="handleChange()">
-          </div>
-      </div>
-      <label for="cc-exp" class="control-label mb-1" style="color: black;">Se déroule </label>
-      <mat-form-field class="ml-xs mr-xs" style="width: 40%;">
-        <mat-select  name="gouv" formControlName="qd" [(ngModel)]="qd" (input)="handleChange()">
-          <mat-option value="Nuit">Nuit</mat-option>
-          <mat-option value="Jour">Jour</mat-option>
-        <mat-option value="Soir">Soir</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <br>
-        <br>
-        <label for="cc-exp" class="control- mb-1" style="color: black;">type d'action </label>
-        <mat-form-field class="ml-xs mr-xs" style="width:40%;">
-          <mat-select  name="gouv" formControlName="type" [(ngModel)]="type" (input)="handleChange()">
-            <mat-option value="Régulier">Régulier</mat-option>
-            <mat-option value="Ponctuelle">Ponctuelle</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <br>
-      <div class="row form-group">
-
-        <div class="col col-md-3"><label for="textarea-input" class=" form-control-label"  style="color:black;">Description</label></div>
-        <div class="col-12 col-md-9"><textarea name="textarea-input" id="textarea-input"  style="height: 63px;" rows="9" placeholder="Content..." class="form-control" [(ngModel)]="description" (input)="handleChange()" formControlName="description" ></textarea></div>
-    </div>
-      <label for="cc-exp" class="control-label mb-1" style="color: black;">Date début </label>
-      <div class="form-group">
-          <label class=" form-control-label"></label>
-          <div class="input-group">
-              <input class="form-control" formControlName="date" [(ngModel)]="date"(input)="handleChange()">
-          </div>
-      </div>
-      <label for="cc-exp" class="control-label mb-1" style="color: black;">Date fin</label>
-      <div class="form-group">
-          <label class=" form-control-label"></label>
-          <div class="input-group">
-              <input class="form-control" formControlName="datefin" [(ngModel)]="datefin" (input)="handleChange()">
-          </div>
-      </div>
-
-    <label for="cc-exp" class="control-label mb-1" style="color: black;">Lieu</label>
-      <div class="form-group">
-          <label class=" form-control-label"></label>
-          <div class="input-group">
-              <input class="form-control"formControlName="lieu" [(ngModel)]="lieu" (input)="handleChange()">
-          </div>
-      </div>
+Title:{{p.titre}}
+    {{p.description}}
+    </mat-grid-tile>
 
 
-  <!-- <div class="form-group">
-    <label for="Photo">Image</label>
-    <input type="file" formControlName="Photo" class="form-control-file" (change)="uploadImage($event)" />
-    <br />
-    <img *ngIf="Photo" [src]="Photo" [alt]="Photo" height="200px">
-  </div> -->
-  <div class="form-group">
-    <label for="imageUrl"style="color:black;">Image</label>
-    <input type="file" formControlName="imageUrl1" class="form-control-file"
-    (change)="uploadImage($event)" />
-    <br/>
-    <img style="color:black;" *ngIf="imageUrl1" [src]="imageUrl1" [alt]="imageUrl1"  height="10px" width="10px">
-  </div>
-  <br>
-  <br>
-      <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block" style="width:200px; margin-left: 360px;">
-        <i class="fa fa-lock fa-lg"></i>&nbsp;
-        <span id="payment-button-amount">enregistre </span>
-    </button>
-    <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block" style="background-color:green;width:200px; margin-left: 360px;">
-      <i class="fa fa-ban"></i>&nbsp;
-      <span id="payment-button-amount">Annuler </span>
-  </button>
+  </mat-grid-list>
+
 
   </div>
 </form>

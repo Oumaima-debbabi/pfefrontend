@@ -27,7 +27,7 @@
             <div class="six columns" style="color:black">
                 <div class="greennature-item greennature-about-us-item greennature-normal">
                     <div class="about-us-title-wrapper">
-                        <h3 class="about-us-title">Nm asso</h3>
+                        <h3 class="about-us-title">{{association.nom_association}}</h3>
                         <div class="about-us-title-divider"></div>
                     </div>
                     <div class="about-us-content-wrapper">
@@ -38,20 +38,20 @@
                                 <div class="list-with-icon-ux greennature-ux">
                                     <div class="list-with-icon greennature-left">
                                       <div class='col-12 d-flex align-items-center my-2'>
-                                        <img style="height: 30px" src="https://d1v8uc2aqxfbnw.cloudfront.net/production/artworks/artworks/9a38af674ef4431726da486120125999f3804e73.png?1554476641" alt="9a38af674ef4431726da486120125999f3804e73" />
-                                        <p>Vie locale &amp; citoyenne</p>
+                                        <img style="height: 30px" src="{{association.imageUrl}}"   />
+                                        <p>   {{association.secteur.type_activite}}</p>
                                         </div>
                                         <div class='col-12 d-flex align-items-center my-2'>
                                         <i class='fa fa-user' style='font-size: 30px'></i>
-                                        <p>Zarandifar Saman</p>
+                                        <p>{{association.name}} {{association.prenom}}</p>
                                         </div>
                                         <div class='col-12 d-flex align-items-center my-2'>
                                         <i class='fa fa-map-marker' style='font-size: 30px'></i>
-                                        <p>12, rue Léon Schwarzenberg</p>
+                                        <p>{{association.adresse}} , {{association.code_postal}}</p>
                                         </div>
                                         <div class='col-12 d-flex align-items-center my-2'>
                                         <i class='fas fa-link' style='font-size: 30px'></i>
-                                        <a target="_blank" href="http://www.lepfb.net/">www.lepfb.net/</a>
+                                        <a target="_blank" > {{association.lien}}</a>
                                         </div>
                                         <div class="clear"></div>
                                     </div>
@@ -93,7 +93,7 @@
                       </div>
                       <div class="about-us-content-wrapper">
                           <div class="about-us-content greennature-skin-content">
-                              <p>We are a larhge froup of people who powered movement fighting for a green and peaceful future for your land, forest, ocenas, foods, climate and pass the green earth to our children. Each one of us can make small changes in our lives, but together we can change the world. Curabitur blandit tempus porttitor. Maecenas faucibus mollis interdum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus porttitor.</p>
+                              <p> {{association.description}}</p>
                           </div>
                       </div>
                       <div class="clear"></div>

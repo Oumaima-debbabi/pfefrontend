@@ -22,6 +22,8 @@ import { GuradGuard } from '../user/gurad.guard';
 import { AdhesionComponent } from './adhesion/adhesion.component';
 import { EditProfilComponent } from './edit/edit-profil/edit-profil.component';
 import { ActionsComponent } from './actions/actions.component';
+import { PropositionsAfficheComponent } from './propositions-affiche/propositions-affiche.component';
+
 import { PropositionsComponent } from './propositions/propositions.component';
 import { TablePropositionsComponent } from './table/table-propositions/table-propositions.component';
 import { TableActionsComponent } from './table/table-actions/table-actions.component';
@@ -45,6 +47,10 @@ canActivate:[GuradGuard]
     path:"edit-proposition/:id",
     component:EditPropositionComponent,
     canActivate:[GuradGuard]
+  },
+  {
+    path:"prop",
+    component:PropositionsAfficheComponent,
   },
   {
 

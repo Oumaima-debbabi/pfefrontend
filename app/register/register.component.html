@@ -1,6 +1,6 @@
 <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
-  <div class="wrapper wrapper--w680">
-      <div class="card card-4">
+  <div class="wrapper wrapper--w680" style="position: centre;margin-left:200px">
+      <div class="card card-4" style="width: 940px;">
           <div class="card-body">
   <h3>INSCRIVEZ VOTRE ASSOCIATION</h3>
 <h4>
@@ -9,19 +9,12 @@ GÉRER SIMPLEMENT VOS APPELS À BÉNÉVOLES !
 
 </h4>
   <form [formGroup]="registrationForm" (ngSubmit)="addPost()"><br>
-    <div class="row row-space">
-      <div class="col-2">
 
-    <input   class="input-group" type="text" class="input--style-4" placeholder="nom de l'ASSOCIATION"  formControlName="name"[(ngModel)]="nom_association"  (input)="handleChange()" />
 
-   </div>
 
-    <div class="col-2">
+    <input   class="input-group" type="text" class="input--style-4" placeholder="nom de l'ASSOCIATION"  formControlName="nom_association"[(ngModel)]="nom_association"  (input)="handleChange()" />
 
-    <input   class="inp ut-group"type="text"  class="input--style-4"placeholder="nom de responsable"  formControlName="name" [(ngModel)]="name"  (input)="handleChange()" />
-    </div>
 
-</div>
 
 <div class="row row-space">
   <div class="col-2">
@@ -64,15 +57,50 @@ GÉRER SIMPLEMENT VOS APPELS À BÉNÉVOLES !
       </select>
     </div>
     </div> -->
+
     <mat-form-field  *ngIf="secteurs$ | async as secteurs">
+
       <mat-label class="input-group">Secteur</mat-label>
-      <mat-select formControlName="secteur"   (input)="handleChange()" [(ngModel)]="secteur">
+      <mat-select formControlName="secteurid"   (input)="handleChange()" [(ngModel)]="secteurId">
         <mat-option [value]="secteur._id" *ngFor="let secteur of secteurs">{{secteur.type_activite}}
         </mat-option>
       </mat-select>
     </mat-form-field>
+    <br>
+    <mat-divider>
+
+    </mat-divider>
+
+  <h4>A propos le responsable</h4>
+    <div class="row row-space">
+      <div class="col-2">
+     <input  class="input-group"
+       type="text" class="input--style-4"
+       placeholder="entrez votre nom" formControlName="name"
+       [(ngModel)]="name"  (input)="handleChange()" />
+     </div>
+     <div class="col-2">
+     <input  class="input-group" type="text" class="input--style-4"
+       placeholder="entrez votre prenom" formControlName="prenom"
+       [(ngModel)]="prenom"  (input)="handleChange()"/>
+     </div>
+     </div>
+     <div class="row row-space">
+      <div class="col-2">
+     <input  class="input-group"
+       type="text" class="input--style-4"
+       placeholder="votre numero_telephone" formControlName="numero_telephone"
+       [(ngModel)]="numero_telephone"  (input)="handleChange()" />
+     </div>
+     <div class="col-2">
+     <input  class="input-group" type="text" class="input--style-4"
+       placeholder="entrez votre profession" formControlName="profession"
+       [(ngModel)]="profession"  (input)="handleChange()"/>
+     </div>
+     </div>
+     <br>
     <div class="form-group">
-      <label for="imageUrl">Image</label>
+      <label for="imageUrl" style="color: black;">Logo association</label>
       <input type="file" formControlName="imageUrl" class="form-control-file" (change)="uploadImage($event)" />
       <br />
       <img *ngIf="imageUrl" [src]="imageUrl" [alt]="imageUrl" height="200px">
