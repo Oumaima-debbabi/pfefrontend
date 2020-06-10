@@ -16,9 +16,11 @@ export class PropositionService {
   private ROOT_URL = "http://localhost:4000/api/proposition";
   constructor(private http: HttpClient,private router:Router) { }
   getPropositions(): Observable<Proposition[]> {
-    return this.http.get<Proposition[]>(`${this.ROOT_URL}`);
+    return this.http.get<Proposition[]>(`${this.ROOT_URL}`,this.httpOptions);
   }
-
+  getAllPropositions(): Observable<Proposition[]> {
+    return this.http.get<Proposition[]>(`${this.ROOT_URL}/all`);
+  }
   getProposition(id: string) {
     return this.http.get<Proposition[]>(`${this.ROOT_URL}/${id}`);
   }

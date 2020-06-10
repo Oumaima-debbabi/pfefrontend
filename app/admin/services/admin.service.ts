@@ -34,7 +34,7 @@ export class AdminService {
       constructor(private http: HttpClient,private router:Router ) {}
 
     getMissions(): Observable<Mission[]> {
-        return this.http.get<Mission[]>(`${this.ROOT_URL3}`);
+        return this.http.get<Mission[]>(`${this.ROOT_URL3}`,this.httpOptions);
       }
       getMission(id: string) {
         return this.http.get<Mission>(`${this.ROOT_URL3}/${id}`);
@@ -43,7 +43,7 @@ export class AdminService {
       //   return this.http.post<any>(this.ROOT_URL3,Mission, this.httpOptions);
       // }
       addMission(data) {
-        return this.http.post<Mission>(this.ROOT_URL3, data)
+        return this.http.post<Mission>(this.ROOT_URL3, data,this.httpOptions)
         }
       uploadImage(image) {
         const data = new FormData()

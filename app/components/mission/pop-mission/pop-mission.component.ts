@@ -34,9 +34,19 @@ export class PopMissionComponent implements OnInit
   ngOnInit() {
 
 
+    }
+    apply(id)
+    {
+console.log(id)
 
-
-
+this.mS.applymission(id).subscribe(
+  (response:any)=>{
+    if(response.status && response.status==1){
+      console.log(response);
     }
   }
+
+)}
+ }
+
 

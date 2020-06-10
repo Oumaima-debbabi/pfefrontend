@@ -30,7 +30,7 @@ missions$:Observable<Mission[]>
 
 
   ngOnInit() {
-      this.missions$=this.missionService.getMissions();
+      this.missions$=this.missionService.getMissions4();
       //this.mission = this.missionService.getMission("id")
 
 
@@ -52,7 +52,7 @@ dialogConfig.autoFocus = true;
 
   this.dialog.open(PopMissionComponent, {
     data:mission,
-width:"680px",
+width:"720px"
 
   })
 console.log(mission)

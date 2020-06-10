@@ -31,7 +31,7 @@ export class PropositionsAfficheComponent implements OnInit {
       private route:Router) {}
 
     ngOnInit() {
-     this.Propositions$= this.missionService.getPropositions();
+     this.Propositions$= this.missionService.getAllPropositions();
 
 
   console.log(this.Propositions$);
