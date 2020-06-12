@@ -38,7 +38,7 @@ registrationForm = new FormGroup({
   email: new FormControl("", [Validators.required,Validators.minLength(3),
   Validators.maxLength(100)]),
   password: new FormControl("", [Validators.required]),
-secteur: new FormControl("", [Validators.required]),
+secteurId: new FormControl("", [Validators.required]),
 name: new FormControl("", [Validators.required,Validators.minLength(2),
 Validators.maxLength(30),
 Validators.pattern('[a-zA-Z0-9_-\\s]*')]),

@@ -39,7 +39,7 @@
                                     <div class="list-with-icon greennature-left">
                                       <div class='col-12 d-flex align-items-center my-2'>
                                         <img style="height: 30px" src="{{association.imageUrl}}"   />
-                                        <p>   {{association.secteur.type_activite}}</p>
+                                        <p>   {{association.secteur1.type_activite}}</p>
                                         </div>
                                         <div class='col-12 d-flex align-items-center my-2'>
                                         <i class='fa fa-user' style='font-size: 30px'></i>
@@ -75,33 +75,39 @@
 
   <section id="content-section-3"style="background-color: #f3f3f3;">
       <div class="greennature-color-wrapper  gdlr-show-all no-skin" style="background-color: #f3f3f3; padding-top: 70px; padding-bottom: 53px; ">
-          <div class="container">
-            <div class="six columns">
-              <div class="greennature-ux column-service-ux">
-                  <div class="greennature-item greennature-column-service-item greennature-type-3">
-                      <div class="column-service-image"><img src="assets/upload/column-service-3.jpg" alt="" width="500" height="279" /></div>
 
-                  </div>
-              </div>
-          </div>
-              <div class="six columns"style="color:black">
-                  <div class="greennature-item greennature-about-us-item greennature-normal">
-                      <div class="about-us-title-wrapper">
-                          <h3 class="about-us-title">Le fondateur</h3>
+                <mat-grid-list cols="5" rowHeight="160:160" >
+                  <mat-grid-tile *ngFor=" let mission of missions$ | async as missions" style="margin-left:20px; max-width: 400px;">
+                    <div class="portfolio-classic-content" >
 
-                          <div class="about-us-title-divider"></div>
-                      </div>
-                      <div class="about-us-content-wrapper">
-                          <div class="about-us-content greennature-skin-content">
-                              <p> {{association.description}}</p>
+                      <div class="d-flex m-0 p-3 modal-leg" style="margin-top:top;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="d-none d-lg-block p-2 text-center"style="margin-top:-50px">
+                        <a ><img alt="LOGO" class="modal-logo bg-white" src="{{mission.imageUrl}}" style=" height: 100px; width: 100px;">
+                        </a>
+                        </div>
+                        </div>
+                      <button mat-raised-button  style="background-color:#b80d57; margin-left:50px; color:white" (click)="onCreate(mission)">
+                        <mat-icon>add</mat-icon>Participer
+                      </button>
+
+                      &nbsp;&nbsp; &nbsp;&nbsp;
+                        <h3 class="portfolio-title" style="color: cornflowerblue;"><a>&nbsp; &nbsp;&nbsp;{{mission.sujet}}</a></h3>
+                        <div class="greennature-portfolio-info">
+                            <div class="portfolio-info portfolio-tag"><span class="info-head greennature-title"></span><span class="sep"></span> <a href="#" rel="tag">{{mission.nom_association1.nom_association}}</a></div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="#" style="color:red;">{{mission.date}}</a></div>
+                        <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="#" style="color:red;">{{mission.datefin}}</a></div>
+
                           </div>
-                      </div>
-                      <div class="clear"></div>
-                  </div>
+
+
+
+                    </mat-grid-tile>
+                </mat-grid-list>
               </div>
               <div class="clear"></div>
-          </div>
-      </div>
+
       <div class="clear"></div>
   </section>
 
@@ -115,7 +121,7 @@
                         SOLIDARITÉS!</h2>
                       <div class="stunning-item-caption greennature-skin-content">
 
-                      </div><a class="stunning-item-button greennature-button large greennature-lb-payment" routerLink="/association/registration" style="background-color: #b80d57; color: #ffffff;">Inscrivez-vous!</a>
+                      </div><a class="stunning-item-button greennature-button large greennature-lb-payment" routerLink="/user/register" style="background-color: #b80d57; color: #ffffff;">Inscrivez-vous!</a>
                       </div>
               </div>
               <div class="clear"></div>

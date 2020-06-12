@@ -12,7 +12,7 @@ GÉRER SIMPLEMENT VOS APPELS À BÉNÉVOLES !
 
 
 
-    <input   class="input-group" type="text" class="input--style-4" placeholder="nom de l'ASSOCIATION"  formControlName="nom_association"[(ngModel)]="nom_association"  (input)="handleChange()" />
+    <input   class="input-group" type="text" class="input--style-4" placeholder="nom de l'ASSOCIATION"  formControlName="nom_association" [(ngModel)]="nom_association"  (input)="handleChange()" />
 
 
 
@@ -61,7 +61,7 @@ GÉRER SIMPLEMENT VOS APPELS À BÉNÉVOLES !
     <mat-form-field  *ngIf="secteurs$ | async as secteurs">
 
       <mat-label class="input-group">Secteur</mat-label>
-      <mat-select formControlName="secteurid"   (input)="handleChange()" [(ngModel)]="secteurId">
+      <mat-select formControlName="secteurId" [(ngModel)]="secteurId"  (input)="handleChange()">
         <mat-option [value]="secteur._id" *ngFor="let secteur of secteurs">{{secteur.type_activite}}
         </mat-option>
       </mat-select>

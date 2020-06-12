@@ -160,8 +160,7 @@
       <mat-form-field *ngIf="secteurs$ | async as secteurs" >
         <mat-label class="input-group">Secteur</mat-label>
         <mat-select  formControlName="secteurId" (input)="handleChange()" [(ngModel)]="secteurId">
-          <mat-option [value]="secteur._id
-          "  *ngFor="let secteur of secteurs">
+          <mat-option [value]="secteur._id"  *ngFor="let secteur of secteurs">
             {{secteur.type_activite}}
           </mat-option>
         </mat-select>

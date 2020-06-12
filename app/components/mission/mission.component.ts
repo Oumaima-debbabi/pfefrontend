@@ -60,8 +60,6 @@ console.log(mission.nom_association1.nom_association)
 this.x =mission.nom_association1.nom_association
 console.log(this.x)
 }
-populate(){
 
-}
 
 }

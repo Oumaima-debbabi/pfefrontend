@@ -11,6 +11,7 @@ import { Benevole } from '../benevole/model/benevole';
 import { Router } from "@angular/router";
 import { User } from 'src/app/user/model/user';
 import { idLocale } from 'ngx-bootstrap/chronos/i18n/id';
+import { stringify } from 'querystring';
 
 @Injectable({
   providedIn: 'root'
@@ -273,7 +274,7 @@ export class AdminService {
     // loggedIn() {
     //   return !!localStorage.getItem("token");
     // }
-
+ 
 }
 
 

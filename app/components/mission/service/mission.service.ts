@@ -8,11 +8,11 @@ import * as _ from 'lodash';
   providedIn: 'root'
 })
 export class MissionService {  private ROOT_URL = "http://localhost:4000/api/mission";
-
+ROOT_URL1 = "http://localhost:4000/api/benevole";
 private httpOptions = {
   headers: new HttpHeaders()
     .set("Content-Type", "application/json")
-
+    .set("auth-token",localStorage.getItem("token"))
 };
 public currentUser: Observable<Mission>;
 
@@ -62,18 +62,24 @@ participer(mission: Mission): Observable<any> {
 }
 gettoken()
 {
-  return localStorage.getItem('token');
+  return localStorage.getItem('auth-token');
 }
 getpayload()
 {
-  let token=this.gettoken();
+  let token = this.gettoken();
   return JSON.parse(window.atob(token.split('.')[1]));
 }
   applymission(id)
   {
 
-    let user_id:any=this.getpayload().id;
-    return this.http.get(`${this.ROOT_URL}/apply/${id}/${user_id}`,this.httpOptions);
+    let user_id:any= this.currentUserSubject.value._id;
+    return this.http.get(`${this.ROOT_URL1}/participer/${user_id}/${id}`,this.httpOptions);
   }
-}
+  getmissionpar(){
 
+    let user_id:any= this.currentUserSubject.value._id;
+    return this.http.get(`${this.ROOT_URL1}/showmission/${user_id}`,this.httpOptions);
+
+  }
+ 
+}

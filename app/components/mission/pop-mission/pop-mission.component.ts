@@ -37,7 +37,7 @@ export class PopMissionComponent implements OnInit
     }
     apply(id)
     {
-console.log(id)
+   console.log(id)
 
 this.mS.applymission(id).subscribe(
   (response:any)=>{

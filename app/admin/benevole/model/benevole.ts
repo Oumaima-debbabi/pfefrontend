@@ -12,5 +12,6 @@ export interface Benevole {
   image: string;
   civilite:string;
   _id:string;
+  missions:Object;
  }
 

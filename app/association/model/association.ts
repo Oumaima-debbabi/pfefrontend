@@ -8,7 +8,7 @@ export interface Association {
   emailasso:string,
   password:string,
   description:string,
-secteur:Secteur,
+secteur1:Secteur,
 name:string,
 imageUrl:string
 prenom:string,

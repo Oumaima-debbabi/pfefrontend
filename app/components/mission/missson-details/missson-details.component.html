@@ -70,36 +70,38 @@
 
                                                                 <div class="blog-content-wrapper">
                                                                     <header class="post-header">
-                                                                    <ul *ngIf="missions$ | async as missions">
-                                                                      <li *ngFor="let mission of missions">
-                                                                        <h3 class="greennature-blog-title">
-                                                                          <a>{{mission.type}}</a></h3>
-                                                                        <div class="">
-                                                                          <a href="../2013/12/04/sedial-eiusmod-tempor/index.html"> <img  src="{{mission.imageUrl}}" alt="" style= "width:300px ;height:300px "/></a>
-                                                                      </div>
+                                                                      <mat-grid-list cols="3" rowHeight="160:160" >
+                                                                        <mat-grid-tile *ngFor=" let mission of missions$ | async as missions" style="margin-left:20px; max-width: 400px;">
 
-                                                                 <br>
-                                                                <div class="greennature-blog-date-wrapper" >cd frontened
-                                                                  <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="#"style="color: #f0134d;">DEBUT:{{mission.date}}</a></div>
-                                                                  <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="#"style="color: #f0134d;">FIN:{{mission.datefin}}</a></div>
-                                                              </div>
-                                                              <div class="greennature-blog-content" style="color: black;margin-top: 100px;
 
-                                                              margin-left: 80px;">
-                                                                <p>{{mission.besoin}}</p>
-                                                                <div class="clear"></div><a href="../2013/12/04/sedial-eiusmod-tempor/index.html" class="excerpt-read-more">Read More</a></div>
+                                                                          <div class="portfolio-classic-content" >
+                                                                                    {{mission.type}}
+                                                                            <div class="d-flex m-0 p-3 modal-leg" style="margin-top:top;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                              <div class="d-none d-lg-block p-2 text-center"style="margin-top:-50px">
+                                                                              <a ><img alt="LOGO" class="modal-logo bg-white" src="{{mission.imageUrl}}" style=" height: 100px;">
+                                                                              </a>
+                                                                              </div>
+                                                                              </div>
+                                                                            <button mat-raised-button  style="background-color:#b80d57; margin-left:20px; color:white" (click)="onCreate(mission)">
+                                                                              <mat-icon>add</mat-icon>Participer
+                                                                            </button>
 
-                                                                        <div class="greennature-blog-info">                                                                            <div class="blog-info blog-comment greennature-skin-info"><i class="fa fa-comment-o"></i><a href="../2013/12/04/sedial-eiusmod-tempor/index.html#respond">0<span class="greennature-tail" >Comment</span></a></div>
-                                                                            <div class="blog-info blog-author greennature-skin-info"><i class="fa fa-pencil"></i><a href="../author/superuser/index.html" title="Posts by John Maxwell" rel="author">{{mission.nom_association1}}</a></div>
-                                                                            <div class="blog-info blog-category greennature-skin-info">
-                                                                              <i class="fab fa-slideshare"></i><a routerLink="/login" rel="tag">Participer</a>
-                                                                            </div>
-                                                                            <div class="clear"></div>
-                                                                        </div>
-                                                                        <div class="clear"></div>
+                                                                            &nbsp;&nbsp; &nbsp;&nbsp;
+                                                                              <h3 class="portfolio-title"><a>  &nbsp;&nbsp; &nbsp;&nbsp;{{mission.sujet}}</a></h3>
+                                                                              <div class="greennature-portfolio-info">
+                                                                                  <div class="portfolio-info portfolio-tag"><span class="info-head greennature-title"></span><span class="sep"></span> <a href="#" rel="tag">{{mission.nom_association1.nom_association}}</a></div>
+                                                                                  <div class="clear"></div>
+                                                                              </div>
+                                                                              <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="#" style="color:red;">{{mission.date}}</a></div>
+                                                                              <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="#" style="color:red;">{{mission.datefin}}</a></div>
 
-                                                                      </li>
-                                                                    </ul>
+                                                                                  <div class="clear"></div>
+                                                                                </div>
+
+
+
+                                                                          </mat-grid-tile>
+                                                                      </mat-grid-list>
                                                                </header>
                                                                     <!-- entry-header -->
                                                                    </div>

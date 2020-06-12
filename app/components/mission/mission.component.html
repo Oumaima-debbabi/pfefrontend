@@ -38,13 +38,13 @@
                                         &nbsp;&nbsp; &nbsp;&nbsp;
                                           <h3 class="portfolio-title"><a>  &nbsp;&nbsp; &nbsp;&nbsp;{{mission.sujet}}</a></h3>
                                           <div class="greennature-portfolio-info">
-                                              <div class="portfolio-info portfolio-tag"><span class="info-head greennature-title"></span><span class="sep"></span> <a href="#" rel="tag">{{mission.nom_association1.nom_association}}</a></div>
+                                              <div class="portfolio-info portfolio-tag"><span class="info-head greennature-title"></span><span class="sep"></span> <a [routerLink]="['/association/',mission.nom_association1._id]">{{mission.nom_association1.nom_association}}</a></div>
                                               <div class="clear"></div>
                                           </div>
                                           <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="#" style="color:red;">{{mission.date}}</a></div>
                                           <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="#" style="color:red;">{{mission.datefin}}</a></div>
 
-                                              <div class="clear"></div><a href="#" class="excerpt-read-more">savoir plus</a><a class="portfolio-classic-learn-more">savoir plus</a></div>
+                                            </div>
 
 
 

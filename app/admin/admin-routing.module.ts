@@ -29,6 +29,7 @@ import { TablePropositionsComponent } from './table/table-propositions/table-pro
 import { TableActionsComponent } from './table/table-actions/table-actions.component';
 import { EditPropositionComponent } from './edit/edit-proposition/edit-proposition.component';
 import { EditPartenaireComponent } from './edit/edit-partenaire/edit-partenaire.component';
+import { TableActionComponent } from './table/table-action/table-action.component';
 
 
 
@@ -84,6 +85,12 @@ canActivate:[GuradGuard]
 
     path:"table-actions",
     component:TableActionsComponent,
+    canActivate:[GuradGuard]
+  },
+  {
+
+    path:"table-action",
+    component:TableActionComponent,
     canActivate:[GuradGuard]
   },
   {
