@@ -81,5 +81,8 @@ getpayload()
     return this.http.get(`${this.ROOT_URL1}/showmission/${user_id}`,this.httpOptions);
 
   }
- 
+  getMissionAs(id:string)
+  : Observable<Mission[]> {
+    return this.http.get<Mission[]>(`${this.ROOT_URL}/test/${id}`);
+}
 }

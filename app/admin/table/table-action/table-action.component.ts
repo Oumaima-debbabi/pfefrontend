@@ -14,7 +14,7 @@ export class TableActionComponent implements OnInit {
 
   id: string;
 missions:any =[];
-
+missions$;
 nomissions:any;
 nojobs:any;
 errormsg:any;
@@ -24,7 +24,11 @@ constructor(private router:Router,private activeroute:ActivatedRoute,
 
   ngOnInit() {
     this.getmissionpar();
+    this.getmissions();
     //this.missions=this.missionservice.getmissionpar()
+
+  }
+  getmissions(){
 
   }
   getmissionpar()

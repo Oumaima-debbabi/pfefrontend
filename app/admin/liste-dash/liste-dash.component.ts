@@ -26,9 +26,15 @@ export class ListeDashComponent implements OnInit {
   get isAdmin() {
     return this.currentUser && this.currentUser.role === Role.Admin;
 }
+get isAssociation() {
+  return this.currentUser && this.currentUser.role === Role.Association;
+}
+get isBenevole() {
+  return this.currentUser && this.currentUser.role === Role.Benevole;
+}
   ngOnInit() {
   }
 downlowdPDF(){
-  
+
 }
 }

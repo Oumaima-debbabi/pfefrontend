@@ -39,8 +39,11 @@ export class MissionService {
       `${this.ROOT_URL}/${id}`,
       mission,
       this.httpOptions
-    );
-  }
+    );}
+    getMissionAs(id:string)
+    : Observable<Mission[]> {
+      return this.http.get<Mission[]>(`${this.ROOT_URL}/test/${id}`);
+}
 
   deleteMission(id: string) {
     return this.http.delete(`${this.ROOT_URL}/${id}`, this.httpOptions);

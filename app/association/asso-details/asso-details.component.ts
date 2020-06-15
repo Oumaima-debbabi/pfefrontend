@@ -28,11 +28,13 @@ mission:any
   missions$:Observable<Mission[]>
 
   ngOnInit() {
-    this.missions$=this.missionService.getMissions();
+
 
     this.route.params.subscribe(params => {
       this.sS.getAssociation(params.id).subscribe(res => {
         this.association= res;
+        console.log(this.association._id)
+        this.missions$=this.missionService.getMissionAs(this.association._id);
       });
     });
   }

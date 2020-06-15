@@ -1,3 +1,5 @@
+import { Mission } from 'src/app/components/mission/model/mission';
+
 export interface Benevole {
   name: string;
   email: string;
@@ -12,6 +14,6 @@ export interface Benevole {
   image: string;
   civilite:string;
   _id:string;
-  missions:Object;
+  missions:Array<Mission>;
  }
 

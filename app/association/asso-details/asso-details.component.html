@@ -4,30 +4,34 @@
       <div class="greennature-page-title-overlay"></div>
       <div class="greennature-page-title-container container">
           <h1 class="greennature-page-title">Seuls,nous pouvons faire si peu ensemble, nous pouvons faire beaucoup</h1>
-          <span class="greennature-page-caption">Trouvez une mission!</span>
+          <span class="greennature-page-caption">Dècouvrir nos associations!</span>
       </div>
   </div>
       <div class="clear"></div>
   </section>
 
-  <section id="content-section-3"style="background-color: #f3f3f3;">
-    <div class="greennature-color-wrapper  gdlr-show-all no-skin" style="background-color: #f3f3f3; padding-top: 70px; padding-bottom: 53px; ">
+  <section id="content-section-3"style="background-color:white;" >
+    <div class="greennature-color-wrapper  gdlr-show-all no-skin" style="background-color: white; padding-top: 70px; padding-bottom: 53px; ">
         <div class="container">
           <div class="six columns">
             <div class="greennature-ux column-service-ux">
               <article id="post-35" class="post-35 post type-post status-publish format-aside hentry category-aside category-blog tag-aside tag-post-format post_format-post-format-aside">
-                <div class="greennature-blog-content">
-                <p>" On a intérêt au bonheur des autres, on a intérêt à ce que les autres ne soient pas malades, on a intérêt au succès des autres parce que nous sommes une équipe collective.
-                <h6 style="text-align: right;">Jacques Attali</h6>
-
+                <div class="greennature-blog-content" >
+            <h3>{{association.nom_association}}</h3>
+                <p>" {{association.description}}."
+                <h6 style="text-align: right;">{{association.name}} {{association.prenom}}</h6>
                 </div>
             </article>
             </div>
-        </div>
-            <div class="six columns" style="color:black">
+            <div class="six columns" style="border-color:#239f95;margin-top:-182px;margin-left: 655px;
+            width:420px;
+            border-style: groove;
+            border-width: 7px;
+margin-right:5px;
+            color:black">
                 <div class="greennature-item greennature-about-us-item greennature-normal">
                     <div class="about-us-title-wrapper">
-                        <h3 class="about-us-title">{{association.nom_association}}</h3>
+                        <h3 class="about-us-title">Contact</h3>
                         <div class="about-us-title-divider"></div>
                     </div>
                     <div class="about-us-content-wrapper">
@@ -38,21 +42,31 @@
                                 <div class="list-with-icon-ux greennature-ux">
                                     <div class="list-with-icon greennature-left">
                                       <div class='col-12 d-flex align-items-center my-2'>
-                                        <img style="height: 30px" src="{{association.imageUrl}}"   />
+                                        <img style="height: 90px;height: 80px;" src="{{association.imageUrl}}"   />
                                         <p>   {{association.secteur1.type_activite}}</p>
                                         </div>
-                                        <div class='col-12 d-flex align-items-center my-2'>
-                                        <i class='fa fa-user' style='font-size: 30px'></i>
-                                        <p>{{association.name}} {{association.prenom}}</p>
-                                        </div>
-                                        <div class='col-12 d-flex align-items-center my-2'>
-                                        <i class='fa fa-map-marker' style='font-size: 30px'></i>
-                                        <p>{{association.adresse}} , {{association.code_postal}}</p>
-                                        </div>
-                                        <div class='col-12 d-flex align-items-center my-2'>
-                                        <i class='fas fa-link' style='font-size: 30px'></i>
-                                        <a target="_blank" > {{association.lien}}</a>
-                                        </div>
+                                        <i class=" greennature-icon fa fa-user" style="vertical-align: middle; color:black; font-size: 38px; "></i>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;{{association.name}} {{association.prenom}}
+                                        <br>
+
+                                        <i class="greennature-icon fa fa-phone" style="vertical-align: middle; color:black; font-size: 38px; "></i>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  {{association.numero_association}}
+                                             <br>
+
+                  <i class="greennature-icon fa fa-envelope-o" style="vertical-align: middle; color:black; font-size: 38px; "></i>
+
+                  {{association.email}}
+                  <br>
+                                        <i class='greennature-icon fa fa-map-marker' style="vertical-align: middle; color:black; font-size: 38px; "></i>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      {{association.adresse}} , {{association.code_postal}}
+<br>
+                                        <i class='greennature-icon fa fa-link' style='font-size: 38px'></i>
+                                        <a target="_blank" >
+                                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                          <br>
+                                          {{association.lien}}</a>
+
                                         <div class="clear"></div>
                                     </div>
                                 </div>
@@ -65,6 +79,10 @@
                     <div class="clear"></div>
                 </div>
             </div>
+        </div>
+
+
+
             <div class="clear"></div>
         </div>
     </div>
@@ -73,10 +91,13 @@
 
 
 
-  <section id="content-section-3"style="background-color: #f3f3f3;">
-      <div class="greennature-color-wrapper  gdlr-show-all no-skin" style="background-color: #f3f3f3; padding-top: 70px; padding-bottom: 53px; ">
+  <section id="content-section-3"style="background-color:white;">
 
-                <mat-grid-list cols="5" rowHeight="160:160" >
+    <mat-divider style="color:black;size:120px">
+    </mat-divider>
+
+    <h3>Les missions de l'association</h3>
+    <mat-grid-list cols="5" rowHeight="160:160" >
                   <mat-grid-tile *ngFor=" let mission of missions$ | async as missions" style="margin-left:20px; max-width: 400px;">
                     <div class="portfolio-classic-content" >
 
@@ -93,7 +114,9 @@
                       &nbsp;&nbsp; &nbsp;&nbsp;
                         <h3 class="portfolio-title" style="color: cornflowerblue;"><a>&nbsp; &nbsp;&nbsp;{{mission.sujet}}</a></h3>
                         <div class="greennature-portfolio-info">
-                            <div class="portfolio-info portfolio-tag"><span class="info-head greennature-title"></span><span class="sep"></span> <a href="#" rel="tag">{{mission.nom_association1.nom_association}}</a></div>
+                            <div class="portfolio-info portfolio-tag"><span class="info-head greennature-title"></span><span class="sep"></span> <a href="#" rel="tag">
+                              {{mission.nom_association1.nom_association}}
+                            </a></div>
                             <div class="clear"></div>
                         </div>
                         <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="#" style="color:red;">{{mission.date}}</a></div>
@@ -105,7 +128,7 @@
 
                     </mat-grid-tile>
                 </mat-grid-list>
-              </div>
+
               <div class="clear"></div>
 
       <div class="clear"></div>
