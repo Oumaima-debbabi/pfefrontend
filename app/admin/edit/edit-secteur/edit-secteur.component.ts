@@ -34,7 +34,7 @@ export class EditSecteurComponent implements OnInit {
 
   updateSecteur(type_activite, id) {
     this.route.params.subscribe(params => {
-      this.sS. updateSecteur(type_activite , params.id);
+      this.sS. updateSecteur(type_activite,params.id);
       const Toast = Swal.mixin({
         toast: true,
         position: 'center',

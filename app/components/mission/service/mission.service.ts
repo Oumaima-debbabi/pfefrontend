@@ -74,15 +74,26 @@ getpayload()
 
     let user_id:any= this.currentUserSubject.value._id;
     return this.http.get(`${this.ROOT_URL1}/participer/${user_id}/${id}`,this.httpOptions);
+    
+  }
+  removemission(id)
+  {
+
+    let user_id:any= this.currentUserSubject.value._id;
+    return this.http.get(`${this.ROOT_URL1}/remove/${user_id}/${id}`,this.httpOptions);
   }
   getmissionpar(){
 
     let user_id:any= this.currentUserSubject.value._id;
-    return this.http.get(`${this.ROOT_URL1}/showmission/${user_id}`,this.httpOptions);
-
+    //return this.http.get(`${this.ROOT_URL1}/showmission/${user_id}`,this.httpOptions);
+return  new Promise((resolve) => {
+  this.http.get(`${this.ROOT_URL1}/showmission/${user_id}`,this.httpOptions).subscribe(Mission => resolve(Mission))
+  })
   }
-  getMissionAs(id:string)
-  : Observable<Mission[]> {
+
+
+
+  getMissionAs(id:string): Observable<Mission[]> {
     return this.http.get<Mission[]>(`${this.ROOT_URL}/test/${id}`);
 }
 }

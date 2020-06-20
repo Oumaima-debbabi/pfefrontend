@@ -13,17 +13,18 @@ export class TableActionComponent implements OnInit {
 
 
   id: string;
-missions:any =[];
+missions:object =[];
 missions$;
 nomissions:any;
 nojobs:any;
 errormsg:any;
 successmsg:boolean;
 constructor(private router:Router,private activeroute:ActivatedRoute,
-  private missionservice:MissionService) { }
+  private missionservice:MissionService,
+  ) { }
 
-  ngOnInit() {
-    this.getmissionpar();
+   ngOnInit() {
+    this.getMissionspar();
     this.getmissions();
     //this.missions=this.missionservice.getmissionpar()
 
@@ -31,15 +32,27 @@ constructor(private router:Router,private activeroute:ActivatedRoute,
   getmissions(){
 
   }
-  getmissionpar()
-  {
+  getMissionspar()  {
 
-    this.missionservice.getmissionpar().subscribe(
+    this.missionservice.getmissionpar().then(
       (response:any) => {
       this.missions = response;
       console.log(this.missions)
   });
 
   }
+remove(id){
+  let m=confirm("Êtes-vous sûr de supprimer ce champ!!!?")
+  if(!m){
+    return;
+  }
 
+    return this.missionservice.removemission(id).subscribe( data => {
+      console.log(data)
+      console.log(data);
+      this.router.navigate[("/admin/table-action")];
+
+})
+
+}
 }

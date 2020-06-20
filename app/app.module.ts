@@ -17,6 +17,7 @@ import{
   }from '@angular/material';
   import {MatDialogModule,MAT_DIALOG_DATA} from '@angular/material/dialog';
 
+
   import{AgmCoreModule} from '@agm/core';
 
 import { LoginComponent } from './login/login.component';
@@ -36,6 +37,8 @@ import { AssoDetailsComponent } from './association/asso-details/asso-details.co
 import { MissionService } from './mission/services/mission.service';
 import { RegisterComponent } from './register/register.component';
 import { ShowAuthedDirective } from './show-authed.directive';
+import { ParticipantComponent } from './components/mission/participant/participant.component';
+
 
 
 //import { ToastComponent } from './toast/toast.component';
@@ -71,6 +74,7 @@ import { ShowAuthedDirective } from './show-authed.directive';
     PopMissionComponent,
     RegisterComponent,
     ShowAuthedDirective,
+    ParticipantComponent,
 
 
     //ToastComponent,

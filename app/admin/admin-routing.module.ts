@@ -30,6 +30,9 @@ import { TableActionsComponent } from './table/table-actions/table-actions.compo
 import { EditPropositionComponent } from './edit/edit-proposition/edit-proposition.component';
 import { EditPartenaireComponent } from './edit/edit-partenaire/edit-partenaire.component';
 import { TableActionComponent } from './table/table-action/table-action.component';
+import { ParticipantsComponent } from './table/participants/participants.component';
+import { AllMissionComponent } from './table/all-mission/all-mission.component';
+import { AllPropositionsComponent } from './table/all-propositions/all-propositions.component';
 
 
 
@@ -79,6 +82,22 @@ canActivate:[GuradGuard]
 
     path:"edit-secteur/:id",
     component:EditSecteurComponent,
+    canActivate:[GuradGuard]
+  },
+  {
+    path:"table-participant/:id",
+    component:ParticipantsComponent,
+    canActivate:[GuradGuard]
+  },
+  {
+    path:"all-propositions",
+    component:AllPropositionsComponent,
+    canActivate:[GuradGuard]
+  }
+  ,
+  {
+    path:"table-missions",
+    component:AllMissionComponent,
     canActivate:[GuradGuard]
   },
   {

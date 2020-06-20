@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="assets/vendors/selectFX/css/cs-skin-elastic.css">
 
 <br>
-
+<br> <br>
 
 
     <aside id="left-panel" class="left-panel">
@@ -69,7 +69,7 @@
                         <div class="dropdown-menu" aria-labelledby="message">
                             <p class="red">You have 4 Mails</p>
                             <a class="dropdown-item media bg-flat-color-1" href="#">
-                            <span class="photo media-left"><img alt="avatar" src="images/avatar/1.jpg"></span>
+                            <span class="photo media-left"><img alt="avatar" src="assets/images/avatar/1.jpg"></span>
                             <span class="message media-body">
                                 <span class="name float-left">Jonathan Smith</span>
                                 <span class="time float-right">Just now</span>
@@ -77,7 +77,7 @@
                             </span>
                         </a>
                             <a class="dropdown-item media bg-flat-color-4" href="#">
-                            <span class="photo media-left"><img alt="avatar" src="images/avatar/2.jpg"></span>
+                            <span class="photo media-left"><img alt="avatar" src="assets/images/avatar/2.jpg"></span>
                             <span class="message media-body">
                                 <span class="name float-left">Jack Sanders</span>
                                 <span class="time float-right">5 minutes ago</span>
@@ -85,7 +85,7 @@
                             </span>
                         </a>
                             <a class="dropdown-item media bg-flat-color-5" href="#">
-                            <span class="photo media-left"><img alt="avatar" src="images/avatar/3.jpg"></span>
+                            <span class="photo media-left"><img alt="avatar" src="assets/images/avatar/3.jpg"></span>
                             <span class="message media-body">
                                 <span class="name float-left">Cheryl Wheeler</span>
                                 <span class="time float-right">10 minutes ago</span>
@@ -93,7 +93,7 @@
                             </span>
                         </a>
                             <a class="dropdown-item media bg-flat-color-3" href="#">
-                            <span class="photo media-left"><img alt="avatar" src="images/avatar/4.jpg"></span>
+                            <span class="photo media-left"><img alt="avatar" src="assets/images/avatar/4.jpg"></span>
                             <span class="message media-body">
                                 <span class="name float-left">Rachel Santos</span>
                                 <span class="time float-right">15 minutes ago</span>
@@ -108,7 +108,7 @@
             <div class="col-sm-5">
               <div class="user-area dropdown float-right">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
+                      <img class="user-avatar rounded-circle" src="assets/images/admin.jpg" alt="User Avatar">
                   </a>
 
                 <app-auth></app-auth>
@@ -130,15 +130,15 @@
                 <div class="row" style="width:100%">
 
                   <mat-card>
-                    <mat-card-title style=" color: tomato; border-radius: 6px;padding:5px; position:relative ">Mes participations à des missions associatives
-                      <code style="background-color: lightgrey; color: tomato; border-radius: 6px;padding:5px"></code></mat-card-title>
+                    <mat-card-title style=" color: #120136; border-radius: 6px;padding:5px; position:relative ">Mes participations à des missions associatives
+                      <code style="background-color: lightgrey; color: #fa744f; border-radius: 6px;padding:5px"></code></mat-card-title>
                     <mat-card-content>
 
-<br>
+               <br>
 
                       <table class="table" style="width: 1000px;">
                         <thead>
-                        <tr>
+                        <tr >
                           <th>Titre</th>
                           <th>Date</th>
                           <th>Date fin</th>
@@ -148,15 +148,15 @@
                         </tr>
                         </thead >
                         <tbody>
-                          <tr *ngFor="let mission of missions">
-                          <td>{{mission.sujet}}</td>
-                            <td>{{mission.date}}</td>
-                            <td>{{mission.datefin}}</td>
-                        <td>{{mission.sujet}}</td>
+                          <tr *ngFor="let mission  of missions ">
+                          <td>{{mission.mission.besoin}}</td>
+                            <td>{{mission.mission.date}}</td>
+                            <td>{{mission.mission.datefin}}</td>
+                        <td>{{mission.mission.sujet}}</td>
                         <td></td>
                             <td>
                               <a>
-                                <i><i  style="font-size: large;color:green;"> Me désincrire </i></i>
+                                <i><i  style="font-size: large;color:green;" (click)="remove(mission.mission._id)"> Me désincrire </i></i>
                               </a>
                             </td>
 

@@ -23,7 +23,7 @@
                 </div>
             </article>
             </div>
-            <div class="six columns" style="border-color:#239f95;margin-top:-182px;margin-left: 655px;
+            <div class="six columns" style="border-color:#aee6e0;margin-top:-182px;margin-left: 655px;
             width:420px;
             border-style: groove;
             border-width: 7px;
@@ -45,23 +45,22 @@ margin-right:5px;
                                         <img style="height: 90px;height: 80px;" src="{{association.imageUrl}}"   />
                                         <p>   {{association.secteur1.type_activite}}</p>
                                         </div>
-                                        <i class=" greennature-icon fa fa-user" style="vertical-align: middle; color:black; font-size: 38px; "></i>
+                                        <i class=" greennature-icon fa fa-user" style="vertical-align: middle; color:black; font-size: 33px; "></i>
                                         &nbsp;&nbsp;&nbsp;&nbsp;{{association.name}} {{association.prenom}}
                                         <br>
 
-                                        <i class="greennature-icon fa fa-phone" style="vertical-align: middle; color:black; font-size: 38px; "></i>
+                                        <i class="greennature-icon fa fa-phone" style="vertical-align: middle; color:black; font-size: 33px; "></i>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  {{association.numero_association}}
                                              <br>
+                                             <i class='greennature-icon fa fa-envelope-o' style="vertical-align: middle; color:black; font-size: 33px; "></i>
+                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{association.email}}
 
-                  <i class="greennature-icon fa fa-envelope-o" style="vertical-align: middle; color:black; font-size: 38px; "></i>
 
-                  {{association.email}}
-                  <br>
-                                        <i class='greennature-icon fa fa-map-marker' style="vertical-align: middle; color:black; font-size: 38px; "></i>
+                                        <i class='greennature-icon fa fa-map-marker' style="vertical-align: middle; color:black; font-size: 33px; "></i>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                       {{association.adresse}} , {{association.code_postal}}
 <br>
-                                        <i class='greennature-icon fa fa-link' style='font-size: 38px'></i>
+                                        <i class='greennature-icon fa fa-link' style='font-size: 33px'></i>
                                         <a target="_blank" >
                                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                           <br>
@@ -97,6 +96,8 @@ margin-right:5px;
     </mat-divider>
 
     <h3>Les missions de l'association</h3>
+    <mat-divider style="color:black;size:120px">
+    </mat-divider>
     <mat-grid-list cols="5" rowHeight="160:160" >
                   <mat-grid-tile *ngFor=" let mission of missions$ | async as missions" style="margin-left:20px; max-width: 400px;">
                     <div class="portfolio-classic-content" >
@@ -107,20 +108,20 @@ margin-right:5px;
                         </a>
                         </div>
                         </div>
-                      <button mat-raised-button  style="background-color:#b80d57; margin-left:50px; color:white" (click)="onCreate(mission)">
+                      <button mat-raised-button  style="background-color:#b80d57;  color:white" (click)="onCreate(mission)">
                         <mat-icon>add</mat-icon>Participer
                       </button>
 
                       &nbsp;&nbsp; &nbsp;&nbsp;
                         <h3 class="portfolio-title" style="color: cornflowerblue;"><a>&nbsp; &nbsp;&nbsp;{{mission.sujet}}</a></h3>
                         <div class="greennature-portfolio-info">
-                            <div class="portfolio-info portfolio-tag"><span class="info-head greennature-title"></span><span class="sep"></span> <a href="#" rel="tag">
+                            <div class="portfolio-info portfolio-tag"><span class="info-head greennature-title"></span><span class="sep"></span> <a [routerLink]="['/association/',mission.nom_association1._id]"rel="tag">
                               {{mission.nom_association1.nom_association}}
                             </a></div>
                             <div class="clear"></div>
                         </div>
-                        <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="#" style="color:red;">{{mission.date}}</a></div>
-                        <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="#" style="color:red;">{{mission.datefin}}</a></div>
+                        <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a style="color:red;">{{mission.date}}</a></div>
+                        <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a style="color:red;">{{mission.datefin}}</a></div>
 
                           </div>
 

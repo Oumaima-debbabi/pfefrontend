@@ -12,6 +12,7 @@ import { GoogleMapComponent } from './google-map/google-map.component';
 import { PopMissionComponent } from './components/mission/pop-mission/pop-mission.component';
 import { AssoDetailsComponent } from './association/asso-details/asso-details.component';
 import { RegisterComponent } from './register/register.component';
+import { ParticipantComponent } from './components/mission/participant/participant.component';
 const routes: Routes = [
   {path:"",component:ShowallComponent},
   {path:"login",component:LoginComponent},
@@ -20,11 +21,14 @@ const routes: Routes = [
 {  path: "",
   redirectTo: "admin",
   pathMatch: "full",
-
 },
 {
   path:"association/:id",
   component:AssoDetailsComponent
+},
+{
+  path:"participant/:id",
+  component:ParticipantComponent
 },
 {
   path:"admin",

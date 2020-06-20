@@ -1,6 +1,6 @@
 
 <section id="content-section-4">
-  <div class="greennature-color-wrapper  gdlr-show-all no-skin" style="background-color: #f0f0f0; padding-bottom: 25px; ">
+  <div class="greennature-color-wrapper  gdlr-show-all no-skin" style="background-color:white; padding-bottom: 25px; ">
       <div class="container">
           <div class="greennature-item-title-wrapper greennature-item  greennature-left-divider greennature-medium ">
               <div class="greennature-item-title-container container">
@@ -27,22 +27,22 @@
                                                 {{mission.type}}
                                         <div class="d-flex m-0 p-3 modal-leg" style="margin-top:top;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                           <div class="d-none d-lg-block p-2 text-center"style="margin-top:-50px">
-                                          <a ><img alt="LOGO" class="modal-logo bg-white" src="{{mission.imageUrl}}" style=" height: 100px;">
+                                          <a ><img alt="LOGO" class="modal-logo bg-white" src="{{mission.imageUrl}}" style=" height: 100px; width: 100px;">
                                           </a>
                                           </div>
                                           </div>
-                                        <button mat-raised-button  style="background-color:#b80d57; margin-left:20px; color:white" (click)="onCreate(mission)">
+                                        <button mat-raised-button  style="background-color:#b80d57; color:white" (click)="onCreate(mission)">
                                           <mat-icon>add</mat-icon>Participer
                                         </button>
 
                                         &nbsp;&nbsp; &nbsp;&nbsp;
-                                          <h3 class="portfolio-title"><a>  &nbsp;&nbsp; &nbsp;&nbsp;{{mission.sujet}}</a></h3>
+                                          <h3 class="portfolio-title"><a>{{mission.sujet}}</a></h3>
                                           <div class="greennature-portfolio-info">
                                               <div class="portfolio-info portfolio-tag"><span class="info-head greennature-title"></span><span class="sep"></span> <a [routerLink]="['/association/',mission.nom_association1._id]">{{mission.nom_association1.nom_association}}</a></div>
                                               <div class="clear"></div>
                                           </div>
-                                          <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="#" style="color:red;">{{mission.date}}</a></div>
-                                          <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="#" style="color:red;">{{mission.datefin}}</a></div>
+                                          <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a style="color:red;">{{mission.date}}</a></div>
+                                          <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a style="color:red;">{{mission.datefin}}</a></div>
 
                                             </div>
 

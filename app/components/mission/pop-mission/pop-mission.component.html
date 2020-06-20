@@ -9,6 +9,7 @@
 
     <div class="ml-4"  style="background-color: #239f95;">
   <a style="color:#b80d57"  href="" >◄ </a>
+ 
   <h5 class="modal-title">{{mission.sujet}}</h5>
   <div *appShowAuthed="false">
     <a [routerLink]="['/login']">se connecter</a> ou <a [routerLink]="['/user/register']">créer votre compte</a> pour participer
@@ -50,7 +51,7 @@
   <div>
   <div class="text-dark">
   <i class="fa fa-search"></i>
-  <a class="font-weight-light pl-2 text-dark" href="#">Voir les participants</a>
+  <a class="font-weight-light pl-2 text-dark" [routerLink]="['/participant/',mission._id]" >Voir les participants</a>
   </div>
   </div>
 <br>

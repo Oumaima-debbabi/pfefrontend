@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { EvenementService } from './services/evenement.service';
+import { Observable } from 'rxjs';
+import { Evenement } from './model/evenement';
 
 @Component({
   selector: 'app-evenement',
@@ -6,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./evenement.component.css']
 })
 export class EvenementComponent implements OnInit {
-
-  constructor() { }
+  evenements$:Observable<Evenement[]>
+  constructor(
+    private eventService:EvenementService
+  ) { }
 
   ngOnInit() {
+
+    this.evenements$=this.eventService.getEvenements()
+
+
   }
+
 
 }

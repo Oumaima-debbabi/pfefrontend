@@ -30,7 +30,7 @@ export class EditBenevoleComponent implements OnInit {
       adresse: new FormControl("",[Validators.required]),
       numero_telephone: new FormControl("",[Validators.required]),
       code_postal: new FormControl("",[Validators.required]),
-      date_naissance: new FormControl("",[Validators.required]),
+      annee_naissance: new FormControl("",[Validators.required]),
       profession :new FormControl("",[Validators.required])
     });
   }
@@ -46,9 +46,9 @@ export class EditBenevoleComponent implements OnInit {
     });
   }
 
-  updateBenevole( name, prenom,association,profession,email, civilite, adresse, code_postal,numero_telephone,date_naissance, id) {
+  updateBenevole( name, prenom,association,profession,email, civilite, adresse, code_postal,numero_telephone,annee_naissance, id) {
     this.route.params.subscribe(params => {
-      this.bS.updateBenevole(name, prenom,association,profession, email,civilite, adresse, code_postal,numero_telephone,date_naissance,params.id);
+      this.bS.updateBenevole(name, prenom,association,profession, email,civilite, adresse, code_postal,numero_telephone,annee_naissance,params.id);
       const Toast = Swal.mixin({
         toast: true,
         position: 'center',

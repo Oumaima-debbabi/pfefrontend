@@ -7,7 +7,8 @@
 <link rel="stylesheet" href="assets/vendors/selectFX/css/cs-skin-elastic.css">
 
 <br>
-
+<br>
+<br>
 
 
     <aside id="left-panel" class="left-panel">
@@ -130,40 +131,40 @@
                 <div class="row" >
 
                     <div class="col-xs-6 col-sm-6" >
-                        <div class="card"  style="width: 950px;height: 1100px;">
+                        <div class="card"  style="width: 950px;height: 1400px;">
                             <div class="card-header"Style="color:black">
                                 <strong>Ajouter benevole</strong>
                             </div>
 
-<form [formGroup]="benevoleForm" (ngSubmit)="benevoleadd()">
+<form [formGroup]="benevoleForm" (ngSubmit)="addPost()">
   <div class="card-body card-block">
     <label for="cc-exp" class="control-label mb-1" style="color: black;">Nom </label>
       <div class="form-group">
           <label class=" form-control-label"></label>
           <div class="input-group">
-              <input class="form-control"formControlName="name">
+              <input class="form-control"formControlName="name" (input)="handleChange()" [(ngModel)]="name">
           </div>
       </div>
       <label for="cc-exp" class="control-label mb-1" style="color: black;">Prenom </label>
       <div class="form-group">
           <label class=" form-control-label"></label>
           <div class="input-group">
-              <input class="form-control"  formControlName="prenom">
+              <input class="form-control"  formControlName="prenom" (input)="handleChange()" [(ngModel)]="prenom">
           </div>
       </div>
   <label for="cc-exp" class="control-label mb-1" style="color: black;">Profession </label>
       <div class="form-group">
           <label class=" form-control-label"></label>
           <div class="input-group">
-              <input class="form-control"  formControlName="profession">
+              <input class="form-control"  formControlName="profession" (input)="handleChange()" [(ngModel)]="profession">
           </div>
       </div>
         <label for="cc-exp" class="control-label mb-1" style="color: black;">Nom association </label>
-        <br>
-        <mat-form-field  *ngIf="associations$ | async as associations">
+        <br><mat-form-field  *ngIf="associations$ | async as associations">
           <mat-label class="input-group"></mat-label>
-          <mat-select  formControlName="association">
-            <mat-option [value]="association.nom_association" *ngFor="let association of associations">{{association.nom_association}}
+          <mat-select  formControlName="associationId" [(ngModel)]="associationId" (input)="handleChange()">
+            <mat-option [value]="association._id" *ngFor="let association of associations"
+            >{{association.nom_association}}
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -172,12 +173,12 @@
       <div class="form-group">
           <label class=" form-control-label"></label>
           <div class="input-group">
-              <input class="form-control"formControlName="email">
+              <input class="form-control"formControlName="email" (input)="handleChange()" [(ngModel)]="email">
           </div>
       </div>
       <div class="row row-space">
         <label class="label">civilite</label>
-        <div class="p-t-10" class="input--style-4"><mat-radio-group formControlName="civilite">
+        <div class="p-t-10" class="input--style-4"><mat-radio-group formControlName="civilite" (input)="handleChange()" [(ngModel)]="civilite">
           <mat-radio-button value="Male" class="radio-container m-r-45">homme</mat-radio-button>
           <mat-radio-button value="Female" class="radio-container m-r-45">femme</mat-radio-button>
         </mat-radio-group>
@@ -186,7 +187,7 @@
       <label for="cc-exp" class="control-label mb-1" style="color: black;">Adresse </label>
 
         <mat-form-field class="ml-xs mr-xs" style="width: 100%;">
-          <mat-select placeholder="Ville" name="adresse" formControlName="adresse" >
+          <mat-select placeholder="Ville" name="adresse" formControlName="adresse"  (input)="handleChange()" [(ngModel)]="adresse">
             <mat-option value="14">Tunis</mat-option>
             <mat-option value="15">Ben arous</mat-option>
             <mat-option value="16">Bizert</mat-option>
@@ -205,28 +206,36 @@
       <div class="form-group">
           <label class=" form-control-label"></label>
           <div class="input-group">
-              <input class="form-control" formControlName="code_postal">
+              <input class="form-control" formControlName="code_postal" (input)="handleChange()" [(ngModel)]="code_postal">
           </div>
       </div>
       <label for="cc-exp" class="control-label mb-1" style="color: black;">Date naissance</label>
       <div class="form-group">
           <label class=" form-control-label"></label>
           <div class="input-group">
-              <input class="form-control" formControlName="date_naissance">
+              <input class="form-control" formControlName="date_naissance" (input)="handleChange()" [(ngModel)]="date_creation">
           </div>
       </div>
     <label for="cc-exp" class="control-label mb-1" style="color: black;">Numéro telephone</label>
       <div class="form-group">
           <label class=" form-control-label"></label>
           <div class="input-group">
-              <input class="form-control"formControlName="numero_telephone">
+              <input class="form-control"formControlName="numero_telephone" (input)="handleChange()" [(ngModel)]="numero_telephone">
           </div>
       </div>
-      <!-- <div class="row form-group">
-        <div class="col col-md-3"><label for="file-input" class=" form-control-label" style="color: black;">Image</label></div>
-        <div class="col-12 col-md-9"><input type="file" id="file-input" name="file-input" class="form-control-file"></div>
-    </div> -->
-      <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block" [disabled]="!benevoleForm" style="width:200px; margin-left: 360px;">
+
+      <div class="row form-group">
+        <div class="col col-md-3"><label for="file-input" class=" form-control-label"
+          style="color: black;">Image</label>
+        </div>
+        <div class="col-12 col-md-9"><input type="file" id="file-input"
+          name="file-input" class="form-control-file" formControlName="imageUrl"
+            (change)="uploadImage($event)" ></div>
+
+        <img *ngIf="imageUrl" [src]="imageUrl" [alt]="imageUrl" style="height:70px;">
+      </div>
+
+      <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block"  style="width:200px; margin-left: 360px;">
         <i class="fa fa-lock fa-lg"></i>&nbsp;
         <span id="payment-button-amount">enregistre </span>
      </button>

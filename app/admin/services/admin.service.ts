@@ -37,6 +37,9 @@ export class AdminService {
     getMissions(): Observable<Mission[]> {
         return this.http.get<Mission[]>(`${this.ROOT_URL3}`,this.httpOptions);
       }
+      getmissionss(): Observable<Mission[]> {
+        return this.http.get<Mission[]>(`${this.ROOT_URL3}/getmissions`);
+      }
       getMission(id: string) {
         return this.http.get<Mission>(`${this.ROOT_URL3}/${id}`);
       }
@@ -98,7 +101,7 @@ export class AdminService {
         this.httpOptions
       );
     }
-    updateSecteur(type_activite, id) {
+    updateSecteur(type_activite,id) {
       const obj = {
         type_activite
       };
@@ -197,8 +200,8 @@ export class AdminService {
       return this.http.get<Benevole>(`${this.ROOT_URL5}/${id}`);
     }
 
-    addBenevole(Benevole) {
-      return this.http.post<any>(`${this.ROOT_URL5}/register/`,Benevole, this.httpOptions);
+    addBenevole(data) {
+      return this.http.post<any>(`${this.ROOT_URL5}/register/`,data, this.httpOptions);
     }
 
     editBenevole(benevole, id: string) {
@@ -214,7 +217,7 @@ export class AdminService {
       adresse, code_postal,
       numero_telephone,
 
-       date_naissance
+      annee_naissance
       , id) {
       const obj = {name, prenom,association,
         profession,
@@ -223,7 +226,7 @@ export class AdminService {
            adresse, code_postal,
            numero_telephone,
 
-            date_naissance }
+           annee_naissance }
         ;this
         .http
         .post(`${this.ROOT_URL5}/update/${id}`, obj)
@@ -234,9 +237,9 @@ export class AdminService {
       return this.http.delete(`${this.ROOT_URL5}/${id}`, this.httpOptions);
     }
 
-    editUser( name, prenom,profession,association,email, civilite, adresse, code_postal,date_naissance,numero_telephone,imageUrl,id) {
+    editUser( name, prenom,profession,association,email, civilite, adresse, code_postal,annee_naissance,numero_telephone,imageUrl,id) {
         const obj = {
-          name, prenom,profession,association,email, civilite, adresse, code_postal,date_naissance,numero_telephone,imageUrl
+          name, prenom,profession,association,email, civilite, adresse, code_postal,annee_naissance,numero_telephone,imageUrl
           // Photo,
 
         };
@@ -274,7 +277,7 @@ export class AdminService {
     // loggedIn() {
     //   return !!localStorage.getItem("token");
     // }
- 
+
 }
 
 

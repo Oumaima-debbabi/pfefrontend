@@ -14,10 +14,8 @@ import Swal from 'sweetalert2';
 export class BenevoleComponent implements OnInit {
 
   benevoleForm = new FormGroup({
-    name: new FormControl("", [Validators.required,Validators.minLength(2),
-      Validators.maxLength(30),
-      Validators.pattern('[a-zA-Z0-9_-\\s]*')]),
-    email: new FormControl("", [Validators.required,Validators.minLength(8),Validators.maxLength(100)]),
+    name: new FormControl("", []),
+    email: new FormControl("", []),
     password: new FormControl("",[]),
     prenom: new FormControl("", [Validators.required]),
     adresse: new FormControl("", [Validators.required]),
@@ -25,10 +23,86 @@ export class BenevoleComponent implements OnInit {
     code_postal: new FormControl("", [Validators.required]),
     date_naissance: new FormControl("", [Validators.required]),
     profession: new FormControl("", [Validators.required]),
-    association: new FormControl("", [Validators.required]),
+    associationId: new FormControl("", []),
     civilite : new FormControl("", [Validators.required]),
-
+imageUrl:new FormControl("", [Validators.required]),
   });
+  uploadImage(event) {
+    this.benevoleService.uploadImage(event.target.files[0])
+      .subscribe((res: any) => {
+        this.imageUrl = res.imageUrl
+      })
+  }
+  associationId:'';
+  email:string='';
+  civilite:string=''
+  password:string='';
+name:string='';
+prenom:string='';
+adresse:string='';
+code_postal:string='';
+date_creation:string='';
+//adresse_asso :string='';
+profession:string='';
+annee_naissance:string='';
+numero_telephone:string='';
+imageUrl:string="";
+formDirty:boolean=false;
+addPost(): void {
+  const data = {
+    email:this.email,
+associationId:this.associationId,
+
+    civilite:this.civilite,
+    password:this.password,
+  name:this.name,
+  imageUrl: this.imageUrl,
+  prenom:this.prenom,
+adresse:this.adresse,
+code_postal:this.code_postal,
+//adresse_asso:this.adresse_asso,
+profession:this.profession,
+annee_naissance:this.annee_naissance,
+numero_telephone:this.numero_telephone,
+  }
+
+  this.benevoleService.addBenevole(data)
+    .subscribe(() => {
+
+      this.name= '';
+      this.email='';
+      this.civilite=''
+      this.password='';
+      this.associationId='';
+      this.prenom='';
+      this.adresse='';
+      this.code_postal='';
+      //this.adresse_asso='';
+      this.profession='';
+      this.annee_naissance='';
+  this.numero_telephone='';
+
+
+    this.imageUrl='';
+    this.formDirty = false;
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'center',
+      showConfirmButton: true,
+      timer: 3000
+    });
+    Toast.fire({
+      title:'Benevole ajouté avec succées!!'
+
+    })
+  this.router.navigate(["association/login"]);
+
+            }
+            )
+}
+handleChange() {
+  this.formDirty = true;
+}
 associations$: Observable<Association[]>
 
   constructor(private benevoleService:AdminService,
@@ -40,22 +114,22 @@ associations$: Observable<Association[]>
     this.associations$ =this.aService.getAssociations()
   }
 
-  benevoleadd() {
-    if (this.benevoleForm.valid) {
-      this.benevoleService.addBenevole(this.benevoleForm.value).subscribe(res => {
-        const Toast = Swal.mixin({
-          toast: true,
-          position: 'center',
-          showConfirmButton: true,
-          timer: 3000
-        });
-        Toast.fire({
-          title:'Benevole ajouté avec succées!!'
+  // benevoleadd() {
+  //   if (this.benevoleForm.valid) {
+  //     this.benevoleService.addBenevole(this.benevoleForm.value).subscribe(res => {
+  //       const Toast = Swal.mixin({
+  //         toast: true,
+  //         position: 'center',
+  //         showConfirmButton: true,
+  //         timer: 3000
+  //       });
+  //       Toast.fire({
+  //         title:'Benevole ajouté avec succées!!'
 
-        })
-      this.router.navigate(["association/login"]);
-      });
-    }
-  }
+  //       })
+  //     this.router.navigate(["association/login"]);
+  //     });
+  //   }
+  // }
 }
 

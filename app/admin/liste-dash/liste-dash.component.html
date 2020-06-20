@@ -1,5 +1,5 @@
 
-<aside id="left-panel" class="left-panel">
+<aside id="left-panel" class="left-panel" >
   <nav class="navbar navbar-expand-sm navbar-default">
 <br>
 <br>
@@ -12,8 +12,12 @@
 
       <div id="main-menu" class="main-menu collapse navbar-collapse">
           <ul class="nav navbar-nav">
+            <li>
+              <a routerLink="/"><i class="menu-icon fa fa-home">
+              </i>Accueil </a>
+          </li>
               <li>
-                  <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Tableau </a>
+                  <a> <i class="menu-icon fa fa-dashboard"></i>Tableau </a>
               </li>
               <li class="menu-item-has-children dropdown">
                 <a routerLink="/admin/profil" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Profil</a>
@@ -59,12 +63,26 @@
                   </ul>
               </li>
               <li class="menu-item-has-children dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="!isBenevole"> <i class="menu-icon fa fa-table" *ngIf="!isBenevole"></i>Missions</a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="isAssociation"> <i class="menu-icon fa fa-table" *ngIf="!isBenevole"></i>Missions</a>
                   <ul class="sub-menu children dropdown-menu">
                       <li><i class="fa fa-table"></i><a href="/admin/table-mission" *ngIf="!isBenevole">Liste de missions</a></li>
                       <li><i class="fa fa-table"></i><a href="/admin/mission" *ngIf="!isBenevole">Ajouter mission </a></li>
                   </ul>
               </li>
+              <li class="menu-item-has-children dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"*ngIf="isAdmin"> <i class="menu-icon fa fa-table"></i>Propositions</a>
+                <ul class="sub-menu children dropdown-menu">
+                    <li><i class="fa fa-table"></i><a href="/admin/all-propositions">Liste de propositions </a></li>
+                    <li><i class="fa fa-table"></i><a routerLink="/admin/propostions">Ajouter proposition</a></li>
+                </ul>
+            </li>
+              <li class="menu-item-has-children dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="isAdmin"> <i class="menu-icon fa fa-table" *ngIf="!isBenevole"></i>Missions</a>
+                <ul class="sub-menu children dropdown-menu">
+                    <li><i class="fa fa-table"></i><a href="/admin/table-missions" *ngIf="!isBenevole">Liste de missions</a></li>
+                    <li><i class="fa fa-table"></i><a href="/admin/mission" *ngIf="!isBenevole">Ajouter mission </a></li>
+                </ul>
+            </li>
               <li class="menu-item-has-children dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"*ngIf="isAdmin"> <i class="menu-icon fa fa-table"></i>Secteurs</a>
                   <ul class="sub-menu children dropdown-menu">
@@ -72,13 +90,7 @@
                       <li><i class="fa fa-table"></i><a routerLink="/admin/secteur">Ajouter secteur</a></li>
                   </ul>
               </li>
-                   <li class="menu-item-has-children dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"*ngIf="isAdmin"> <i class="menu-icon fa fa-table"></i>Secteurs</a>
-                  <ul class="sub-menu children dropdown-menu">
-                      <li><i class="fa fa-table"></i><a href="/admin/table-secteur">Liste de secteurs</a></li>
-                      <li><i class="fa fa-table"></i><a routerLink="/admin/secteur">Ajouter secteur</a></li>
-                  </ul>
-              </li>
+
               <li class="menu-item-has-children dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"*ngIf="isAdmin"> <i class="menu-icon fa fa-table"></i>Partenaires</a>
                 <ul class="sub-menu children dropdown-menu">

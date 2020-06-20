@@ -4,6 +4,9 @@ import { FormGroup, Validators, FormControl, NgForm } from "@angular/forms";
 import { ToastComponent } from 'src/app/toast/toast.component';
 import { Router } from "@angular/router";
 import Swal from "sweetalert2";
+import { AdminService } from 'src/app/admin/services/admin.service';
+import { Association } from 'src/app/association/model/association';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -12,54 +15,103 @@ import Swal from "sweetalert2";
 })
 
 export class RegisterComponent implements OnInit {
-  registerForm = new FormGroup({
-    name: new FormControl("", [Validators.required,
-      Validators.minLength(2),
-      Validators.maxLength(30),
-      Validators.pattern('[a-zA-Z0-9_-\\s]*')]),
-    email: new FormControl("", [Validators.required, Validators.minLength(3),
-      Validators.maxLength(100)]),
-    password: new FormControl("", [Validators.required,Validators.minLength(6)]),
-    statut: new FormControl("", [Validators.required]),
-prenom: new FormControl("", [Validators.minLength(2),
-  Validators.maxLength(30),
-  Validators.pattern('[a-zA-Z0-9_-\\s]*')]),
-civilite: new FormControl("", [Validators.required]),
-adresse: new FormControl("", [Validators.required]),
-numero_telephone: new FormControl("", [Validators.required]),
-code_postal: new FormControl("", [Validators.required]),
-annee_naissance: new FormControl("", [Validators.required]),
- profession: new FormControl("", [Validators.required]),
+  benevoleForm = new FormGroup({
+    name: new FormControl("", []),
+    email: new FormControl("", []),
+    password: new FormControl("",[]),
+    prenom: new FormControl("", [Validators.required]),
+    adresse: new FormControl("", [Validators.required]),
+    numero_telephone: new FormControl("", [Validators.required]),
+    code_postal: new FormControl("", [Validators.required]),
+    annee_naissance: new FormControl("", [Validators.required]),
+    profession: new FormControl("", [Validators.required]),
+    associationId: new FormControl("", []),
+    civilite : new FormControl("", [Validators.required]),
+imageUrl:new FormControl("", [Validators.required]),
   });
+  uploadImage(event) {
+    this.benevoleService.uploadImage(event.target.files[0])
+      .subscribe((res: any) => {
+        this.imageUrl = res.imageUrl
+      })
+  }
+  associationId:'';
+  email:string='';
+  civilite:string=''
+  password:string='';
+name:string='';
+prenom:string='';
+adresse:string='';
+code_postal:string='';
+annee_naissance:string='';
+//adresse_asso :string='';
+profession:string='';
+numero_telephone:string='';
+imageUrl:string="";
+formDirty:boolean=false;
+addPost(): void {
+  const data = {
+    email:this.email,
+associationId:this.associationId,
 
-  constructor(
-    private userService: UserService,
-    private router: Router
-    ) {}
+    civilite:this.civilite,
+    password:this.password,
+  name:this.name,
+  imageUrl: this.imageUrl,
+  prenom:this.prenom,
+adresse:this.adresse,
+code_postal:this.code_postal,
+//adresse_asso:this.adresse_asso,
+profession:this.profession,
+annee_naissance:this.annee_naissance,
+numero_telephone:this.numero_telephone,
+  }
 
-  ngOnInit() {}
+  this.benevoleService.addBenevole(data)
+    .subscribe(() => {
 
-  userRegister() {
-    if (this.registerForm.valid) {
-      this.userService.register(this.registerForm.value).subscribe(res => {
-        //this.setMessage('you successfully registered!', 'success');
-        const Toast = Swal.mixin({
-          toast: true,
-          position: 'center',
-          showConfirmButton: true,
-          timer: 3000
-        });
-        Toast.fire({
-    title:'vous etes inscrit et vous pouvez activer votre compte,consulter votre boite demail'
+      this.name= '';
+      this.email='';
+      this.civilite=''
+      this.password='';
+      this.associationId='';
+      this.prenom='';
+      this.adresse='';
+      this.code_postal='';
+      //this.adresse_asso='';
+      this.profession='';
+      this.annee_naissance='';
+  this.numero_telephone='';
 
-        })
 
-        this.registerForm.reset();
-        //this.flashMessage.show('You are now registered and can now login', {cssClass: 'alert-success', timeout: 3000});
-        //error => this.toast.setMessage('no!', '')
-       // this.router.navigate(["/login"]);
-      });
-    }
+    this.imageUrl='';
+    this.formDirty = false;
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'center',
+      showConfirmButton: true,
+      timer: 3000
+    });
+    Toast.fire({
+      title:'Benevole ajouté avec succées!!'
 
+    })
+  this.router.navigate(["/login"]);
+
+            }
+            )
+}
+handleChange() {
+  this.formDirty = true;
+}
+associations$: Observable<Association[]>
+
+  constructor(private benevoleService:AdminService,
+  private aService:AdminService,
+  private router:Router) {}
+
+
+  ngOnInit() {
+    this.associations$ =this.aService.getAssociations()
   }
 }

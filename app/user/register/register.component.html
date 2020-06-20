@@ -6,42 +6,39 @@
 <h3>Créez votre compte bénévole pour aider où vous voulez, quand vous voulez !
 
 </h3>
-  <form [formGroup]="registerForm" #myForm="ngForm" (ngSubmit)="userRegister()"><br>
+  <form [formGroup]="benevoleForm" #myForm="ngForm" (ngSubmit)="addPost()"><br>
     <div class="row row-space">
       <div class="col-2">
 
-    <input   class="input-group" type="text" class="input--style-4" placeholder="entrez votre nom" formControlName="name" />
+    <input   class="input-group" type="text" class="input--style-4" placeholder="entrez votre nom" [(ngModel)]="name" (input)="handleChange()" formControlName="name" />
 
    </div>
 
     <div class="col-2">
 
-    <input   class="input-group"type="text"  class="input--style-4"placeholder="entrez votre prenom" formControlName="prenom" />
+    <input   class="input-group"type="text"  class="input--style-4"placeholder="entrez votre prenom" formControlName="prenom"  [(ngModel)]="prenom" (input)="handleChange()"/>
     </div>
 
 </div>
 
 <div class="row row-space">
   <div class="col-2">
-    <input   class="input-group"type="text" class="input--style-4"  placeholder="entrez votre année naissance" formControlName="annee_naissance" />
+    <input   class="input-group"type="text" class="input--style-4"  placeholder="entrez votre année naissance" formControlName="annee_naissance" [(ngModel)]="annee_naissance" (input)="handleChange()" />
 
      </div>
      <div class="col-2">
-    <input  class="input-group" type="text" placeholder="entrez votre numero tele"  class="input--style-4"formControlName="numero_telephone" />
+    <input  class="input-group" type="text" placeholder="entrez votre numero tele"  class="input--style-4"formControlName="numero_telephone"  [(ngModel)]="numero_telephone" (input)="handleChange()" />
   </div>
 </div>
 
  <div class="row row-space">
   <div class="col-2">
-    <input  class="input-group" type="text" placeholder="entrez votre profession" class="input--style-4" formControlName="profession" />
+    <input  class="input-group" type="text" placeholder="entrez votre profession" class="input--style-4" formControlName="profession" [(ngModel)]="profession" (input)="handleChange()"  />
      </div>
-  <div class="col-2">
-  <input  class="input-group" type="text" placeholder="entrez votre statut" class="input--style-4"formControlName="statut" />
-</div>
-  </div>
+
   <div class="row row-space">
       <label class="label">civilite</label>
-      <div class="p-t-10" class="input--style-4"><mat-radio-group formControlName="civilite">
+      <div class="p-t-10" class="input--style-4"><mat-radio-group formControlName="civilite" [(ngModel)]="civilite" (input)="handleChange()" >
         <mat-radio-button value="Male" class="radio-container m-r-45">homme</mat-radio-button>
         <mat-radio-button value="Female" class="radio-container m-r-45">femme</mat-radio-button>
       </mat-radio-group>
@@ -49,11 +46,11 @@
     </div>
       <div class="row row-space">
       <div class="col-2">
-        <input  class="input-group"type="text" class="input--style-4" placeholder="entrez votre adresse" formControlName="adresse"/>
-        
+        <input  class="input-group"type="text" class="input--style-4" placeholder="entrez votre adresse" [(ngModel)]="adresse" (input)="handleChange()"  formControlName="adresse"/>
+
       </div>
     <div class="col-2">
-    <input  class="input-group" type="text" class="input--style-4" placeholder="entrez votre code postal" formControlName="code_postal" />
+    <input  class="input-group" type="text" class="input--style-4" placeholder="entrez votre code postal" formControlName="code_postal" [(ngModel)]="code_postal" (input)="handleChange()"  />
     </div>
   </div>
 
@@ -62,18 +59,28 @@
     <input  class="input-group"
       type="email" class="input--style-4"
       placeholder="entrez votre Email"
-      formControlName="email" />
+      formControlName="email"
+      [(ngModel)]="email" (input)="handleChange()"  />
     </div>
     <div class="col-2">
     <input  class="input-group"
       type="password" class="input--style-4"
       placeholder="entrez votre Password"
-      formControlName="password" />
+      formControlName="password" [(ngModel)]="password" (input)="handleChange()"  />
 
     </div>
     </div>
+    <div class="row form-group">
+      <div class="col col-md-3"><label for="file-input" class=" form-control-label"
+        style="color: black;">Image</label>
+      </div>
+      <div class="col-12 col-md-9"><input type="file" id="file-input"
+        name="file-input" class="form-control-file" formControlName="imageUrl"
+          (change)="uploadImage($event)" ></div>
 
-    <input type="submit" value="s'inscire" [disabled]="!registerForm.valid"/>
+      <img *ngIf="imageUrl" [src]="imageUrl" [alt]="imageUrl" style="height:70px;">
+    </div>
+    <input type="submit" value="s'inscire" />
     <div class="text-center">
       <a>Vous avez un compre?</a><a routerLink="/login" class="txt2 hov1"> créer votre compte	</a>
     </div>

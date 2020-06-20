@@ -25,17 +25,17 @@ users:Admin
 
   createForm(){ this.editForm= this.fb.group
     ({
-      civilite: new FormControl("",[Validators.required]),
-      name: new FormControl("",[Validators.required]),
+      civilite: new FormControl("",[]),
+      name: new FormControl("",[]),
       association: new FormControl("",[]),
-      email: new FormControl("",[Validators.required]),
-      prenom: new FormControl("",[Validators.required]),
-      adresse: new FormControl("",[Validators.required]),
-      numero_telephone: new FormControl("",[Validators.required]),
-      code_postal: new FormControl("",[Validators.required]),
-      date_naissance: new FormControl("",[Validators.required]),
-      profession :new FormControl("",[Validators.required]),
-      imageUrl:new FormControl("",[Validators.required]),
+      email: new FormControl("",[]),
+      prenom: new FormControl("",[]),
+      adresse: new FormControl("",[]),
+      numero_telephone: new FormControl("",[]),
+      code_postal: new FormControl("",[]),
+      annee_naissance: new FormControl("",[]),
+      profession :new FormControl("",[]),
+      imageUrl:new FormControl("",[]),
 
     });
   }
@@ -59,9 +59,9 @@ uploadImage(event) {
       this.imageUrl = res.imageUrl
     })
 }
-  updateUser( name, prenom,profession,association,email, civilite, adresse, code_postal,date_naissance,numero_telephone, imageUrl,id) {
+  updateUser( name, prenom,profession,association,email, civilite, adresse, code_postal,annee_naissance,numero_telephone, imageUrl,id) {
     this.route.params.subscribe(params => {
-      this.bS.editUser(name, prenom,profession,association, email,civilite, adresse, code_postal,date_naissance,numero_telephone,imageUrl,params.id);
+      this.bS.editUser(name, prenom,profession,association, email,civilite, adresse, code_postal,annee_naissance,numero_telephone,imageUrl,params.id);
       const Toast = Swal.mixin({
         toast: true,
         position: 'center',

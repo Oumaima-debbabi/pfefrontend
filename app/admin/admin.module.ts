@@ -45,13 +45,17 @@ import { TableActionsComponent } from './table/table-actions/table-actions.compo
 import { EditPropositionComponent } from './edit/edit-proposition/edit-proposition.component';
 import { PropositionsAfficheComponent } from './propositions-affiche/propositions-affiche.component';
 import { TableActionComponent } from './table/table-action/table-action.component';
+import { ParticipantsComponent } from './table/participants/participants.component';
+import { AllMissionComponent } from './table/all-mission/all-mission.component';
+import { AllPropositionsComponent } from './table/all-propositions/all-propositions.component';
+import { EditAssociationComponent } from './edit/edit-association/edit-association.component';
 
 @NgModule({
   declarations: [ProfilComponent, ListeDashComponent, LoginComponent, SecteurComponent, MissionComponent, EvenementComponent, TableEvenementComponent,TableMissionComponent, TableSecteurComponent, TableAssociationsComponent, TableBenevoleComponent, AssociationComponent,
      PartenaireComponent, TablePartenaireComponent, EditSecteurComponent,
      EditPartenaireComponent, EditMissionComponent, BenevoleComponent, EditBenevoleComponent,
     EditProfilComponent,
-     AuthComponent, AdhesionComponent, ActionsComponent, PropositionsComponent, TablePropositionsComponent, TableActionsComponent, EditPropositionComponent, PropositionsAfficheComponent, TableActionComponent],
+     AuthComponent, AdhesionComponent, ActionsComponent, PropositionsComponent, TablePropositionsComponent, TableActionsComponent, EditPropositionComponent, PropositionsAfficheComponent, TableActionComponent, ParticipantsComponent, AllMissionComponent, AllPropositionsComponent, EditAssociationComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

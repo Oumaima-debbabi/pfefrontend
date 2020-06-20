@@ -11,64 +11,51 @@
                   </div>
               </div>
           </div>
-          <div class="portfolio-item-wrapper type-classic-portfolio" >
-              <div class="portfolio-item-holder  greennature-portfolio-column-4">
-                  <div class="greennature-isotope" data-type="portfolio" data-layout="fitRows">
-                      <div class="clear"></div>
-                      <div class="three columns">
-                          <div class="greennature-item greennature-portfolio-item greennature-classic-portfolio">
-                              <div class="greennature-ux greennature-classic-portfolio-ux">
+          <div class="portfolio-item-wrapper type-classic-portfolio" style="margin-left:0px">
+            <div class="portfolio-item-holder  greennature-portfolio-column-4">
+                <div class="greennature-isotope" data-type="portfolio" data-layout="fitRows" style="margin-left:10px">
+                    <div class="clear"></div>
 
-                                <agm-map [latitude]="lat" [longitude]="lng">
-                                  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-                                </agm-map>
-                                    </div>
+                        <div class="greennature-item greennature-portfolio-item greennature-classic-portfolio" style="margin-left:0px">
+                            <div class="greennature-ux greennature-classic-portfolio-ux" style="margin-left:0px" >
+                              &nbsp;&nbsp;
 
+                                <mat-grid-list cols="5" rowHeight="160:160" >
+                                  <mat-grid-tile *ngFor=" let association of associations$ | async as associations" style="margin-left:20px; max-width: 400px;">
 
 
-                          </div>
-                          <div class="three columns" style="margin-left:600px; margin-top:-530px;">
-
-                                     <br>
-
-                                     <mat-grid-list cols="3" rowHeight="500:2990" >
-                                      <mat-grid-tile *ngFor="let s of associations$ | async as association">
-
-                                        <a style="color: black;"  [routerLink]="['/association/',s._id]">{{s.nom_association}}
-
-
-                                          <div class="portfolio-thumbnail greennature-image"><img src="{{s.imageUrl}}" alt="" Style="width: 100px;height: 100px;"/><span class="portfolio-overlay">&nbsp;</span><a class="portfolio-overlay-icon" href="assets/upload/shutterstock_161515241.jpg" data-rel="fancybox"><span class="portfolio-icon" ><i class="fa fa-search" >
-
-                                          </i></span></a></div>
-                                          <div style="color: black;"><i class="fa fa-map-marker" style="color:black"></i>{{s.adresse}}</div>
-
+                                    <div class="portfolio-classic-content" >
+                                              {{association.nom_association}}
+                                      <div class="d-flex m-0 p-3 modal-leg" style="margin-top:top;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div class="d-none d-lg-block p-2 text-center"style="margin-top:-50px">
+                                        <a ><img alt="LOGO" class="modal-logo bg-white" src="{{association.imageUrl}}" style=" height: 100px; width: 100px;">
                                         </a>
-                                      </mat-grid-tile>
-                                     </mat-grid-list>
-<!--
-                                      <tr *ngFor="let s of associations$ | async as association">
-                                      <td style="color: black;">{{s.nom_association}}</td>
-                                      <td>
-                                        <div class="portfolio-thumbnail greennature-image"><img src="assets/upload/shutterstock_161515241-540x326.jpg" alt="" Style="width: 100px;height: 100px;"/><span class="portfolio-overlay">&nbsp;</span><a class="portfolio-overlay-icon" href="assets/upload/shutterstock_161515241.jpg" data-rel="fancybox"><span class="portfolio-icon" ><i class="fa fa-search" ></i></span></a></div>
+                                        </div>
+                                        </div>
 
-                                      </td>
+                                      &nbsp;&nbsp; &nbsp;&nbsp;
+                                        <h3 class="portfolio-title"><a>{{association.date_creation}}</a></h3>
+                                     
 
-                                      </tr> -->
+                                          </div>
 
 
 
-
-                            </div>
-                      </div>
-
+                                    </mat-grid-tile>
+                                </mat-grid-list>
 
 
-                  </div>
-                  <div class="clear"></div>
-              </div>
-          </div>
-          <div class="clear"></div>
-          <div class="clear"></div>
-      </div>
 
-  <div class="clear"></div>
+
+                        </div>
+                    </div>
+
+
+
+
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="clear"></div>
+    </div>

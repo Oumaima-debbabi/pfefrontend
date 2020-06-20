@@ -17,7 +17,7 @@ export class AssociationComponent implements OnInit {
   email:string='';
   //emailasso:string=''
   password:string='';
-secteurId:string='';
+secteurId:'';
 name:string='';
 prenom:string='';
 adresse:string='';

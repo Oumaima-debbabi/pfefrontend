@@ -19,24 +19,24 @@ h3{ font-size: 32px; }
 h4{ font-size: 26px; }
 h5{ font-size: 21px; }
 h6{ font-size: 16px; }
-.top-navigation-wrapper{ background-color: #239f95; }
-.top-navigation-wrapper{ color: #239f95; }
-.top-navigation-wrapper a{ color: #239f95; }
-.greennature-header-inner, .greennature-header-wrapper.header-style-5-wrapper .greennature-header-inner{ background-color:from(#239f95 to #fff9e0); }@media only screen and (max-width: 767px) { .greennature-header-wrapper.header-style-5-wrapper .greennature-header-inner{ background-color: #9ad7e9; } }
-.greennature-main-menu > li > a, .greennature-main-menu > li > a i{ color: #ffffff; } @media only screen and (max-width: 1100px) { body .greennature-donate-button, body .greennature-donate-button:hover, body .greennature-top-woocommerce-button{ color: #239f95; }}
-.greennature-main-menu > li:hover > a, .greennature-main-menu > li.current-menu-item > a, .greennature-main-menu > li.current-menu-ancestor > a{ color: #dcd6f7; opacity: 1; filter: alpha(opacity=100); }.greennature-navigation-gimmick{ background-color: #239f95; }
-.greennature-button-overlay{ background-color: #239f95; }
-.greennature-button-overlay{ border-color: #239f95; }
+.top-navigation-wrapper{ background-color: #63b7af; }
+.top-navigation-wrapper{ color: #63b7af; }
+.top-navigation-wrapper a{ color: #63b7af; }
+.greennature-header-inner, .greennature-header-wrapper.header-style-5-wrapper .greennature-header-inner{ background-color:from(#63b7af to #fff9e0); }@media only screen and (max-width: 767px) { .greennature-header-wrapper.header-style-5-wrapper .greennature-header-inner{ background-color: #9ad7e9; } }
+.greennature-main-menu > li > a, .greennature-main-menu > li > a i{ color: #ffffff; } @media only screen and (max-width: 1100px) { body .greennature-donate-button, body .greennature-donate-button:hover, body .greennature-top-woocommerce-button{ color: #63b7af; }}
+.greennature-main-menu > li:hover > a, .greennature-main-menu > li.current-menu-item > a, .greennature-main-menu > li.current-menu-ancestor > a{ color: #dcd6f7; opacity: 1; filter: alpha(opacity=100); }.greennature-navigation-gimmick{ background-color: #63b7af; }
+.greennature-button-overlay{ background-color: #63b7af; }
+.greennature-button-overlay{ border-color: #63b7af; }
 .greennature-donate-button, .greennature-donate-button:hover{ color: white; }
-.greennature-woo-button-overlay{ background-color: #239f95; }
-.greennature-woo-button-overlay{ border-color: #239f95; }
-.greennature-top-woocommerce-button{ color: #239f95; }
+.greennature-woo-button-overlay{ background-color: #63b7af; }
+.greennature-woo-button-overlay{ border-color: #63b7af; }
+.greennature-top-woocommerce-button{ color: #63b7af; }
 .greennature-main-menu > .greennature-normal-menu .sub-menu, .greennature-main-menu > .greennature-mega-menu .sf-mega{ border-top-color: #1c1c1c; }
 .greennature-main-menu > .greennature-normal-menu li , .greennature-main-menu > .greennature-mega-menu .sf-mega{ background-color: #25221a; }
 .greennature-main-menu > li > .sub-menu a, .greennature-main-menu > li > .sf-mega a{ color: #f4f4f4; }
 .greennature-main-menu > li > .sub-menu a:hover, .greennature-main-menu > li > .sub-menu .current-menu-item > a, .greennature-main-menu > li > .sub-menu .current-menu-ancestor > a, .greennature-main-menu > li > .sf-mega a:hover, .greennature-main-menu > li > .sf-mega .current-menu-item > a, .greennature-main-menu > li > .sf-mega .current-menu-ancestor > a{ color: #eddbc0; } .greennature-main-menu .greennature-normal-menu li > a.sf-with-ul:after { border-left-color: #eddbc0; }
 .greennature-main-menu .sf-mega-section-inner > ul > li > a:hover, .greennature-main-menu .sf-mega-section-inner > ul > li.current-menu-item > a { background-color: #332c20; }
-.greennature-main-menu > li > .sub-menu *, .greennature-main-menu > li > .sf-mega *{ border-color: #239f95; }
+.greennature-main-menu > li > .sub-menu *, .greennature-main-menu > li > .sf-mega *{ border-color: #63b7af; }
 .greennature-main-menu > li > .sf-mega .sf-mega-section-inner > a { color: #ffffff; }
 .greennature-main-menu > li > .sf-mega .sf-mega-section-inner > a:hover, .greennature-main-menu > li > .sf-mega .sf-mega-section-inner.current-menu-item > a, .greennature-main-menu > li > .sf-mega .sf-mega-section-inner.current-menu-ancestor > a { color: #ffffff; }
 #greennature-responsive-navigation.dl-menuwrapper button { background-color: #0c0c0c; }
@@ -50,7 +50,7 @@ h1, h2, h3, h4, h5, h6, .greennature-title, .greennature-title a{ color: #3f3f3f
 .greennature-item-title-divider{ border-color: #3f3f3f; }
 .greennature-item-title-wrapper .greennature-item-caption{ color: #a5a3a3; }
 body{ color: white; }
-a{ color: #239f95; }
+a{ color: #63b7af; }
 a:hover{ color: #2c8e3b; }
 body *{ border-color: #dddddd; }
 .page-not-found-block{ background-color: #d65938; }
@@ -63,7 +63,7 @@ body *{ border-color: #dddddd; }
 .gdl-search-form input{ background-color: #f7f7f7; }
 .gdl-search-form input{ color: #9d9d9d; }
 .gdl-search-form input{ border-color: #ebebeb; }
-.tagcloud a{ background-color: #239f95; }
+.tagcloud a{ background-color: #63b7af; }
 .tagcloud a, .tagcloud a:hover{ color: #ffffff; }
 .greennature-action-ads-item .action-ads-caption{ color: #ffffff;}
 .greennature-action-ads-item .action-ads-content{ color: #ffffff;}
@@ -73,21 +73,21 @@ body *{ border-color: #dddddd; }
 .greennature-accordion-item.style-1 .accordion-title{ color: #8d8d8d; }
 .greennature-accordion-item.style-1 .accordion-title i{ background-color: #f3f3f3; }
 .greennature-accordion-item.style-1 .accordion-title i{ color: #a8a8a8; }
-.greennature-accordion-item.style-1 .accordion-title i.icon-minus{ background-color: #239f95; }
+.greennature-accordion-item.style-1 .accordion-title i.icon-minus{ background-color: #63b7af; }
 .greennature-accordion-item.style-1 .accordion-title i.icon-minus{ color: #ffffff; }
 .greennature-banner-item-wrapper .flex-direction-nav .flex-prev, .greennature-banner-item-wrapper .flex-direction-nav .flex-next{ color: #999999; }
 .greennature-box-with-icon-item{ background-color: #f5f5f5; }
 .greennature-box-with-icon-item > i, .greennature-box-with-icon-item .box-with-icon-title{ color: #585858; }
 .greennature-box-with-icon-item{ color: #929292; }
 .greennature-button, .greennature-button:hover, input[type="button"], input[type="submit"], .greennature-top-menu > .greennature-mega-menu .sf-mega a.greennature-button{ color: #ffffff; }
-.greennature-button, input[type="button"], input[type="submit"]{ background-color: #239f95; }.greennature-border-button{ border-color: #239f95; color: #239f95; }
-.greennature-button, input[type="submit"]{ border-color: #239f95; }
-.column-service-title{ color: #239f95; }
+.greennature-button, input[type="button"], input[type="submit"]{ background-color: #63b7af; }.greennature-border-button{ border-color: #63b7af; color: #63b7af; }
+.greennature-button, input[type="submit"]{ border-color: #63b7af; }
+.column-service-title{ color: #63b7af; }
 .column-service-content{ color: #909090; }
-.column-service-icon i{ color: #239f95; }.greennature-column-service-item.greennature-type-2 .column-service-icon{ border-color: #239f95; }
+.column-service-icon i{ color: #63b7af; }.greennature-column-service-item.greennature-type-2 .column-service-icon{ border-color: #63b7af; }
 .list-with-icon .list-with-icon-title{ color: #333333; }
 .list-with-icon .list-with-icon-icon{ border-color: #333333; color: #333333; }
-.greennature-menu-title, .greennature-menu-icon, .greennature-menu-price{ color: #239f95; }
+.greennature-menu-title, .greennature-menu-icon, .greennature-menu-price{ color: #63b7af; }
 .greennature-menu-ingredients-caption { color: #818181; }
 .greennature-list-menu-gimmick{ border-color: #000000; color: #000000; }
 .greennature-pie-chart-item .pie-chart-title{ color: #313131; }
@@ -95,7 +95,7 @@ body *{ border-color: #dddddd; }
 .greennature-price-item .price-title-wrapper{ background-color: #454545; }
 .greennature-price-item .price-title{ color: #ffffff; }
 .greennature-price-item .price-tag{ background-color: #838383; }
-.greennature-price-item .best-price .price-tag{ background-color: #239f95; }
+.greennature-price-item .best-price .price-tag{ background-color: #63b7af; }
 .greennature-price-item .price-tag{ color: #ffffff; }
 .greennature-process-tab .greennature-process-icon{ background-color: #f3f3f3; }
 .greennature-process-tab .greennature-process-icon{ border-color: #e3e3e3; }
@@ -110,13 +110,13 @@ body *{ border-color: #dddddd; }
 .tab-title-wrapper .tab-title{ background-color: #f9f9f9; }
 .tab-title-wrapper .tab-title{ color: #3b3b3b; }
 .tab-title-wrapper .tab-title.active, .tab-content-wrapper{ background-color: #ffffff; }
-table tr th{ background-color: #239f95; }
+table tr th{ background-color: #63b7af; }
 table tr th{ color: #ffffff; }
 table.style-2 tr:nth-child(odd){ background-color: #f9f9f9; }
 table.style-2 tr:nth-child(odd){ color: #949494; }
 table.style-2 tr:nth-child(even){ background-color: #f3f3f3; }
 table.style-2 tr:nth-child(even){ color: #949494; }
-.greennature-blog-title, .greennature-blog-title a{ color: #239f95; }
+.greennature-blog-title, .greennature-blog-title a{ color: #63b7af; }
 .greennature-blog-title a:hover{ color: #3f873e; }
 .greennature-blog-date-wrapper{ color: #4e4e4e; }
 .blog-info, .blog-info a, .blog-info i{ color: #b0b0b0; }
@@ -124,38 +124,38 @@ table.style-2 tr:nth-child(even){ color: #949494; }
 .greennature-blog-thumbnail .greennature-sticky-banner, .greennature-blog-thumbnail .greennature-sticky-banner i{ color: #ffffff; }
 .greennature-social-share, .greennature-social-share a{ background-color: #f3f3f3; }
 .greennature-social-share .social-share-title{ color: #353535; }
-.greennature-standard-style .greennature-single-blog-tag a{ background-color: #239f95; }
+.greennature-standard-style .greennature-single-blog-tag a{ background-color: #63b7af; }
 .greennature-standard-style .greennature-single-blog-tag a{ color: #ffffff; }
-.format-aside .greennature-blog-content{ background-color: #239f95; }
+.format-aside .greennature-blog-content{ background-color: #63b7af; }
 .format-aside .greennature-blog-content{ color: #ffffff; }
 .format-quote .greennature-top-quote blockquote{ color: #8d8d8d; }
-.format-quote .greennature-quote-author{ color: #239f95; }
+.format-quote .greennature-quote-author{ color: #63b7af; }
 .greennature-single-nav > div i{ background-color: #f3f3f3; }
 .greennature-single-nav > div i{ color: #8d8d8d; }
 .portfolio-item-filter a{ color: #5b5b5b; }
-.portfolio-item-filter a.active{ color: #239f95; }
+.portfolio-item-filter a.active{ color: #63b7af; }
 .greennature-image-link-shortcode .greennature-image-link-overlay, .portfolio-thumbnail .portfolio-overlay{ background-color: #1c1c1c; }
 .greennature-image-link-shortcode .greennature-image-link-icon, .portfolio-thumbnail .portfolio-icon i, .greennature-image-link-shortcode .greennature-image-frame-content,.greennature-modern-portfolio .portfolio-title a, .greennature-modern-portfolio .portfolio-title a:hover, .greennature-modern-portfolio .greennature-portfolio-info a{ border-color: #ffffff; color: #ffffff; }
-.portfolio-title a{ color: #239f95; }
+.portfolio-title a{ color: #63b7af; }
 .portfolio-title a:hover{ color: #3f873e; }
 .portfolio-info, .portfolio-info a{ color: #b0b0b0; }
 .greennature-pagination .page-numbers{ background-color: #ebebeb; }
 .greennature-pagination .page-numbers{ color: #979797; }
-.greennature-pagination .page-numbers:hover, .greennature-pagination .page-numbers.current{ background-color: #239f95; }
+.greennature-pagination .page-numbers:hover, .greennature-pagination .page-numbers.current{ background-color: #63b7af; }
 .greennature-pagination .page-numbers:hover, .greennature-pagination .page-numbers.current{ color: #ffffff; }
 .greennature-personnel-item .personnel-item-inner{ background-color: #f5f5f5; }
-.greennature-personnel-item.round-style .personnel-item{ background-color: #239f95; }
+.greennature-personnel-item.round-style .personnel-item{ background-color: #63b7af; }
 .greennature-personnel-item .personnel-author{ color: #3b3b3b; }
-.greennature-personnel-item .personnel-author-image{ border-color: #239f95; }
+.greennature-personnel-item .personnel-author-image{ border-color: #63b7af; }
 .greennature-personnel-item .personnel-position{ color: #acacac; }
 .greennature-personnel-item .personnel-content{ color: #959595; }
 .greennature-personnel-item .personnel-social i{ color: #3b3b3b; }
 .greennature-testimonial-item .testimonial-item-inner, .greennature-testimonial-item .testimonial-author-image{ background-color: #f5f5f5; }
 .greennature-testimonial-item .testimonial-content{ color: #9b9b9b; }
-.greennature-testimonial-item.plain-style.greennature-left .testimonial-item:before{ color: #239f95; }
-.greennature-testimonial-item .testimonial-author{ color: #239f95; }
+.greennature-testimonial-item.plain-style.greennature-left .testimonial-item:before{ color: #63b7af; }
+.greennature-testimonial-item .testimonial-author{ color: #63b7af; }
 .greennature-testimonial-item .testimonial-position{ color: #4d4d4d; }
-.greennature-testimonial-item .testimonial-author-image{ border-color: #239f95; }
+.greennature-testimonial-item .testimonial-author-image{ border-color: #63b7af; }
 .greennature-testimonial-item.box-style .testimonial-item-inner:after{ border-top-color: #dddddd; border-left-color: #dddddd; }
 .greennature-gallery-thumbnail .gallery-item{ background-color: #e5e5e5; }
 .greennature-gallery-thumbnail-container .gallery-caption{ background-color: #000000; }
@@ -172,11 +172,11 @@ body .nivo-directionNav a, body .flex-direction-nav a, body .flex-direction-nav 
 .greennature-caption-wrapper.post-slider .greennature-caption-title{ color: #ffffff; }
 .greennature-caption-wrapper.post-slider .greennature-caption-text{ color: #dddddd; }
 .greennature-post-slider-item.style-no-excerpt .greennature-caption-wrapper .greennature-caption-date, .greennature-post-slider-item.style-no-excerpt .greennature-caption-wrapper .greennature-title-link{ color: #ffffff; }
-.greennature-post-slider-item.style-no-excerpt .greennature-caption-wrapper .greennature-caption-date, .greennature-post-slider-item.style-no-excerpt .greennature-caption-wrapper .greennature-title-link{ background-color: #239f95; }
+.greennature-post-slider-item.style-no-excerpt .greennature-caption-wrapper .greennature-caption-date, .greennature-post-slider-item.style-no-excerpt .greennature-caption-wrapper .greennature-title-link{ background-color: #63b7af; }
 .greennature-item-title-wrapper .greennature-flex-prev, .greennature-item-title-wrapper .greennature-flex-next{ color: #6d6d6d; }
 input[type="text"], input[type="email"], input[type="password"], textarea{ background-color: #f5f5f5; }
 input[type="text"], input[type="email"], input[type="password"], textarea{ color: #797979; }input::input-placeholder{ color:#797979; } input::-webkit-input-placeholder{ color:#797979; }input::-moz-placeholder{ color:#797979; } input:-moz-placeholder{ color:#797979; }input:-ms-input-placeholder{ color:#797979; }textarea::input-placeholder{ color:#797979; } textarea::-webkit-input-placeholder{ color:#797979; }textarea::-moz-placeholder{ color:#797979; } textarea:-moz-placeholder{ color:#797979; }textarea:-ms-input-placeholder{ color:#797979; }
-.footer-wrapper{ background-color: #239f95; }
+.footer-wrapper{ background-color: #63b7af; }
 .footer-wrapper .greennature-widget-title, .footer-wrapper .greennature-widget-title a{ color: #dddddd; }
 .footer-wrapper{ color: white; }
 .footer-wrapper a{ color:white; }
@@ -186,17 +186,17 @@ input[type="text"], input[type="email"], input[type="password"], textarea{ color
 .footer-wrapper input[type="text"], .footer-wrapper input[type="email"], .footer-wrapper input[type="password"], .footer-wrapper textarea{ color: #828282; }
 .footer-wrapper input[type="text"], .footer-wrapper input[type="email"], .footer-wrapper input[type="password"], .footer-wrapper textarea{ border-color: #313131; }
 .footer-wrapper .greennature-button, .footer-wrapper .greennature-button:hover, .footer-wrapper input[type="button"], .footer-wrapper input[type="submit"]{ color: #ffffff; }
-.footer-wrapper .greennature-button, .footer-wrapper input[type="button"], .footer-wrapper input[type="submit"]{ background-color: #239f95; }
-.footer-wrapper .tagcloud a{ background-color: #239f95; }
+.footer-wrapper .greennature-button, .footer-wrapper input[type="button"], .footer-wrapper input[type="submit"]{ background-color: #63b7af; }
+.footer-wrapper .tagcloud a{ background-color: #63b7af; }
 .footer-wrapper .tagcloud a, .footer-wrapper .tagcloud a:hover{ color: #ffffff; }
 .copyright-wrapper{ background-color: #191612; }
 .copyright-wrapper{ color: #999999; }
 .footer-wrapper .copyright-wrapper{ border-color: #191612; }
-html  .woocommerce span.onsale, html  .woocommerce-page span.onsale, html .woocommerce-message,html .woocommerce div.product .woocommerce-tabs ul.tabs li.active, html .woocommerce #content div.product .woocommerce-tabs ul.tabs li.active,html .woocommerce-page div.product .woocommerce-tabs ul.tabs li.active, html .woocommerce-page #content div.product .woocommerce-tabs ul.tabs li.active {  background: #239f95; }html .woocommerce .star-rating, html .woocommerce-page .star-rating, html .woocommerce .star-rating:before, html .woocommerce-page .star-rating:before, html .woocommerce div.product span.price, html .woocommerce div.product p.price, html .woocommerce #content div.product span.price, html .woocommerce #content div.product p.price, html .woocommerce-page div.product span.price, html .woocommerce-page div.product p.price, html .woocommerce-page #content div.product span.price, html .woocommerce-page #content div.product p.price {color: #239f95; }
+html  .woocommerce span.onsale, html  .woocommerce-page span.onsale, html .woocommerce-message,html .woocommerce div.product .woocommerce-tabs ul.tabs li.active, html .woocommerce #content div.product .woocommerce-tabs ul.tabs li.active,html .woocommerce-page div.product .woocommerce-tabs ul.tabs li.active, html .woocommerce-page #content div.product .woocommerce-tabs ul.tabs li.active {  background: #63b7af; }html .woocommerce .star-rating, html .woocommerce-page .star-rating, html .woocommerce .star-rating:before, html .woocommerce-page .star-rating:before, html .woocommerce div.product span.price, html .woocommerce div.product p.price, html .woocommerce #content div.product span.price, html .woocommerce #content div.product p.price, html .woocommerce-page div.product span.price, html .woocommerce-page div.product p.price, html .woocommerce-page #content div.product span.price, html .woocommerce-page #content div.product p.price {color: #63b7af; }
 html .woocommerce-message  a.button, html .woocommerce-error  a.button, html .woocommerce-info  a.button, html .woocommerce-message, html .woocommerce-error, html .woocommerce-info, html  .woocommerce span.onsale, html  .woocommerce-page span.onsale, html .woocommerce div.product .woocommerce-tabs ul.tabs li.active,html .woocommerce #content div.product .woocommerce-tabs ul.tabs li.active, html .woocommerce-page div.product .woocommerce-tabs ul.tabs li.active, html .woocommerce-page #content div.product .woocommerce-tabs ul.tabs li.active, html .woocommerce nav.woocommerce-pagination ul li span.current, html .woocommerce-page nav.woocommerce-pagination ul li span.current, html .woocommercenav.woocommerce-pagination ul li a:hover, html .woocommerce-page nav.woocommerce-pagination ul li a:hover{ color: #ffffff; }
 html .woocommerce-info{ background: #389EC5; }
 html .woocommerce-error{ background: #C23030; }
-html .woocommerce a.button.alt:hover, html .woocommerce button.button.alt:hover, html .woocommerce input.button.alt:hover, html .woocommerce #respond input#submit.alt:hover, html .woocommerce #content input.button.alt:hover, html .woocommerce-page a.button.alt:hover, html .woocommerce-page button.button.alt:hover, html .woocommerce-page input.button.alt:hover, html .woocommerce-page #respond input#submit.alt:hover, html .woocommerce-page #content input.button.alt:hover, html .woocommerce a.button.alt, html .woocommerce button.button.alt, html .woocommerce input.button.alt, html .woocommerce #respond input#submit.alt, html .woocommerce #content input.button.alt, html .woocommerce-page a.button.alt, html .woocommerce-page button.button.alt, html .woocommerce-page input.button.alt, html .woocommerce-page #respond input#submit.alt, html .woocommerce-page #content input.button.alt, html .woocommerce a.button, html .woocommerce button.button, html .woocommerce input.button, html .woocommerce #respond input#submit, html .woocommerce #content input.button, html .woocommerce-page a.button, html .woocommerce-page button.button, html .woocommerce-page input.button, html .woocommerce-page #respond input#submit, html .woocommerce-page #content input.button, html .woocommerce a.button:hover, html .woocommerce button.button:hover, html .woocommerce input.button:hover, html .woocommerce #respond input#submit:hover, html .woocommerce #content input.button:hover, html .woocommerce-page a.button:hover, html .woocommerce-page button.button:hover, html .woocommerce-page input.button:hover, html .woocommerce-page #respond input#submit:hover, html .woocommerce-page #content input.button:hover, html .woocommerce ul.products li.product a.loading, html .woocommerce div.product form.cart .button, html .woocommerce #content div.product form.cart .button, html .woocommerce-page div.product form.cart .button, html .woocommerce-page #content div.product form.cart .button{ background: #239f95; }
+html .woocommerce a.button.alt:hover, html .woocommerce button.button.alt:hover, html .woocommerce input.button.alt:hover, html .woocommerce #respond input#submit.alt:hover, html .woocommerce #content input.button.alt:hover, html .woocommerce-page a.button.alt:hover, html .woocommerce-page button.button.alt:hover, html .woocommerce-page input.button.alt:hover, html .woocommerce-page #respond input#submit.alt:hover, html .woocommerce-page #content input.button.alt:hover, html .woocommerce a.button.alt, html .woocommerce button.button.alt, html .woocommerce input.button.alt, html .woocommerce #respond input#submit.alt, html .woocommerce #content input.button.alt, html .woocommerce-page a.button.alt, html .woocommerce-page button.button.alt, html .woocommerce-page input.button.alt, html .woocommerce-page #respond input#submit.alt, html .woocommerce-page #content input.button.alt, html .woocommerce a.button, html .woocommerce button.button, html .woocommerce input.button, html .woocommerce #respond input#submit, html .woocommerce #content input.button, html .woocommerce-page a.button, html .woocommerce-page button.button, html .woocommerce-page input.button, html .woocommerce-page #respond input#submit, html .woocommerce-page #content input.button, html .woocommerce a.button:hover, html .woocommerce button.button:hover, html .woocommerce input.button:hover, html .woocommerce #respond input#submit:hover, html .woocommerce #content input.button:hover, html .woocommerce-page a.button:hover, html .woocommerce-page button.button:hover, html .woocommerce-page input.button:hover, html .woocommerce-page #respond input#submit:hover, html .woocommerce-page #content input.button:hover, html .woocommerce ul.products li.product a.loading, html .woocommerce div.product form.cart .button, html .woocommerce #content div.product form.cart .button, html .woocommerce-page div.product form.cart .button, html .woocommerce-page #content div.product form.cart .button{ background: #63b7af; }
 html .woocommerce a.button.alt:hover, html .woocommerce button.button.alt:hover, html .woocommerce input.button.alt:hover, html .woocommerce #respond input#submit.alt:hover, html .woocommerce #content input.button.alt:hover, html .woocommerce-page a.button.alt:hover, html .woocommerce-page button.button.alt:hover, html .woocommerce-page input.button.alt:hover, html .woocommerce-page #respond input#submit.alt:hover, html .woocommerce-page #content input.button.alt:hover, html .woocommerce a.button.alt, html .woocommerce button.button.alt, html .woocommerce input.button.alt, html .woocommerce #respond input#submit.alt, html .woocommerce #content input.button.alt, html .woocommerce-page a.button.alt, html .woocommerce-page button.button.alt, html .woocommerce-page input.button.alt, html .woocommerce-page #respond input#submit.alt, html .woocommerce-page #content input.button.alt, html .woocommerce a.button, html .woocommerce button.button, html .woocommerce input.button, html .woocommerce #respond input#submit, html .woocommerce #content input.button, html .woocommerce-page a.button, html .woocommerce-page button.button, html .woocommerce-page input.button, html .woocommerce-page #respond input#submit, html .woocommerce-page #content input.button, html .woocommerce a.button:hover, html .woocommerce button.button:hover, html .woocommerce input.button:hover, html .woocommerce #respond input#submit:hover, html .woocommerce #content input.button:hover, html .woocommerce-page a.button:hover, html .woocommerce-page button.button:hover, html .woocommerce-page input.button:hover, html .woocommerce-page #respond input#submit:hover, html .woocommerce-page #content input.button:hover, html .woocommerce ul.products li.product a.loading, html .woocommerce div.product form.cart .button, html .woocommerce #content div.product form.cart .button, html .woocommerce-page div.product form.cart .button, html .woocommerce-page #content div.product form.cart .button{ color: #ffffff; }
 html .woocommerce a.button.alt:hover, html .woocommerce button.button.alt:hover, html .woocommerce input.button.alt:hover, html .woocommerce #respond input#submit.alt:hover, html .woocommerce #content input.button.alt:hover, html .woocommerce-page a.button.alt:hover, html .woocommerce-page button.button.alt:hover, html .woocommerce-page input.button.alt:hover, html .woocommerce-page #respond input#submit.alt:hover, html .woocommerce-page #content input.button.alt:hover, html .woocommerce a.button.alt, html .woocommerce button.button.alt, html .woocommerce input.button.alt, html .woocommerce #respond input#submit.alt, html .woocommerce #content input.button.alt, html .woocommerce-page a.button.alt, html .woocommerce-page button.button.alt, html .woocommerce-page input.button.alt, html .woocommerce-page #respond input#submit.alt, html .woocommerce-page #content input.button.alt, html .woocommerce a.button, html .woocommerce button.button, html .woocommerce input.button, html .woocommerce #respond input#submit, html .woocommerce #content input.button, html .woocommerce-page a.button, html .woocommerce-page button.button, html .woocommerce-page input.button, html .woocommerce-page #respond input#submit, html .woocommerce-page #content input.button, html .woocommerce a.button:hover, html .woocommerce button.button:hover, html .woocommerce input.button:hover, html .woocommerce #respond input#submit:hover, html .woocommerce #content input.button:hover, html .woocommerce-page a.button:hover, html .woocommerce-page button.button:hover, html .woocommerce-page input.button:hover, html .woocommerce-page #respond input#submit:hover, html .woocommerce-page #content input.button:hover, html .woocommerce ul.products li.product a.loading, html .woocommerce div.product form.cart .button, html .woocommerce #content div.product form.cart .button, html .woocommerce-page div.product form.cart .button, html .woocommerce-page #content div.product form.cart .button{ border-bottom: 3px solid #3ca348; }
 html .woocommerce #reviews #comments ol.commentlist li img.avatar, html .woocommerce-page #reviews #comments ol.commentlist li img.avatar { background: #ebebeb; }html .woocommerce #reviews #comments ol.commentlist li img.avatar, html .woocommerce-page #reviews #comments ol.commentlist li img.avatar,html .woocommerce #reviews #comments ol.commentlist li .comment-text, html .woocommerce-page #reviews #comments ol.commentlist li .comment-text,html .woocommerce ul.products li.product a img, html .woocommerce-page ul.products li.product a img, html .woocommerce ul.products li.product a img:hover ,html .woocommerce-page ul.products li.product a img:hover, html .woocommerce-page div.product div.images img, html .woocommerce-page #content div.product div.images img,html .woocommerce form.login, html .woocommerce form.checkout_coupon, html .woocommerce form.register, html .woocommerce-page form.login,html .woocommerce-page form.checkout_coupon, html .woocommerce-page form.register, html .woocommerce table.cart td.actions .coupon .input-text,html .woocommerce #content table.cart td.actions .coupon .input-text, html .woocommerce-page table.cart td.actions .coupon .input-text,html .woocommerce-page #content table.cart td.actions .coupon .input-text { border: 1px solid #ebebeb; }html .woocommerce div.product .woocommerce-tabs ul.tabs:before, html .woocommerce #content div.product .woocommerce-tabs ul.tabs:before,html .woocommerce-page div.product .woocommerce-tabs ul.tabs:before, html .woocommerce-page #content div.product .woocommerce-tabs ul.tabs:before,html .woocommerce table.shop_table tfoot td, html .woocommerce table.shop_table tfoot th, html .woocommerce-page table.shop_table tfoot td,html .woocommerce-page table.shop_table tfoot th, html .woocommerce table.shop_table tfoot td, html .woocommerce table.shop_table tfoot th,html .woocommerce-page table.shop_table tfoot td, html .woocommerce-page table.shop_table tfoot th { border-bottom: 1px solid #ebebeb; }html .woocommerce .cart-collaterals .cart_totals table tr:first-child th, html .woocommerce .cart-collaterals .cart_totals table tr:first-child td,html .woocommerce-page .cart-collaterals .cart_totals table tr:first-child th, html .woocommerce-page .cart-collaterals .cart_totals table tr:first-child td { border-top: 3px #ebebeb solid; }html .woocommerce .cart-collaterals .cart_totals tr td, html .woocommerce .cart-collaterals .cart_totals tr th,html .woocommerce-page .cart-collaterals .cart_totals tr td, html .woocommerce-page .cart-collaterals .cart_totals tr th { border-bottom: 2px solid #ebebeb; }
@@ -222,7 +222,7 @@ html .woocommerce .quantity .minus, html .woocommerce #content .quantity .minus,
 .greennature-skin-dark-skin a:hover, .greennature-skin-dark-skin .greennature-skin-link:hover{ color: #d1d1d1; }
 .greennature-skin-dark-skin .greennature-skin-box, .greennature-skin-dark-skin .greennature-column-service-item .greennature-skin-box{ background-color: #969696; }
 .greennature-skin-dark-skin *, .greennature-skin-dark-skin .greennature-skin-border{ border-color: #828282; }
-.greennature-skin-dark-skin .greennature-button, .greennature-skin-dark-skin .greennature-button:hover, .greennature-skin-dark-skin input[type="button"], .greennature-skin-dark-skin input[type="submit"]{ color: #ffffff; background-color: #239f95;  }
+.greennature-skin-dark-skin .greennature-button, .greennature-skin-dark-skin .greennature-button:hover, .greennature-skin-dark-skin input[type="button"], .greennature-skin-dark-skin input[type="submit"]{ color: #ffffff; background-color: #63b7af;  }
 .greennature-skin-dark-testimonial, .greennature-skin-dark-testimonial .greennature-skin-content{ color: #ffffff; }
 .greennature-skin-dark-testimonial i, .greennature-skin-dark-testimonial .greennature-flex-prev, .greennature-skin-dark-testimonial .greennature-flex-next{ color: #ffffff; }
 .greennature-skin-dark-testimonial h1, .greennature-skin-dark-testimonial h2, .greennature-skin-dark-testimonial h3, .greennature-skin-dark-testimonial h4, .greennature-skin-dark-testimonial h5, .greennature-skin-dark-testimonial h6, .greennature-skin-dark-testimonial .greennature-skin-title, .greennature-skin-dark-testimonial .greennature-skin-title a{ color: #ffffff; }
@@ -238,21 +238,21 @@ html .woocommerce .quantity .minus, html .woocommerce #content .quantity .minus,
 .greennature-skin-light-grey h1, .greennature-skin-light-grey h2, .greennature-skin-light-grey h3, .greennature-skin-light-grey h4, .greennature-skin-light-grey h5, .greennature-skin-light-grey h6, .greennature-skin-light-grey .greennature-skin-title, .greennature-skin-light-grey .greennature-skin-title a{ color: #353535; }
 .greennature-skin-light-grey .greennature-skin-title a:hover{ color: #5e5e5e; }
 .greennature-skin-light-grey .greennature-skin-info, .greennature-skin-light-grey .greennature-skin-info a, .greennature-skin-light-grey .greennature-skin-info a:hover{ color: #828282; }
-.greennature-skin-light-grey a, .greennature-skin-light-grey .greennature-skin-link, .greennature-skin-light-grey .greennature-skin-link-color{ color: #239f95; }
+.greennature-skin-light-grey a, .greennature-skin-light-grey .greennature-skin-link, .greennature-skin-light-grey .greennature-skin-link-color{ color: #63b7af; }
 .greennature-skin-light-grey a:hover, .greennature-skin-light-grey .greennature-skin-link:hover{ color: #7fc188; }
 .greennature-skin-light-grey .greennature-skin-box, .greennature-skin-light-grey .greennature-column-service-item .greennature-skin-box{ background-color: #a5a5a5; }
 .greennature-skin-light-grey *, .greennature-skin-light-grey .greennature-skin-border{ border-color: #eaeaea; }
 .greennature-skin-light-grey .greennature-button, .greennature-skin-light-grey .greennature-button:hover, .greennature-skin-light-grey input[type="button"], .greennature-skin-light-grey input[type="submit"]{ color: #a3a3a3; background-color: #f2f2f2;  }
 .greennature-skin-service-half, .greennature-skin-service-half .greennature-skin-content{ color: #909090; }
-.greennature-skin-service-half i, .greennature-skin-service-half .greennature-flex-prev, .greennature-skin-service-half .greennature-flex-next{ color: #239f95; }
-.greennature-skin-service-half h1, .greennature-skin-service-half h2, .greennature-skin-service-half h3, .greennature-skin-service-half h4, .greennature-skin-service-half h5, .greennature-skin-service-half h6, .greennature-skin-service-half .greennature-skin-title, .greennature-skin-service-half .greennature-skin-title a{ color: #239f95; }
-.greennature-skin-service-half .greennature-skin-title a:hover{ color: #239f95; }
+.greennature-skin-service-half i, .greennature-skin-service-half .greennature-flex-prev, .greennature-skin-service-half .greennature-flex-next{ color: #63b7af; }
+.greennature-skin-service-half h1, .greennature-skin-service-half h2, .greennature-skin-service-half h3, .greennature-skin-service-half h4, .greennature-skin-service-half h5, .greennature-skin-service-half h6, .greennature-skin-service-half .greennature-skin-title, .greennature-skin-service-half .greennature-skin-title a{ color: #63b7af; }
+.greennature-skin-service-half .greennature-skin-title a:hover{ color: #63b7af; }
 .greennature-skin-service-half .greennature-skin-info, .greennature-skin-service-half .greennature-skin-info a, .greennature-skin-service-half .greennature-skin-info a:hover{ color: #adadad; }
-.greennature-skin-service-half a, .greennature-skin-service-half .greennature-skin-link, .greennature-skin-service-half .greennature-skin-link-color{ color: #239f95; }
-.greennature-skin-service-half a:hover, .greennature-skin-service-half .greennature-skin-link:hover{ color: #239f95; }
+.greennature-skin-service-half a, .greennature-skin-service-half .greennature-skin-link, .greennature-skin-service-half .greennature-skin-link-color{ color: #63b7af; }
+.greennature-skin-service-half a:hover, .greennature-skin-service-half .greennature-skin-link:hover{ color: #63b7af; }
 .greennature-skin-service-half .greennature-skin-box, .greennature-skin-service-half .greennature-column-service-item .greennature-skin-box{ background-color: #ffffff; }
 .greennature-skin-service-half *, .greennature-skin-service-half .greennature-skin-border{ border-color: #e5e5e5; }
-.greennature-skin-service-half .greennature-button, .greennature-skin-service-half .greennature-button:hover, .greennature-skin-service-half input[type="button"], .greennature-skin-service-half input[type="submit"]{ color: #ffffff; background-color: #239f95;  }
+.greennature-skin-service-half .greennature-button, .greennature-skin-service-half .greennature-button:hover, .greennature-skin-service-half input[type="button"], .greennature-skin-service-half input[type="submit"]{ color: #ffffff; background-color: #63b7af;  }
 .greennature-skin-newsletter, .greennature-skin-newsletter .greennature-skin-content{ color: #ffffff; }
 .greennature-skin-newsletter i, .greennature-skin-newsletter .greennature-flex-prev, .greennature-skin-newsletter .greennature-flex-next{ color: #ffffff; }
 .greennature-skin-newsletter h1, .greennature-skin-newsletter h2, .greennature-skin-newsletter h3, .greennature-skin-newsletter h4, .greennature-skin-newsletter h5, .greennature-skin-newsletter h6, .greennature-skin-newsletter .greennature-skin-title, .greennature-skin-newsletter .greennature-skin-title a{ color: #fec428; }
@@ -262,7 +262,7 @@ html .woocommerce .quantity .minus, html .woocommerce #content .quantity .minus,
 .greennature-skin-newsletter a:hover, .greennature-skin-newsletter .greennature-skin-link:hover{ color: #ffffff; }
 .greennature-skin-newsletter .greennature-skin-box, .greennature-skin-newsletter .greennature-column-service-item .greennature-skin-box{ background-color: #ffffff; }
 .greennature-skin-newsletter *, .greennature-skin-newsletter .greennature-skin-border{ border-color: #ffffff; }
-.greennature-skin-newsletter .greennature-button, .greennature-skin-newsletter .greennature-button:hover, .greennature-skin-newsletter input[type="button"], .greennature-skin-newsletter input[type="submit"]{ color: #ffffff; background-color: #239f95;  }
+.greennature-skin-newsletter .greennature-button, .greennature-skin-newsletter .greennature-button:hover, .greennature-skin-newsletter input[type="button"], .greennature-skin-newsletter input[type="submit"]{ color: #ffffff; background-color: #63b7af;  }
 .greennature-skin-brown-column-service, .greennature-skin-brown-column-service .greennature-skin-content{ color: #ffffff; }
 .greennature-skin-brown-column-service i, .greennature-skin-brown-column-service .greennature-flex-prev, .greennature-skin-brown-column-service .greennature-flex-next{ color: #ffffff; }
 .greennature-skin-brown-column-service h1, .greennature-skin-brown-column-service h2, .greennature-skin-brown-column-service h3, .greennature-skin-brown-column-service h4, .greennature-skin-brown-column-service h5, .greennature-skin-brown-column-service h6, .greennature-skin-brown-column-service .greennature-skin-title, .greennature-skin-brown-column-service .greennature-skin-title a{ color: #ffffff; }
