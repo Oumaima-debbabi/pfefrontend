@@ -6,7 +6,9 @@
           <div class="greennature-item-title-wrapper greennature-item  greennature-left-divider greennature-medium ">
               <div class="greennature-item-title-container container">
                   <div class="greennature-item-title-head">
-                      <h3 class="greennature-item-title greennature-skin-title greennature-skin-border"><img src="assets/upload/target.png" alt="" width="80" height="80" />Nos associations</h3><a class="greennature-item-title-link" routerLink="/associations">plus d'associations</a>
+                      <h3 class="greennature-item-title greennature-skin-title greennature-skin-border"><i class="fa fa-globe">
+                      </i>Nos associations</h3
+                      ><a class="greennature-item-title-link" routerLink="/associations">plus d'associations</a>
                       <div class="clear"></div>
                   </div>
               </div>
@@ -28,7 +30,7 @@
                                               {{association.nom_association}}
                                       <div class="d-flex m-0 p-3 modal-leg" style="margin-top:top;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <div class="d-none d-lg-block p-2 text-center"style="margin-top:-50px">
-                                        <a ><img alt="LOGO" class="modal-logo bg-white" src="{{association.imageUrl}}" style=" height: 100px; width: 100px;">
+                                        <a ><img [routerLink]="['/association/',association._id]" class="modal-logo bg-white" src="{{association.imageUrl}}" style=" height: 100px; width: 100px;">
                                         </a>
                                         </div>
                                         </div>

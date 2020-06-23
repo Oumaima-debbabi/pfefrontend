@@ -38,6 +38,7 @@ import { MissionService } from './mission/services/mission.service';
 import { RegisterComponent } from './register/register.component';
 import { ShowAuthedDirective } from './show-authed.directive';
 import { ParticipantComponent } from './components/mission/participant/participant.component';
+import { MessagesComponent } from './messages/messages.component';
 
 
 
@@ -75,6 +76,7 @@ import { ParticipantComponent } from './components/mission/participant/participa
     RegisterComponent,
     ShowAuthedDirective,
     ParticipantComponent,
+    MessagesComponent,
 
 
     //ToastComponent,

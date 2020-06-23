@@ -13,6 +13,7 @@ import { PopMissionComponent } from './components/mission/pop-mission/pop-missio
 import { AssoDetailsComponent } from './association/asso-details/asso-details.component';
 import { RegisterComponent } from './register/register.component';
 import { ParticipantComponent } from './components/mission/participant/participant.component';
+import { MessagesComponent } from './messages/messages.component';
 const routes: Routes = [
   {path:"",component:ShowallComponent},
   {path:"login",component:LoginComponent},
@@ -25,6 +26,10 @@ const routes: Routes = [
 {
   path:"association/:id",
   component:AssoDetailsComponent
+},
+{
+  path:"message",
+  component:MessagesComponent
 },
 {
   path:"participant/:id",

@@ -36,8 +36,8 @@ export class PopMissionComponent implements OnInit
   ngOnInit() {
 
     }
-    apply(id)
-    {
+    
+   apply(id){
    console.log(id)
 
       this.mS.applymission(id).subscribe(

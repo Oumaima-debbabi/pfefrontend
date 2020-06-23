@@ -19,7 +19,7 @@
                               <div class="greennature-ux greennature-classic-portfolio-ux" style="margin-left:0px" >
                                 &nbsp;&nbsp;
 
-                                  <mat-grid-list cols="5" rowHeight="160:160" >
+                                  <mat-grid-list cols="6" rowHeight="160:196" >
                                     <mat-grid-tile *ngFor=" let mission of missions$ | async as missions" style="margin-left:20px; max-width: 400px;">
 
 
@@ -27,22 +27,22 @@
                                                 {{mission.type}}
                                         <div class="d-flex m-0 p-3 modal-leg" style="margin-top:top;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                           <div class="d-none d-lg-block p-2 text-center"style="margin-top:-50px">
-                                          <a ><img alt="LOGO" class="modal-logo bg-white" src="{{mission.imageUrl}}" style=" height: 100px; width: 100px;">
+                                          <a ><img alt="LOGO" class="modal-logo bg-white" src="{{mission.imageUrl}}" style=" height: 110px; width: 110px;">
                                           </a>
                                           </div>
                                           </div>
-                                        <button mat-raised-button  style="background-color:#b80d57; color:white" (click)="onCreate(mission)">
-                                          <mat-icon>add</mat-icon>Participer
+                                        <button mat-raised-button  style="background-color:#e4508f; color:white; margin-left:6px" (click)="onCreate(mission)">
+                                         Participer
                                         </button>
 
                                         &nbsp;&nbsp; &nbsp;&nbsp;
                                           <h3 class="portfolio-title"><a>{{mission.sujet}}</a></h3>
                                           <div class="greennature-portfolio-info">
-                                              <div class="portfolio-info portfolio-tag"><span class="info-head greennature-title"></span><span class="sep"></span> <a [routerLink]="['/association/',mission.nom_association1._id]">{{mission.nom_association1.nom_association}}</a></div>
+                                              
                                               <div class="clear"></div>
                                           </div>
-                                          <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a style="color:red;">{{mission.date}}</a></div>
-                                          <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a style="color:red;">{{mission.datefin}}</a></div>
+                                          <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o" style="color:black"></i><a style="color:red;">{{mission.date}}</a></div>
+                    <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-map-marker ml-1"></i><a style="color:black;">{{mission.lieu}}</a></div>
 
                                             </div>
 

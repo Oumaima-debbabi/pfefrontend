@@ -3,6 +3,8 @@ import { PropositionService } from 'src/app/services/proposition.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { Proposition } from 'src/app/model/propositon';
+import { DialogPosition, MatDialog } from '@angular/material';
+import { MessagesComponent } from 'src/app/messages/messages.component';
 export interface Tile {
   color: string;
   cols: number;
@@ -16,11 +18,7 @@ export interface Tile {
 })
 
 export class PropositionsAfficheComponent implements OnInit {
-  tiles: Tile[] = [
-    {text: '', cols: 2, rows: 3, color: 'lightblue'},
-    {text: '', cols: 2, rows: 3, color: 'lightgreen'},
 
-  ];
   id: string;
   propositions;
   Propositions$: Observable<Proposition[]>;
@@ -28,7 +26,8 @@ export class PropositionsAfficheComponent implements OnInit {
 
 
     constructor(private missionService: PropositionService,
-      private route:Router) {}
+      private route:Router,
+      private dialog:MatDialog) {}
 
     ngOnInit() {
      this.Propositions$= this.missionService.getAllPropositions();
@@ -36,4 +35,16 @@ export class PropositionsAfficheComponent implements OnInit {
 
   console.log(this.Propositions$);
     }
-}
+    onCreate() {
+      const dialogPosition:DialogPosition={
+        top:'30px',
+        right:'400px'
+      };
+      const dialogRef=this.dialog.open(MessagesComponent,{
+
+
+        position:dialogPosition
+      })
+
+        }
+      }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogConfig, MatDialog, DialogPosition } from '@angular/material';
+import { MessagesComponent } from 'src/app/messages/messages.component';
 
 @Component({
   selector: 'app-showall',
@@ -6,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./showall.component.css']
 })
 export class ShowallComponent implements OnInit {
-
-  constructor() { }
+x:any
+  constructor( private dialog:MatDialog) { }
 
   ngOnInit() {
   }
+  onCreate() {
+const dialogPosition:DialogPosition={
+  top:'30px',
+  right:'350px'
+};
+const dialogRef=this.dialog.open(MessagesComponent,{
+  width:'540px',
+  position:dialogPosition
+})
 
+  }
 }

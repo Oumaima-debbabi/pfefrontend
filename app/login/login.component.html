@@ -1,26 +1,28 @@
-<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins" >
   <div class="wrapper wrapper--w680">
-      <div class="card card-4">
+      <div class="card card-4" style="width:500px;margin-left:100px">
           <div class="card-body">
-  <h2>Se connecter</h2>
+  <h2 style="font-family:Brush;color:#393e46"> Se connecter</h2>
   <form [formGroup]="loginForm" #myForm="ngForm" (ngSubmit)="userLogin()"><br>
 
   <div class="row row-space">
 
     <input  class="input-group"
       type="email" class="input--style-4"
-      placeholder="entrez votre Email"
+      placeholder="Entrez votre Email"
       formControlName="email" />
     </div>
+    <br>
+
     <input  class="input-group"
       type="password" class="input--style-4"
-      placeholder="entrez votre Password"
+      placeholder="Entrez votre Mot de passe"
       formControlName="password" #password />
-
+<br>
       <mat-error *ngIf="password.invalid">Please enter a valid password.</mat-error>
-
-    <input type="submit" value="se connecter" [disabled]="!loginForm.valid"/>
+<br>
+    <input type="submit" value="se connecter" [disabled]="!loginForm.valid" style="width:140px;margin-left:100px "/>
     <div class="text-center">
-      <a>Vous avez un compre?</a><a routerLink="/user/register" class="txt2 hov1"> créer votre compte	</a>
+      <a>Vous n'avez pas un compte?</a><a routerLink="/user/register" class="txt2 hov1"> créer votre compte	</a>
 
           </div>

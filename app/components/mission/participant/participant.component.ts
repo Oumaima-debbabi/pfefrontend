@@ -6,6 +6,7 @@ import { AssociationService } from 'src/app/association/services/association.ser
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { HttpClient } from '@angular/common/http';
+import Swal from 'sweetalert2';
 
 import { Benevole } from 'src/app/admin/benevole/model/benevole';
 
@@ -49,16 +50,30 @@ benevole$:Observable<Benevole[]>;
 
     this.dialog.closeAll();
   }
-  apply(id)
-    {
+  apply(id){
    console.log(id)
 
       this.mS.applymission(id).subscribe(
      (response:any)=>{
-      if(response.status && response.status==1){
+
+    if(response.status && response.status==1){
       console.log(response);
-    }
-  }
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'center',
+        showConfirmButton: true,
+        timer: 3000
+      });
+      Toast.fire({
+     title:'Votre souhait de participer à la mission a bien été enregistrée, vous recevrez un mail de confirmation quand elle aura été validée ! '
+
+      })
+
+      }
+
+      }
+
+
 
 )}
 

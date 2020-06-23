@@ -131,29 +131,46 @@
                 <div class="row" >
 
                     <div class="col-xs-6 col-sm-6" >
-                        <div class="card"  style="width: 950px;height: 1100px;">
+                        <div class="card"  style="width: 950px;">
                             <div class="card-header"Style="color:black">
-                                <strong>Liste de propositions proposé par :</strong>
+                                <strong>Liste de propositions :</strong>
                             </div>
 
 <form >
   <div class="card-body card-block" style="color:black;">
- <style>
-   mat-grid-tile {
-  background: lightblue;
-}
- </style>
+<p>
+  Pour bénéficier de ces offres vous devez contactez le benevole !!
+</p>
 
-   <mat-grid-list cols="4" rowHeight="400px"  row-height="250px">
+   <mat-grid-list cols="2" rowHeight="400px"  row-height="250px">
     <mat-grid-tile  *ngFor="let p of Propositions$| async as propositions">
-      <br>
-Title:{{p.titre}}
-    {{p.description}}
-    <br>
-    <a>{{p.creator.name}}</a>
+      <mat-card class="example-card" style="height: 400px;width: 420px;">
+        <mat-card-header style="background-color:#cb4440;
+         ">
+   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    <img class="user-avatar rounded-circle" style="width: 50px;height: 50px;" src="{{p.creator.imageUrl}}" >
+   </a>
+   <br>
+          <mat-card-title style="color:cornsilk;">{{p.titre}}</mat-card-title>
+          <mat-card-subtitle style="color:cornsilk;margin-left: 220px;">{{p.creator.name}} {{p.creator.prenom}}</mat-card-subtitle>
+
+
+          </mat-card-header>
+          <mat-card-content>
+          <h4 style="margin-left:10px;">description de la proposition: </h4>
+            <p>
+           {{p.description}}
+          </p>
+          </mat-card-content>
+
+          <button style="background-color:#00454a;margin-left: 120px; color:white" (click)="onCreate() " >
+            <i class=" fa fa-mail-forward">
+
+          </i>contactez {{p.creator.prenom}} &nbsp; </button>
+
+      </mat-card>
+
     </mat-grid-tile>
-
-
   </mat-grid-list>
 
 
