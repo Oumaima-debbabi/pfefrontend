@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from '../../services/admin.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { Admin } from '../../model/admin';
+import { UserService } from 'src/app/user/service/user.service';
 
 @Component({
   selector: 'app-edit-secteur',
@@ -10,11 +12,12 @@ import Swal from 'sweetalert2';
   styleUrls: ['./edit-secteur.component.css']
 })
 export class EditSecteurComponent implements OnInit {
-
+currentUser:Admin
   secteur: any = {};
   editForm: FormGroup;
   constructor(private route: ActivatedRoute, private router: Router,
-    private sS:AdminService ,private fb: FormBuilder) { this.createForm();
+    private sS:AdminService ,private fb: FormBuilder,
+    private userS:UserService) { this.createForm();
     }
 
   createForm(){ this.editForm= this.fb.group
@@ -25,6 +28,7 @@ export class EditSecteurComponent implements OnInit {
 
 
   ngOnInit() {
+    this.currentUser=this.userS.currentUserValue
     this.route.params.subscribe(params => {
         this.sS.getSecteur(params.id).subscribe(res => {
           this.secteur = res;
@@ -34,7 +38,7 @@ export class EditSecteurComponent implements OnInit {
 
   updateSecteur(type_activite, id) {
     this.route.params.subscribe(params => {
-      this.sS. updateSecteur(type_activite,params.id);
+      this.sS.updateSecteur(type_activite,params.id);
       const Toast = Swal.mixin({
         toast: true,
         position: 'center',

@@ -17,7 +17,7 @@ nbparticipant:string;
 Photo:string;
 imageUrl:string;
 //Photo
-descriptionaso:string
-
+descriptionaso:string;
+etat:string
 
  }

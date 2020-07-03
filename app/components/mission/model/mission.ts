@@ -18,7 +18,7 @@ description:string;
 qd:string;
  nbparticipant:string;
  descriptionaso:string;
-
+etat:string;
 
  }
 

@@ -35,9 +35,9 @@ export class PropositionService {
       this.httpOptions
     );
   }
-  updateProposition(  titre,type,description,lieu, precision, id) {
+  updateProposition(  titre,type,description,lieu,etat, precision, id) {
     const obj = {
-      titre,type,description,lieu, precision
+      titre,type,description,lieu,etat, precision
     };
     this
       .http

@@ -3,6 +3,8 @@ import { PropositionService } from 'src/app/services/proposition.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Proposition } from 'src/app/model/propositon';
+import { Admin } from '../../model/admin';
+import { UserService } from 'src/app/user/service/user.service';
 
 @Component({
   selector: 'app-all-propositions',
@@ -14,12 +16,13 @@ export class AllPropositionsComponent implements OnInit {
   propositions;
   Propositions$: Observable<Proposition[]>;
   proposition
+currentUser:Admin
 
-
-    constructor(private missionService:PropositionService,
+    constructor(private missionService:PropositionService,private user:UserService,
       private route:Router) {}
 
     ngOnInit() {
+this.currentUser=this.user.currentUserValue
      this.Propositions$= this.missionService.getAllPropositions();
 
 

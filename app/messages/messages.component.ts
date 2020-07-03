@@ -11,14 +11,14 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 export class MessagesComponent implements OnInit {
 
 
-  message:string = '';
+  text:string = '';
   email:string='';
   emailasso:string=''
 subject:string=''
 formDirty:boolean=false;
 
 registrationForm = new FormGroup({
-  message: new FormControl("", [Validators.required,Validators.minLength(2),
+  text: new FormControl("", [Validators.required,Validators.minLength(2),
     Validators.pattern('[a-zA-Z0-9_-\\s]*')]),
   email: new FormControl("", [Validators.required,Validators.minLength(3),
   Validators.maxLength(100)]),
@@ -38,7 +38,7 @@ ngOnInit() {
 
 addPost(): void {
   const data = {
-    message:this.message,
+    text:this.text,
     subject:this.subject,
     email:this.email,
     emailasso:this.emailasso,
@@ -47,7 +47,7 @@ addPost(): void {
 
   this.addMission(data)
     .subscribe(() => {
-      this.message= '';
+      this.text= '';
       this.email='';
       this.emailasso=''
       this.subject=''

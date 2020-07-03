@@ -134,25 +134,11 @@
                     <mat-card-title style=" color: tomato; border-radius: 6px;padding:5px; position:relative ">
                       Liste des associations<code style="background-color: lightgrey;color: tomato;border-radius: 6px;padding:5px"></code></mat-card-title>
                     <mat-card-content>
-                        <div class="col-md-8">
-                          <div class="input-group mb-3">
-                            <input
-                              type="text"
-                              class="form-control"
-                              placeholder="exemple sadaka"
-                              [(ngModel)]="name"
-                            />
-                            <div class="input-group-append">
-                              <button
-                                class="btn btn-outline-secondary"
-                                type="button"
-                                (click)="searchTitle()">
-                                rechercher
-                              </button>
-                            </div>
-                          </div>
-                        </div>
 
+                        <mat-form-field style="width:100px" class="mb-1">
+                          <input matInput placeholder="Recherche...." (change)="filter($event.target.value)">
+
+                        </mat-form-field>
 
                       <table class="table" style="width:1028px;" >
                         <thead>
@@ -171,7 +157,7 @@
                         </tr>
                         </thead >
                         <tbody>
-                          <tr *ngFor="let a of Associations$| async as Associations">
+                          <tr *ngFor="let a of filterdAssociation | async as Associations">
                             <td>{{a.nom_association}}</td>
                             <td>{{a.name}} {{a.prenom}}</td>
                            <td>{{a.secteur1.type_activite}}</td>

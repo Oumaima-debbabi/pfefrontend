@@ -4,6 +4,8 @@ import { PropositionService } from 'src/app/services/proposition.service';
 import { Observable, Subscription } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Validators, FormControl, FormGroup } from '@angular/forms';
+import { Admin } from '../../model/admin';
+import { UserService } from 'src/app/user/service/user.service';
 
 @Component({
   selector: 'app-table-propositions',
@@ -15,12 +17,14 @@ export class TablePropositionsComponent implements OnInit {
   propositions;
   Propositions$: Observable<Proposition[]>;
   proposition
+currentUser:Admin
 
-
-    constructor(private missionService: PropositionService,
+    constructor(private missionService: PropositionService,private user:UserService,
       private route:Router) {}
 
     ngOnInit() {
+
+    this.currentUser=this.user.currentUserValue
      this.Propositions$= this.missionService.getPropositions();
 
 

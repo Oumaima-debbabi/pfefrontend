@@ -9,22 +9,27 @@
 
     <div class="ml-4"  style="background-color: #239f95;">
   <a style="color:#b80d57"  href="" >◄ </a>
- 
-  <h5 class="modal-title">{{mission.sujet}}</h5>
-    <!-- <div *appShowAuthed="false">
-      <a [routerLink]="['/login']">se connecter</a> ou <a [routerLink]="['/user/register']">créer votre compte</a> pour participer
-    </div> -->
 
-  <div class="pt-2">
+  <h5 class="modal-title">{{mission.sujet}}</h5>
+
+
+  <div class="pt-2" >
   Avec
   l'association
   {{mission.nom_association1.nom_association}} / {{mission.nom_association1.name}}  {{mission.nom_association1.prenom}}
   </div>
   </div>
+  <div *ngIf="!isExpried">
+    <a class="btn btn-rounded btn-sm btn-action btn-modal" style="margin-left:460px;color: white;background-color: #e4508f;" *appShowAuthed="false" routerLink="/login">Je participe !</a>
 
+    <a class="btn btn-rounded btn-sm btn-action btn-modal" style="margin-left:460px;color: white;background-color: #e4508f;" *appShowAuthed="true"  (click)="apply(mission._id)">Je participe !</a>
 
-  <a class="btn btn-rounded btn-sm btn-action btn-modal" style="margin-left:460px;color: white;background-color: #e4508f;"   (click)="apply(mission._id)">Je participe !</a>
-  <div class="pt-2" style="margin-left: 580px;">
+  </div>
+  <div *ngIf="isExpried">
+    <a class="btn btn-rounded btn-sm btn-action btn-modal" style="margin-left:460px;color: white;background-color: #e4508f;" >Expirée !</a>
+
+  </div>
+ <div class="pt-2" style="margin-left: 580px;">
 
     {{mission.type}}
     </div>

@@ -4,6 +4,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { EvenementService } from 'src/app/evenement/services/evenement.service';
 import { Router } from '@angular/router';
 import { AdminService } from '../services/admin.service';
+import { Admin } from '../model/admin';
+import { UserService } from 'src/app/user/service/user.service';
 
 @Component({
   selector: 'app-evenement',
@@ -11,6 +13,7 @@ import { AdminService } from '../services/admin.service';
   styleUrls: ['./evenement.component.css']
 })
 export class EvenementComponent implements OnInit {
+  currentUser:Admin
   evenementForm= new FormGroup({
     sujet:new FormControl("",[Validators.required]),
 
@@ -27,11 +30,15 @@ export class EvenementComponent implements OnInit {
   });
 
     constructor(private evenmentService:AdminService,
-               private route:Router
+               private route:Router,
+               private user:UserService
       )
    {}
 
-    ngOnInit() {}
+    ngOnInit() {
+
+    this.currentUser=this.user.currentUserValue
+    }
 
   newEvenement() {
       if (this.evenementForm.valid) {

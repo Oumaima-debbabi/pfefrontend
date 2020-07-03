@@ -1,3 +1,4 @@
+
 <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins" >
   <div class="wrapper wrapper--w680">
       <div class="card card-4" style="width:500px;margin-left:100px">
@@ -10,7 +11,8 @@
     <input  class="input-group"
       type="email" class="input--style-4"
       placeholder="Entrez votre Email"
-      formControlName="email" />
+      formControlName="email"
+       />
     </div>
     <br>
 
@@ -19,7 +21,7 @@
       placeholder="Entrez votre Mot de passe"
       formControlName="password" #password />
 <br>
-      <mat-error *ngIf="password.invalid">Please enter a valid password.</mat-error>
+
 <br>
     <input type="submit" value="se connecter" [disabled]="!loginForm.valid" style="width:140px;margin-left:100px "/>
     <div class="text-center">

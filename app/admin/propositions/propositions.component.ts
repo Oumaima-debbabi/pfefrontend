@@ -9,6 +9,8 @@ import { Association } from 'src/app/association/model/association';
 import Swal from 'sweetalert2';
 import { Proposition } from 'src/app/model/propositon';
 import { PropositionService } from 'src/app/services/proposition.service';
+import { Admin } from '../model/admin';
+import { UserService } from 'src/app/user/service/user.service';
 
 @Component({
   selector: 'app-propositions',
@@ -16,10 +18,9 @@ import { PropositionService } from 'src/app/services/proposition.service';
   styleUrls: ['./propositions.component.css']
 })
 export class PropositionsComponent implements OnInit {
-
-
+  currentUser:Admin
   missionForm= new FormGroup({
-   
+
     //action: new FormControl("",[Validators.required]),
     //: new FormControl("",[Validators.required]),
 
@@ -35,12 +36,13 @@ export class PropositionsComponent implements OnInit {
   propoistion:Proposition
       constructor(private missionService:PropositionService,
                  private route:Router,
-                 aService:AdminService
+                 aService:AdminService,
+                 private userS:UserService,
         )
      {}
 
       ngOnInit() {
-
+this.currentUser=this.userS.currentUserValue
       }
 
       newMissin() {

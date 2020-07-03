@@ -12,6 +12,7 @@ import { Router } from "@angular/router";
 import { User } from 'src/app/user/model/user';
 import { idLocale } from 'ngx-bootstrap/chronos/i18n/id';
 import { stringify } from 'querystring';
+import { Experience } from '../model/experience';
 
 @Injectable({
   providedIn: 'root'
@@ -29,8 +30,9 @@ export class AdminService {
       private ROOT_URL2 = "http://localhost:4000/api/secteur";
       private ROOT_URL4 = "http://localhost:4000/api/partenaire";
       private ROOT_URL5 = "http://localhost:4000/api/benevole";
-
+      private ROOT_URL7 = "http://localhost:4000/api/experience";
       private ROOT_URL6 = "http://localhost:4000/api/user";
+associations:Association[]= new Array<Association>();
 
       constructor(private http: HttpClient,private router:Router ) {}
 
@@ -49,6 +51,23 @@ export class AdminService {
       addMission(data) {
         return this.http.post<Mission>(this.ROOT_URL3, data,this.httpOptions)
         }
+    getExperiences(): Observable<Experience[]> {
+      return this.http.get<Experience[]>(` ${this.ROOT_URL7}`,this.httpOptions);
+    }
+    getExperiencess() {
+      return this.http.get(`${this.ROOT_URL7}/getexperiences`);
+    }
+    getExperience(id: string) {
+      return this.http.get(`${this.ROOT_URL7}/${id}`);
+    }
+    addExperience(data) {
+      return this.http.post(this.ROOT_URL7, data,this.httpOptions)
+      }
+      udapteEx( description,id) {
+        const obj = { description };
+        this.http.post(`${this.ROOT_URL7}/update/${id}`, obj)
+        .subscribe(res => console.log('Update Complete'));
+      }
       uploadImage(image) {
         const data = new FormData()
         data.append('image',image)
@@ -61,7 +80,7 @@ export class AdminService {
         nom_association1,
         sujet,
         besoin,
-
+        etat,
         description,
         lieu,
         date,
@@ -71,7 +90,7 @@ export class AdminService {
       // Photo,
         ,id) {
         const obj = {
-          nom_association1,sujet,besoin,description,lieu,date,datefin,type,qd
+          nom_association1,sujet,besoin,etat,description,lieu,date,datefin,type,qd
 
         };
         this
@@ -82,8 +101,11 @@ export class AdminService {
       deleteMission(id: string) {
         return this.http.delete(`${this.ROOT_URL3}/${id}`, this.httpOptions);
       }
+      deleteEx(id: string) {
+        return this.http.delete(`${this.ROOT_URL7}/${id}`);
+      }
 
-    getSecteurs(): Observable<Secteur[]> {
+    getSecteurs() {
       return this.http.get<Secteur[]>(`${this.ROOT_URL2}`);
     }
 
@@ -110,7 +132,15 @@ export class AdminService {
         .post(`${this.ROOT_URL2}/update/${id}`, obj)
         .subscribe(res => console.log('Update Complete'));
     }
-
+    updateMissio(sujet,besoin,etat,description,lieu,date, datefin,type,qd,id) {
+      const obj = {
+        sujet,besoin,etat,description,lieu,date, datefin,type,qd
+      };
+      this
+        .http
+        .post(`${this.ROOT_URL3}/update/${id}`, obj)
+        .subscribe(res => console.log('Update Complete'));
+    }
     deleteSecteur(id: string) {
       return this.http.delete(`${this.ROOT_URL2}/${id}`, this.httpOptions);
     }
@@ -143,6 +173,9 @@ export class AdminService {
     }
     getAssociations(): Observable<Association[]> {
       return this.http.get<Association[]>(`${this.ROOT_URL}association/`,this.httpOptions);
+    }
+    getALlas() {
+      return this.http.get(`${this.ROOT_URL}association/`,this.httpOptions);
     }
     findByTitle(nom_association) {
       return this.http.get(`${this.ROOT_URL}association/search?nom_association=${nom_association}`);
@@ -210,9 +243,9 @@ export class AdminService {
         this.httpOptions
       );
     }
-    updateBenevole(name, prenom,association,
+  updateBenevole(name, prenom,association,
    profession,
-      email,
+
       civilite,
       adresse, code_postal,
       numero_telephone,
@@ -221,7 +254,7 @@ export class AdminService {
       , id) {
       const obj = {name, prenom,association,
         profession,
-           email,
+
            civilite,
            adresse, code_postal,
            numero_telephone,
@@ -237,9 +270,9 @@ export class AdminService {
       return this.http.delete(`${this.ROOT_URL5}/${id}`, this.httpOptions);
     }
 
-    editUser( name, prenom,profession,association,email, civilite, adresse, code_postal,annee_naissance,numero_telephone,imageUrl,id) {
+    editUser( name, prenom,profession, civilite, adresse,code_postal,annee_naissance,numero_telephone,id) {
         const obj = {
-          name, prenom,profession,association,email, civilite, adresse, code_postal,annee_naissance,numero_telephone,imageUrl
+          name, prenom,profession, civilite, adresse,code_postal,annee_naissance,numero_telephone,
           // Photo,
 
         };

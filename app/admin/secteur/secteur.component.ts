@@ -4,6 +4,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from "sweetalert2";
 import { AdminService } from '../services/admin.service';
+import { Admin } from '../model/admin';
+import { UserService } from 'src/app/user/service/user.service';
 
 @Component({
   selector: 'app-secteur',
@@ -11,17 +13,21 @@ import { AdminService } from '../services/admin.service';
   styleUrls: ['./secteur.component.css']
 })
 export class SecteurComponent implements OnInit {
-
+  currentUser:Admin
 secteurForm= new FormGroup({
   type_activite: new FormControl("",[Validators.required])
 });
 
   constructor(private secteurService:AdminService,
-             private route:Router
+             private route:Router,
+             private useS:UserService,
     )
  {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.currentUser=this.useS.currentUserValue;
+  }
+
 
   newSecteur() {
     if (this.secteurForm.valid) {

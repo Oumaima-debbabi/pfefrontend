@@ -5,6 +5,8 @@ import { SecteurService } from 'src/app/secteur/services/secteur.service';
 import { Observable } from 'rxjs';
 import { Secteur } from 'src/app/secteur/model/secteur';
 import { AdminService } from '../services/admin.service';
+import { UserService } from 'src/app/user/service/user.service';
+import { Admin } from '../model/admin';
 
 @Component({
   selector: 'app-association',
@@ -56,12 +58,16 @@ annee_naissance: new FormControl("", [Validators.required]),
 description: new FormControl("", [Validators.required]),
 imageUrl:new FormControl("", [Validators.required]),
 });
+currentUser:Admin
 secteurs$: Observable<Secteur[]>;
 constructor(private associationService:AdminService,
-  private secteurService:SecteurService) {}
+  private secteurService:SecteurService,
+  private user:UserService) {}
 
 secteur1:any;
 ngOnInit() {
+
+  this.currentUser=this.user.currentUserValue
   this.secteurs$ = this.secteurService.getSecteurs();
 
 }

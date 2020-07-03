@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Association } from 'src/app/association/model/association';
 import { Observable } from 'rxjs';
+import { Admin } from '../../model/admin';
+import { UserService } from 'src/app/user/service/user.service';
 
 @Component({
   selector: 'app-edit-mission',
@@ -13,10 +15,10 @@ import { Observable } from 'rxjs';
 })
 export class EditMissionComponent implements OnInit {
   associations$:Observable<Association[]>
-
+currentUser:Admin
   mission: any = {};
   editForm: FormGroup;
-  constructor(private route: ActivatedRoute, private router: Router,
+  constructor(private route: ActivatedRoute, private router: Router,private user:UserService,
     private mS:AdminService ,private fb: FormBuilder) { this.createForm();
     }
 
@@ -25,13 +27,13 @@ export class EditMissionComponent implements OnInit {
       type: new FormControl("",[Validators.required]),
       besoin: new FormControl("",[Validators.required]),
       //nombre_preson: new FormControl("",[Validators.required]),
-      nom_res: new FormControl("",[Validators.required]),
-      lieu: new FormControl("",[Validators.required]),
+       lieu: new FormControl("",[Validators.required]),
       date: new FormControl("",[Validators.required]),
       datefin: new FormControl("",[Validators.required]),
       description: new FormControl("",[Validators.required]),
       qd: new FormControl("",[Validators.required]),
       sujet: new FormControl("",[Validators.required]),
+      etat: new FormControl("",[Validators.required]),
 
 
     });
@@ -39,6 +41,7 @@ export class EditMissionComponent implements OnInit {
 
 
   ngOnInit() {
+    this.currentUser=this.user.currentUserValue
     this.route.params.subscribe(params => {
         this.mS.getMission(params.id).subscribe(res => {
           this.mission = res;
@@ -47,10 +50,10 @@ export class EditMissionComponent implements OnInit {
     });
   }
 
-  updateMission(nom_res,sujet,besoin,description,lieu,date, datefin,type,qd
+  updateMission(sujet,besoin,etat,description,lieu,date, datefin,type,qd
     ,id) {
     this.route.params.subscribe(params => {
-      this.mS. updateMission(nom_res,sujet,besoin,description,lieu,date, datefin,type,qd,
+      this.mS. updateMissio(sujet,besoin,etat,description,lieu,date, datefin,type,qd,
         params.id);
       const Toast = Swal.mixin({
         toast: true,
@@ -62,7 +65,7 @@ export class EditMissionComponent implements OnInit {
   title:'Mission modifiée'
 
       })
-      this.router.navigate(['/admin/table-mission']);
+      this.router.navigate(['/admin/table-missions']);
     });
   }
 }

@@ -102,7 +102,7 @@
           <div class="col-sm-5">
             <div class="user-area dropdown float-right">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="user-avatar rounded-circle"  [src]="imageUrl? imageUrl:'/assets/images/admin.jpg'" alt="{{currentUser.name}}">
+                    <img class="user-avatar rounded-circle"  src="{{currentUser.imageUrl}}" alt="{{currentUser.name}}">
 
                   </a>
 
@@ -134,7 +134,7 @@
       <section class="card">
           <div class="card-header user-header alt bg-dark">
               <div class="media">
-                  <a href="#">{{currentUser.prenom}}</a>
+                  <a href="#">{{currentUser.prenom}} {{currentUser.prenom}}</a>
                   <div class="media-body">
                       <h2 class="text-light display-6"> </h2>
                       <p></p>
@@ -145,11 +145,9 @@
 
           <ul class="list-group list-group-flush">
               <li class="list-group-item">
-                  <a href="#"> <i class="fa fa-envelope-o"></i> Mail Inbox <span class="badge badge-primary pull-right">10</span></a>
+                  <a href="#"> <i class="fa fa-envelope-o"></i> Mail  <span class="badge badge-primary pull-right">10</span></a>
               </li>
-              <li class="list-group-item">
-                  <a href="#"> <i class="fa fa-tasks"></i> Recent Activity <span class="badge badge-danger pull-right">15</span></a>
-              </li>
+
               <li class="list-group-item">
                   <a href="#"> <i class="fa fa-bell-o"></i> Notification <span class="badge badge-success pull-right">11</span></a>
               </li>
@@ -165,115 +163,30 @@
   </aside>
 </div>
 <form (ngSubmit)="addPost()">
-  <div class="col-lg-4 col-md-6"style="width:1000px;height:400px;margin-left:120px;">
-    <div class="card">
-      <!-- <img class="rounded-circle mx-auto d-block"  [src]="imageUrl ? imageUrl :'/assets/images/admin.jpg'" alt="Card image cap"
-      style=" height: 40%;
-    width: 40%;
-    border-radius: 40%;">
-    <div class="hover-text">Choose file</div>
-    <div class="background" ></div>
-    <input type="file" id="fileInput" class="form-control-file" (change)="uploadImages($event)" /> -->
-    <style>
-    p {
-    font-family: Lato;
-  }
+  <div class="col-lg-4 col-md-6"style="width:1000px;height:400px;margin-left:120px; ">
+    <mat-card class="example-card" >
+      <mat-card-header style="background-color:#757575;">
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title style="background-color:#757575;">{{currentUser.name}} {{currentUser.prenom}}</mat-card-title>
+        <mat-card-subtitle style="background-color:#757575;">{{currentUser.role}}</mat-card-subtitle>
+      </mat-card-header>
+      <style>
+        img {
+  border-radius: 50%;
 
-  img {
-    height: 100%;
-    width: 100%;
-    border-radius: 50%;
-  }
-  .hoverable{
-    position: relative;
-    display: block;
-    cursor: pointer;
-    height: 200px;
-    width: 200px;
-    border: 5px solid #000;
-    border-radius: 50%;
-  }
-  .hoverable .hover-text{
-    position: absolute;
-    display: none;
-    top: 50%;
-    left:  50%;
-    transform: translate(-50%,-50%);
-    z-index: 2;
-  }
-  .hoverable .background{
-    position: absolute;
-    display: none;
-    top: 0;
-    left:  0;
-    bottom: 0;
-    right: 0;
-    background-color:rgba(255, 255, 255, 0.5);
-    pointer-events: none;
-    border-radius: 50%;
-    z-index: 1;
-  }
-  .hoverable:hover .hover-text{
-    display: block;
-  }
-  .hoverable:hover .background{
-    display: block;
-  }
+}
+      </style>
+      <img src="{{currentUser.imageUrl}}" style="width: 150px;
+      height: 150px; margin-left :80px;">
+      <mat-card-content>
 
-  #fileInput{
-    display: none;
-  }
-    </style>
-    <label class="hoverable" for="fileInput" style="margin-left: 30px;">
-      <img src="{{currentUser.imageUrl}}" >
-      <div class="hover-text">Changer</div>
-      <div class="background"></div>
-    </label>
-    <input id="fileInput" type='file' (change)="uploadImages($event)" (input)="handleChange()">
-    <br/>
-    <br/>
-    <button id="payment-button" type="submit">
+         <h6 style="color:#3d97c0">Email:</h6> <a> {{currentUser.email}}</a>
+         <h6 style="color:#3d97c0"> Date de naissance:</h6> <a>{{currentUser.annee_naissance}}</a>
+         <h6 style="color:#3d97c0">Contact:</h6>  <a>{{currentUser.numero_telephone}}</a>
 
-      <span id="payment-button-amount">changer </span>
-  </button>
+      </mat-card-content>
 
-            <div class="card-header">
-                <strong class="card-title mb-3" style="color:black">
-                  {{currentUser.role}} <a>profil</a>
-                  </strong>
-
-              </div>
-            <div class="card-body">
-                <div class="mx-auto d-block">
-                    <h5 class="text-sm-center mt-2 mb-1" style="color:black;"><a>Nom :</a> {{currentUser.name}}</h5>
-                    <h5 class="text-sm-center mt-2 mb-1" style="color:black;"> <a>prenom :</a> {{currentUser.prenom}}</h5>
-                    <h5 class="text-sm-center mt-2 mb-1" style="color:black;"> <a>email :</a> {{currentUser.email}}</h5>
-
-                    <h5 class="text-sm-center mt-2 mb-1" style="color:black;"><a>Profession: </a> {{currentUser.profession}}</h5>
-
-                    <h5 class="text-sm-center mt-2 mb-1" style="color:black;"><a>date naissance: </a> {{currentUser.annee_naissance}}</h5>
-                    <div class="location text-sm-center" style="color:black" ><i class="fa fa-map-marker" style="color:black"></i>
-                      {{currentUser.adresse}}</div>
-                </div>
-                <hr>
-
-                <div class="card-text text-sm-center">
-                  <a style="padding-right: 5px" [routerLink]="['/admin/edit-profil',currentUser._id]">
-                    <i><i class="fa fa-pencil" style="font-size: large;color:green;">
-                    Modifier compte</i></i>
-                  </a>
-                </div>
-                <div class="card-text text-sm-center">
-
-                    <a href="#"><i class="fa fa-facebook pr-1"></i></a>
-                    <a href="#"><i class="fa fa-twitter pr-1"></i></a>
-                    <a href="#"><i class="fa fa-linkedin pr-1"></i></a>
-                    <a href="#"><i class="fa fa-pinterest pr-1"></i></a>
-                </div>
-            </div>
-
-
-    </div>
+    </mat-card>
   </div>
 </form>
 

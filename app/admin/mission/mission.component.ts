@@ -7,6 +7,8 @@ import { mimeType } from '../mimi-type.validator';
 import { Association } from 'src/app/association/model/association';
 import { Observable } from 'rxjs';
 import { Mission } from 'src/app/mission/model/mission';
+import { Admin } from '../model/admin';
+import { UserService } from 'src/app/user/service/user.service';
 
 @Component({
   selector: 'app-mission',
@@ -14,6 +16,7 @@ import { Mission } from 'src/app/mission/model/mission';
   styleUrls: ['./mission.component.css']
 })
 export class MissionComponent implements OnInit {
+  currentUser:Admin
   association:string
 missionForm= new FormGroup({
   sujet: new FormControl("",[Validators.required]),
@@ -46,7 +49,8 @@ missionForm= new FormGroup({
 mission:Mission
     constructor(private missionService:AdminService,
                private route:Router,
-               aService:AdminService
+              private aService:AdminService,
+               private user:UserService
       )
    {}
    associations$:Observable <Association[]>
@@ -57,7 +61,10 @@ mission:Mission
         this.imageUrl = res.imageUrl
       })
   }
+
     ngOnInit() {
+
+    this.currentUser=this.user.currentUserValue
       this.associations$ =this.missionService.getAssociations()
 
     }

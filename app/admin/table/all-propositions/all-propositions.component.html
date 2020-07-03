@@ -109,7 +109,7 @@
             <div class="col-sm-5">
               <div class="user-area dropdown float-right">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <img class="user-avatar rounded-circle" src="assets/images/admin.jpg" alt="User Avatar">
+                      <img class="user-avatar rounded-circle" src="{{currentUser.imageUrl}}" alt="User Avatar">
                   </a>
 
                 <app-auth></app-auth>
@@ -144,7 +144,8 @@
                           <th>Resource</th>
                           <th>description</th>
                           <th>Localisation</th>
-                          <th>proposée par</th>
+                          <th>Proposée par</th>
+                          <th>Etat</th>
                           <th></th>
                           <th></th>
                         </tr>
@@ -161,6 +162,7 @@
                             {{p.creator.prenom}}
                             {{p.creator.name}}
                           </td>
+                          <td>{{p.etat}}</td>
                             <td>
                               <a style="padding-right:5px"[routerLink]="['/admin/edit-proposition',p._id]">
                                 <i><i class="fa fa-pencil" style="font-size: large;color:green;"></i></i>

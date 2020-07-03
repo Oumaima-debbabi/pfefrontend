@@ -60,7 +60,7 @@ console.log(data,this.currentUser)
         timer: 3000
       });
       Toast.fire({
-  title:'image modifié avec succés'
+  title:'Informations ont mit à jour avec succés'
 
       })
       this.router.navigate(['/admin/profil']);

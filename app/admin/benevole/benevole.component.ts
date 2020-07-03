@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { Association } from 'src/app/association/model/association';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Admin } from '../model/admin';
+import { UserService } from 'src/app/user/service/user.service';
 
 @Component({
   selector: 'app-benevole',
@@ -12,7 +14,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./benevole.component.css']
 })
 export class BenevoleComponent implements OnInit {
-
+currentUser:Admin
   benevoleForm = new FormGroup({
     name: new FormControl("", []),
     email: new FormControl("", []),
@@ -107,10 +109,12 @@ associations$: Observable<Association[]>
 
   constructor(private benevoleService:AdminService,
   private aService:AdminService,
-  private router:Router) {}
+  private router:Router, private user:UserService) {}
 
 
   ngOnInit() {
+
+    this.currentUser=this.user.currentUserValue
     this.associations$ =this.aService.getAssociations()
   }
 

@@ -19,7 +19,7 @@
                               <div class="greennature-ux greennature-classic-portfolio-ux" style="margin-left:0px" >
                                 &nbsp;&nbsp;
 
-                                  <mat-grid-list cols="6" rowHeight="160:196" >
+                                  <mat-grid-list cols="6" rowHeight="140:200" >
                                     <mat-grid-tile *ngFor=" let mission of missions$ | async as missions" style="margin-left:20px; max-width: 400px;">
 
 
@@ -27,7 +27,7 @@
                                                 {{mission.type}}
                                         <div class="d-flex m-0 p-3 modal-leg" style="margin-top:top;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                           <div class="d-none d-lg-block p-2 text-center"style="margin-top:-50px">
-                                          <a ><img alt="LOGO" class="modal-logo bg-white" src="{{mission.imageUrl}}" style=" height: 110px; width: 110px;">
+                                          <a ><img alt="LOGO" class="modal-logo bg-white" src="{{mission.imageUrl}}" style=" height: 150px; width: 150px;">
                                           </a>
                                           </div>
                                           </div>
@@ -35,10 +35,10 @@
                                          Participer
                                         </button>
 
-                                        &nbsp;&nbsp; &nbsp;&nbsp;
+                                        &nbsp;&nbsp;
                                           <h3 class="portfolio-title"><a>{{mission.sujet}}</a></h3>
                                           <div class="greennature-portfolio-info">
-                                              
+
                                               <div class="clear"></div>
                                           </div>
                                           <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o" style="color:black"></i><a style="color:red;">{{mission.date}}</a></div>

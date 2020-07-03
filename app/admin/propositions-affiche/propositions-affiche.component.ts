@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { Proposition } from 'src/app/model/propositon';
 import { DialogPosition, MatDialog } from '@angular/material';
 import { MessagesComponent } from 'src/app/messages/messages.component';
+import { Admin } from '../model/admin';
+import { UserService } from 'src/app/user/service/user.service';
 export interface Tile {
   color: string;
   cols: number;
@@ -23,15 +25,16 @@ export class PropositionsAfficheComponent implements OnInit {
   propositions;
   Propositions$: Observable<Proposition[]>;
   proposition
-
+currentUser:Admin
 
     constructor(private missionService: PropositionService,
       private route:Router,
-      private dialog:MatDialog) {}
+      private dialog:MatDialog,private user:UserService) {}
 
     ngOnInit() {
      this.Propositions$= this.missionService.getAllPropositions();
 
+     this.currentUser=this.user.currentUserValue
 
   console.log(this.Propositions$);
     }

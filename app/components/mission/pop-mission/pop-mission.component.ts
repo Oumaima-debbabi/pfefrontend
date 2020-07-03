@@ -7,6 +7,7 @@ import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms'
 import Swal from 'sweetalert2';
 import { Mission } from '../model/mission';
 import { MatDialogRef, MAT_DIALOG_DATA ,MatDialog, MatDialogConfig} from '@angular/material';
+import { Etat } from 'src/app/admin/model/etat';
 
 @Component({
   selector: 'app-pop-mission',
@@ -32,18 +33,17 @@ export class PopMissionComponent implements OnInit
      {
        this.mission=data
     }
-
+    get isExpried() {
+      return this.mission.etat === Etat.expired;
+  }
   ngOnInit() {
 
     }
-    
-   apply(id){
-   console.log(id)
 
+   apply(id){
       this.mS.applymission(id).subscribe(
      (response:any)=>{
       if(response.status && response.status==1){
-      console.log(response);
       const Toast = Swal.mixin({
         toast: true,
         position: 'center',
@@ -56,7 +56,7 @@ export class PopMissionComponent implements OnInit
       })
 
       }
- 
+
   }
 
 )}

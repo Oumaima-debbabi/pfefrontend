@@ -3,6 +3,8 @@ import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { AdminService } from '../services/admin.service';
 import { Validators, FormControl, FormGroup } from '@angular/forms';
+import { UserService } from 'src/app/user/service/user.service';
+import { Admin } from '../model/admin';
 
 @Component({
   selector: 'app-partenaire',
@@ -10,7 +12,7 @@ import { Validators, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./partenaire.component.css']
 })
 export class PartenaireComponent implements OnInit {
-
+  currentUser:Admin
   partenaireForm= new FormGroup({
 
     imageUrl: new FormControl("",[Validators.required]),
@@ -23,7 +25,7 @@ export class PartenaireComponent implements OnInit {
 nom:string='';
 formDirty:boolean=false;
     constructor(private partenaireService:AdminService,
-               private route:Router
+               private route:Router,private userS:UserService
       )
    {}
    uploadImage(event) {
@@ -32,7 +34,9 @@ formDirty:boolean=false;
         this.imageUrl = res.imageUrl
       })
   }
-    ngOnInit() {}
+    ngOnInit() {
+      this.currentUser = this.userS.currentUserValue;
+    }
 
     addPost(): void {
       const data = {

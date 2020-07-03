@@ -3,6 +3,8 @@ import Swal from 'sweetalert2';
 import { Validators, FormControl, FormBuilder, FormGroup } from '@angular/forms';
 import { AdminService } from '../../services/admin.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Admin } from '../../model/admin';
+import { UserService } from 'src/app/user/service/user.service';
 
 @Component({
   selector: 'app-edit-partenaire',
@@ -11,10 +13,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EditPartenaireComponent implements OnInit {
 imageUrl:string=''
+currentUser:Admin
   partenaire: any = {};
   editForm: FormGroup;
   constructor(private route: ActivatedRoute, private router: Router,
-    private mS:AdminService ,private fb: FormBuilder) { this.createForm();
+    private mS:AdminService ,private fb: FormBuilder,
+    private user:UserService) { this.createForm();
     }
 
   createForm(){ this.editForm= this.fb.group
@@ -28,6 +32,7 @@ imageUrl:string=''
 
 
   ngOnInit() {
+    this.currentUser=this.user.currentUserValue
     this.route.params.subscribe(params => {
         this.mS.getPartenaire(params.id).subscribe(res => {
           this.partenaire = res;

@@ -1,0 +1,20 @@
+<form [formGroup]="editForm" novalidate>
+<mat-card class="example-card" >
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+
+  </mat-card-header>
+  <mat-card-content >
+<textarea name="textarea-input" id="textarea-input"
+      style="height: 63px;" rows="9" class="form-control"  formControlName="description"
+      #description [(ngModel)]="experience.description">
+    </textarea>
+
+  </mat-card-content>
+  <mat-card-actions style="margin-left: 350px;">
+    <button mat-button  class="fa fa-pencil" style="color: green;" (click)="updateexperience(experience.description)"
+   [disabled]="!editForm.valid" >modifier</button>
+    <button mat-button style="color: red;">annuler</button>
+  </mat-card-actions>
+</mat-card>
+</form>

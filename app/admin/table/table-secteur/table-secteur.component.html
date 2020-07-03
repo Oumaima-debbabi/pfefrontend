@@ -109,7 +109,7 @@
         <div class="col-sm-5">
           <div class="user-area dropdown float-right">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <img class="user-avatar rounded-circle" src="assets/images/admin.jpg" alt="User Avatar">
+                  <img class="user-avatar rounded-circle" src="{{currentUser.imageUrl}}" alt="User Avatar">
               </a>
 
             <app-auth></app-auth>
@@ -134,8 +134,8 @@
                 <mat-card-title>Liste des secteurs <code style="background-color: lightgrey;color: tomato;border-radius: 6px;padding:5px"></code></mat-card-title>
                 <mat-card-content>
                   <mat-form-field style="width:100px" class="mb-1">
-                    <input matInput placeholder="Recherche...." >
-
+                    <input matInput placeholder="Recherche...." #myInput [(ngModel)]="type_activite" (input)="search()">
+                  {{type_activite}}
                   </mat-form-field>
 
 
@@ -149,7 +149,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                      <tr  *ngFor="let s of Secteurs$ | async as secteurs">
+                      <tr  *ngFor="let s of secteurs| async as secteurs">
 
                       <td>{{s.type_activite}}</td>
                       <td>

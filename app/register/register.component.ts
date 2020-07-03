@@ -110,6 +110,10 @@ numero_telephone:this.numero_telephone,
 
             })
 }
+
+
+
+
 uploadImage(event) {
   this.associationService.uploadImage(event.target.files[0])
     .subscribe((res: any) => {

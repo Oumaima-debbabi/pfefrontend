@@ -49,13 +49,17 @@ import { ParticipantsComponent } from './table/participants/participants.compone
 import { AllMissionComponent } from './table/all-mission/all-mission.component';
 import { AllPropositionsComponent } from './table/all-propositions/all-propositions.component';
 import { EditAssociationComponent } from './edit/edit-association/edit-association.component';
+import { EditAssoComponent } from './edit/edit-asso/edit-asso.component';
+import { ExprienceComponent } from './exprience/exprience.component';
+import { MonExperienceComponent } from './table/mon-experience/mon-experience.component';
+import { EditExperienceComponent } from './edit/edit-experience/edit-experience.component';
 
 @NgModule({
   declarations: [ProfilComponent, ListeDashComponent, LoginComponent, SecteurComponent, MissionComponent, EvenementComponent, TableEvenementComponent,TableMissionComponent, TableSecteurComponent, TableAssociationsComponent, TableBenevoleComponent, AssociationComponent,
      PartenaireComponent, TablePartenaireComponent, EditSecteurComponent,
      EditPartenaireComponent, EditMissionComponent, BenevoleComponent, EditBenevoleComponent,
     EditProfilComponent,
-     AuthComponent, AdhesionComponent, ActionsComponent, PropositionsComponent, TablePropositionsComponent, TableActionsComponent, EditPropositionComponent, PropositionsAfficheComponent, TableActionComponent, ParticipantsComponent, AllMissionComponent, AllPropositionsComponent, EditAssociationComponent],
+     AuthComponent, AdhesionComponent, ActionsComponent, PropositionsComponent, TablePropositionsComponent, TableActionsComponent, EditPropositionComponent, PropositionsAfficheComponent, TableActionComponent, ParticipantsComponent, AllMissionComponent, AllPropositionsComponent, EditAssociationComponent, EditAssoComponent, ExprienceComponent, MonExperienceComponent, EditExperienceComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
@@ -78,5 +82,7 @@ import { EditAssociationComponent } from './edit/edit-association/edit-associati
 ,
 
 providers: [GuradGuard],
-})
+
+
+entryComponents:[EditExperienceComponent]})
 export class AdminModule { }

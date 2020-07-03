@@ -6,6 +6,8 @@ import { AdminService } from '../../services/admin.service';
 import { Observable } from 'rxjs';
 import { Association } from 'src/app/association/model/association';
 import { AdminModule } from '../../admin.module';
+import { Admin } from '../../model/admin';
+import { UserService } from 'src/app/user/service/user.service';
 
 @Component({
   selector: 'app-edit-benevole',
@@ -14,10 +16,12 @@ import { AdminModule } from '../../admin.module';
 })
 export class EditBenevoleComponent implements OnInit {
   benevole: any = {};
+  currentUser:Admin
   editForm: FormGroup;
   constructor(private route: ActivatedRoute, private router: Router,
     private bS:AdminService ,private fb: FormBuilder,
-    private aService:AdminService) { this.createForm();
+    private aService:AdminService,
+    private user:UserService) { this.createForm();
     }
 
   createForm(){ this.editForm= this.fb.group
@@ -38,7 +42,7 @@ export class EditBenevoleComponent implements OnInit {
   associations$:Observable<Association[]>
   ngOnInit() {
     this.associations$ =this.aService.getAssociations()
-
+this.currentUser=this.user.currentUserValue
     this.route.params.subscribe(params => {
         this.bS.getBenevole(params.id).subscribe(res => {
           this.benevole = res;
@@ -46,9 +50,9 @@ export class EditBenevoleComponent implements OnInit {
     });
   }
 
-  updateBenevole( name, prenom,association,profession,email, civilite, adresse, code_postal,numero_telephone,annee_naissance, id) {
+  updateBenevole( name, prenom,association,profession, civilite, adresse, code_postal,numero_telephone,annee_naissance, id) {
     this.route.params.subscribe(params => {
-      this.bS.updateBenevole(name, prenom,association,profession, email,civilite, adresse, code_postal,numero_telephone,annee_naissance,params.id);
+      this.bS.updateBenevole(name, prenom,association,profession,civilite, adresse, code_postal,numero_telephone,annee_naissance,params.id);
       const Toast = Swal.mixin({
         toast: true,
         position: 'center',

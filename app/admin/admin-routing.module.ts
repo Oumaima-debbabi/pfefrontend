@@ -33,6 +33,8 @@ import { TableActionComponent } from './table/table-action/table-action.componen
 import { ParticipantsComponent } from './table/participants/participants.component';
 import { AllMissionComponent } from './table/all-mission/all-mission.component';
 import { AllPropositionsComponent } from './table/all-propositions/all-propositions.component';
+import { ExprienceComponent } from './exprience/exprience.component';
+import { MonExperienceComponent } from './table/mon-experience/mon-experience.component';
 
 
 
@@ -96,9 +98,18 @@ canActivate:[GuradGuard]
   }
   ,
   {
+    path:"monexperience",
+    component:MonExperienceComponent
+  },
+  {
     path:"table-missions",
     component:AllMissionComponent,
     canActivate:[GuradGuard]
+  },
+  {
+path:"experience",
+component:ExprienceComponent,
+canActivate:[GuradGuard]
   },
   {
 

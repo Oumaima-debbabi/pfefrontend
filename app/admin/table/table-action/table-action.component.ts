@@ -3,6 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { MissionService } from 'src/app/components/mission/service/mission.service';
 import { Observable } from 'rxjs';
 import { Mission } from 'src/app/components/mission/model/mission';
+import { Admin } from '../../model/admin';
+import { UserService } from 'src/app/user/service/user.service';
 
 @Component({
   selector: 'app-table-action',
@@ -11,7 +13,7 @@ import { Mission } from 'src/app/components/mission/model/mission';
 })
 export class TableActionComponent implements OnInit {
 
-
+currentUser:Admin
   id: string;
 missions:object =[];
 missions$;
@@ -20,10 +22,11 @@ nojobs:any;
 errormsg:any;
 successmsg:boolean;
 constructor(private router:Router,private activeroute:ActivatedRoute,
-  private missionservice:MissionService,
+  private missionservice:MissionService,private user:UserService
   ) { }
 
    ngOnInit() {
+     this.currentUser=this.user.currentUserValue
     this.getMissionspar();
     this.getmissions();
     //this.missions=this.missionservice.getmissionpar()

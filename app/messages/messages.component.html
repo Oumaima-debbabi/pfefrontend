@@ -40,7 +40,8 @@
                                               <p>
 
                                                   <span class="wpcf7-form-control-wrap your-message">
-                                                      <textarea  id="message" name="message" cols="40" rows="10" class="input1" aria-invalid="false" placeholder="Message*"></textarea>
+                                                      <textarea  id="text" name="text" cols="40" rows="10" class="input1"
+                                                      formControlName="text" (input)="handleChange()" [(ngModel)]="text" aria-invalid="false" placeholder="Message*"></textarea>
                                                   </span>
                                               </p>
                                           </div>

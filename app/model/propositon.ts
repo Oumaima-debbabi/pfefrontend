@@ -7,6 +7,6 @@ type:string,
 _id:string,
 titre:string,
 precision:string,
-creator:Admin
-
+creator:Admin,
+etat:string
  }

@@ -8,6 +8,7 @@ import { Association } from 'src/app/association/model/association';
 import { Observable } from 'rxjs';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/user/service/user.service';
 
 @Component({
   selector: 'app-actions',
@@ -15,7 +16,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./actions.component.css']
 })
 export class ActionsComponent implements OnInit {
-
+currentUser:Admin
   missionForm= new FormGroup({
     sujet: new FormControl("",[Validators.required]),
     //action: new FormControl("",[Validators.required]),
@@ -36,7 +37,8 @@ export class ActionsComponent implements OnInit {
   mission:Mission
       constructor(private missionService:AdminService,
                  private route:Router,
-                 aService:AdminService
+                 aService:AdminService,
+                 private user:UserService
         )
      {}
      associations$:Observable <Association[]>

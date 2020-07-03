@@ -5,6 +5,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AdminService } from '../../services/admin.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/user/service/user.service';
+import { Admin } from '../../model/admin';
 
 @Component({
   selector: 'app-table-secteur',
@@ -13,11 +14,14 @@ import { UserService } from 'src/app/user/service/user.service';
 })
 export class TableSecteurComponent implements OnInit {
   id;
+  type_activite:string;
  secteurSub$: Subscription;
  secteur:Secteur;
   Secteurs$: Observable<Secteur[]>;
   secteurs;
+  secteurss: Secteur[]
   cesecteur=null;
+  currentUser:Admin
 showForm:boolean;
 rows = [];
 temp = [];
@@ -35,7 +39,11 @@ editing = {};
       this.showForm = !this.showForm;
     }
   ngOnInit() {
-    this.Secteurs$ = this.secteurService.getSecteurs();
+
+    this.currentUser=this.userService.currentUserValue
+    this.secteurs = this.secteurService.getSecteurs();
+//this.secteurss = this.secteurs
+
     }
 
     delete(id){
@@ -64,7 +72,12 @@ editing = {};
       }
     }
 
-
+search(){
+  this.secteurs=this.secteurs.filter(res=>{
+    return res.type_activite.toLocaleLowerCase().match
+    (this.type_activite.toLocaleLowerCase())
+  })
+}
 
   }
 

@@ -7,6 +7,7 @@ import { AdminService } from '../../services/admin.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Role } from '../../model/role';
 import { Admin } from '../../model/admin';
+import { UserService } from 'src/app/user/service/user.service';
 
 @Component({
   selector: 'app-edit-profil',
@@ -15,12 +16,14 @@ import { Admin } from '../../model/admin';
 })
 export class EditProfilComponent implements OnInit {
 users:Admin
+currentUser:Admin
   user: any = {};
   editForm: FormGroup;
   imageUrl:''
   constructor(private route: ActivatedRoute, private router: Router,
     private bS:AdminService ,private fb: FormBuilder,
-    private aService:AdminService) { this.createForm();
+    private aService:AdminService,
+    private userS:UserService) { this.createForm();
     }
 
   createForm(){ this.editForm= this.fb.group
@@ -42,6 +45,7 @@ users:Admin
 
   associations$:Observable<Association[]>
   ngOnInit() {
+    this.currentUser=this.userS.currentUserValue
     this.associations$ =this.aService.getAssociations()
 
     this.route.params.subscribe(params => {
@@ -53,15 +57,21 @@ users:Admin
   get isAdmin() {
     return this.user && this.user.role === Role.Admin;
 }
+get isBenevole() {
+  return this.user && this.user.role === Role.Benevole;
+}
+get isAssociation() {
+  return this.user && this.user.role === Role.Admin;
+}
 uploadImage(event) {
   this.bS.uploadImage(event.target.files[0])
     .subscribe((res: any) => {
       this.imageUrl = res.imageUrl
     })
 }
-  updateUser( name, prenom,profession,association,email, civilite, adresse, code_postal,annee_naissance,numero_telephone, imageUrl,id) {
+  updateUser( name, prenom,profession, civilite, adresse, code_postal,annee_naissance,numero_telephone,id) {
     this.route.params.subscribe(params => {
-      this.bS.editUser(name, prenom,profession,association, email,civilite, adresse, code_postal,annee_naissance,numero_telephone,imageUrl,params.id);
+      this.bS.editUser(name, prenom,profession,civilite, adresse, code_postal,annee_naissance,numero_telephone,params.id);
       const Toast = Swal.mixin({
         toast: true,
         position: 'center',
@@ -69,7 +79,7 @@ uploadImage(event) {
         timer: 3000
       });
       Toast.fire({
-  title:'benevole modifié avec succés'
+  title:'Informations modifiées avec succés'
 
       })
       this.router.navigate(['/admin/profil']);

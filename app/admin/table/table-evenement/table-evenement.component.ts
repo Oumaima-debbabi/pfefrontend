@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 import { AdminService } from '../../services/admin.service';
 import { Router } from '@angular/router';
 import { Evenement } from 'src/app/evenement/model/evenement';
+import { UserService } from 'src/app/user/service/user.service';
+import { Admin } from '../../model/admin';
 
 @Component({
   selector: 'app-table-evenement',
@@ -11,14 +13,17 @@ import { Evenement } from 'src/app/evenement/model/evenement';
 })
 export class TableEvenementComponent implements OnInit {
 
+  currentUser:Admin
   id: string;
 evenements;
 Evenements$: Observable<Evenement[]>;
 
-  constructor(private evenementService:AdminService,
+  constructor(private evenementService:AdminService,private user:UserService,
     private route:Router) {}
 
   ngOnInit() {
+
+    this.currentUser=this.user.currentUserValue
    this.Evenements$= this.evenementService.getEvenements();
 
   }

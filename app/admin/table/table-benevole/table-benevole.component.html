@@ -107,7 +107,7 @@
             <div class="col-sm-5">
               <div class="user-area dropdown float-right">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <img class="user-avatar rounded-circle" src="assets/images/admin.jpg" alt="User Avatar">
+                      <img class="user-avatar rounded-circle" src="{{currentUser.imageUrl}}" alt="User Avatar">
                   </a>
 
                 <app-auth></app-auth>
@@ -140,11 +140,11 @@
                       <table class="table" style="width:1028px;" >
                         <thead>
                         <tr>
-                          <th>Nom </th>
-                          <th>Prenom </th>
+                          <th>Photo</th>
+                          <th>Nom & prenom </th>
+                          <th>Email</th>
                           <th>Adresse</th>
                           <th>Numéro </th>
-                          <th>Adresse email</th>
                           <th>Actif</th>
                            <th></th>
                            <th></th>
@@ -152,16 +152,16 @@
                         </thead >
                         <tbody>
                           <tr *ngFor="let b of Benevoles$| async as Benevoles">
+                            <td><img src="{{b.imageUrl}}" style="width:50px;height: 40px" /></td>
 
-                            <td>{{b.name}}</td>
-                            <td>{{b.prenom}}</td>
+                            <td>{{b.name}} {{b.prenom}}</td>
+                            <td>{{b.email}}</td>
                            <td>{{b.adresse}}
                            </td>
                             <td>
                                {{b.numero_telephone}}
                             </td>
 
-                            <td><img src="{{b.imageUrl}}" style="width:50px;height: 40px" /></td>
 
                               <!-- <div class="row row-space">
                                 <input type="checkbox" id="scales" name="scales"

@@ -4,7 +4,12 @@ import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material';
 import { HttpClient } from '@angular/common/http';
 import { MissionService } from 'src/app/components/mission/service/mission.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Admin } from '../../model/admin';
+import { UserService } from 'src/app/user/service/user.service';
+import { Route } from '@angular/compiler/src/core';
+import { Mission } from 'src/app/components/mission/model/mission';
+import { AdminService } from '../../services/admin.service';
 
 @Component({
   selector: 'app-participants',
@@ -13,25 +18,51 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ParticipantsComponent implements OnInit {
 
-
+currentUser:Admin
   private ROOT_URL = "http://localhost:4000/api/benevole";
   constructor( private route:ActivatedRoute,
     private mS:MissionService,
+    private bs:AdminService,
     private http: HttpClient,
     private dialog: MatDialog,
+    private user:UserService,
+    private router:Router
        ) {
     }
+    benevole:Benevole
 benevoles:object=[];
+mission:Mission
+id2:Mission
     benevole$:Observable<Benevole[]>;
     ngOnInit() {
+      this.currentUser=this.user.currentUserValue
       this.route.params.subscribe(params => {
 
         this.getParticipants(params.id)
       });
 
-      this.dialog.closeAll();
-    }
+      this.route.params.subscribe(params => {
+        this.mS.getMission(params.id).subscribe(res=>{
+          if (res){
+            this.mission=res;
+            console.log(this.mission._id)
 
+          }
+        })
+      })
+    }
+    remove(id){
+      let m=confirm("Êtes-vous sûr de supprimer ce champ!!!?")
+      if(!m){
+        return;
+      }
+    return this.missionremove(id).subscribe( data => {
+          console.log(data);
+          this.router.navigate[("/admin/table-participant")];
+
+    })
+
+    }
 
     getParticipants(id) {
 
@@ -52,19 +83,11 @@ console.log(this.benevoles)
       return this.http.get(`${this.ROOT_URL}/getparticipant/${id}`);
 
     }
-    delete(id){
-      let m=confirm("Êtes-vous sûr de supprimer ce champ !!!?")
-      if(!m){
-        return;
-      }
+    missionremove(id)
+    {
 
-  //      return this.bS.deleteMission(id).subscribe( data => {
-  //         console.log(data)
-  //        this.missions=data;
-  //         console.log(data);
-  //         this.route.navigate[("/table-mission")];
 
-  // })
-
+      return this.http.get(`${this.ROOT_URL}/remove/${id}/${this.mission._id}`);
     }
+
   }

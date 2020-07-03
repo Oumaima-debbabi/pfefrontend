@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AdminService } from '../../services/admin.service';
 import { UserService } from 'src/app/user/service/user.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Admin } from '../../model/admin';
 
 @Component({
   selector: 'app-table-partenaire',
@@ -12,7 +13,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./table-partenaire.component.css']
 })
 export class TablePartenaireComponent implements OnInit {
-
+currentUser:Admin
 id;
 partenaireSub$: Subscription;
 partenaire:Partenaire;
@@ -23,7 +24,7 @@ showForm:boolean;
 rows = [];
 temp = [];
 editing = {};
-constructor(private partenaireService: AdminService,
+constructor(private partenaireService: AdminService,private user:UserService,
   private route:Router,
   private router: ActivatedRoute,
   private userService:UserService) {}
@@ -36,6 +37,8 @@ constructor(private partenaireService: AdminService,
     this.showForm = !this.showForm;
   }
 ngOnInit() {
+
+  this.currentUser=this.user.currentUserValue
   this.Partenaires$ = this.partenaireService.getPartenaires();
   }
 
@@ -53,7 +56,7 @@ ngOnInit() {
 
 })
   }
-  
+
 
 
 

@@ -105,7 +105,7 @@
             <div class="col-sm-5">
               <div class="user-area dropdown float-right">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <img class="user-avatar rounded-circle" src="assets/images/admin.jpg" alt="User Avatar">
+                      <img class="user-avatar rounded-circle" src="{{currentUser.imageUrl}}" alt="User Avatar">
                   </a>
 
                 <app-auth></app-auth>
@@ -143,15 +143,7 @@
               [(ngModel)]= "mission.sujet">
           </div>
       </div>
-      <label for="cc-exp" class="control-label mb-1" style="color: black;">Nom association </label>
-      <br>
-      <mat-form-field  *ngIf="associations$ | async as associations">
-        <mat-label class="input-group"></mat-label>
-        <mat-select  formControlName="nom_res" #nom_res [(ngModel)]="mission.nom_res">
-          <mat-option [value]="association.nom_association" *ngFor="let association of associations">{{association.nom_association}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+
       <br>
       <label for="cc-exp" class="control-label mb-1" style="color: black;">Besoin</label>
       <div class="form-group">
@@ -159,6 +151,14 @@
           <div class="input-group">
               <input class="form-control"formControlName="besoin" #besoin
               [(ngModel)]= "mission.besoin">
+          </div>
+      </div>
+      <label for="cc-exp" class="control-label mb-1" style="color: black;">Etat</label>
+      <div class="form-group">
+          <label class=" form-control-label"></label>
+          <div class="input-group">
+              <input class="form-control"formControlName="etat" #etat
+              [(ngModel)]= "mission.etat">
           </div>
       </div>
       <div class="row form-group">
@@ -214,9 +214,10 @@
         <div class="col-12 col-md-9"><input type="file" id="file-input" name="file-input" class="form-control-file" formControlName="Photo"></div>
     </div> -->
       <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block"
-      style="width:200px; margin-left: 360px;"(click)="updateMission(mission.nom_res,
+      style="width:200px; margin-left: 360px;"(click)="updateMission(
       mission.sujet,
       mission.besoin,
+      mission.etat,
       mission.description,
       mission.lieu,
       mission.date,
